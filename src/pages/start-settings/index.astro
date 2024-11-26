@@ -1,0 +1,19 @@
+---
+import Layout from "$lib/layouts/Layout.astro";
+
+import SelectBahasa from "./select-bahasa.svelte";
+import SelectKesulitan from "./select-kesulitan.svelte";
+import { Button } from "$lib/components/ui/button";
+---
+
+<Layout title="Pengaturan permainan" heading="Pengaturan">
+  <div class="mt-8 grid grid-cols-3 gap-4">
+    <div class="col-span-2">
+      <SelectBahasa client:load />
+    </div>
+    <Button class="row-span-2 h-auto text-xl">Mulai <br /> Game</Button>
+    <div class="col-span-2">
+      <SelectKesulitan client:load />
+    </div>
+  </div>
+</Layout>

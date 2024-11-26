@@ -1,0 +1,18 @@
+---
+import Layout from "$lib/layouts/Layout.astro";
+
+import { Button } from "$lib/components/ui/button";
+---
+
+<Layout title="Start" heading="Nama Aplikasi">
+  <div class="mt-12 flex flex-col space-y-4">
+    <Button href="/start-settings" size="big">Mulai</Button>
+    <Button id="close-button" size="big" variant="outline">Keluar</Button>
+  </div>
+</Layout>
+
+<script is:inline>
+  document
+    .querySelector("button#close-button")
+    .addEventListener("click", () => window.close());
+</script>
