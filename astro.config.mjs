@@ -6,5 +6,9 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
+  output: "server",
+  redirects: {
+    "/": "/start",
+  },
   integrations: [svelte(), tailwind({ applyBaseStyles: false })],
 });

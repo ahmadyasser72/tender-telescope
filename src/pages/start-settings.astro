@@ -1,0 +1,23 @@
+---
+import Layout from "$lib/layouts/Layout.astro";
+
+import StartSettingsSvelte from "$lib/components/start-settings.svelte";
+import { getCollection } from "astro:content";
+import type { Difficulty } from "$lib/types";
+
+export const prerender = true;
+
+const languages = new Set<string>();
+
+const allQuestions = await getCollection("questions");
+for (const { id } of allQuestions) languages.add(id.split("/")[0]);
+
+const choices = {
+  languages: [...languages],
+  difficulties: ["pemula", "menengah", "mahir"] satisfies Difficulty[],
+};
+---
+
+<Layout title="Pengaturan permainan" heading="Pengaturan">
+  <StartSettingsSvelte {choices} client:load />
+</Layout>

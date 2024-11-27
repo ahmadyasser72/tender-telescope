@@ -1,0 +1,33 @@
+---
+import Layout from "$lib/layouts/Layout.astro";
+
+import QuestionPageSvelte from "$lib/components/question-page.svelte";
+
+import { actions } from "astro:actions";
+
+const { level: levelString } = Astro.params;
+const level = Number(levelString);
+if (Number.isNaN(level)) return Astro.redirect("/404");
+
+const difficulty = Astro.cookies.get("game-difficulty")?.value;
+if (
+  difficulty !== "pemula" &&
+  difficulty !== "menengah" &&
+  difficulty !== "mahir"
+) {
+  return Astro.redirect("/start");
+}
+
+const languages = Astro.cookies.get("game-languages")?.value;
+if (languages === undefined) return Astro.redirect("/start");
+
+const question = await Astro.callAction(actions.questions.get.orThrow, {
+  index: level,
+  difficulty,
+  languages: languages.split("|"),
+});
+---
+
+<Layout title=`Level ${question.level.current}/${question.level.total}`>
+  <QuestionPageSvelte {question} client:load />
+</Layout>

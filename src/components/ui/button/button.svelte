@@ -20,7 +20,7 @@
       },
       size: {
         default: "h-9 px-4 py-2",
-        big: "h-16 px-16 text-xl",
+        big: "h-12 sm:h-16 px-12 sm:px-16 text-xl",
       },
     },
     defaultVariants: {

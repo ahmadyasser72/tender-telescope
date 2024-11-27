@@ -1,9 +1,11 @@
 ---
 import "$lib/styles/app.css";
 
+import { Toaster } from "$lib/components/ui/sonner";
+
 interface Props {
   title: string;
-  heading: string;
+  heading?: string;
   class?: string;
 }
 
@@ -21,17 +23,21 @@ const { title, heading, class: className } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
+    <Toaster client:only="svelte" />
+
     <main
       class:list={[
         "container flex min-h-screen flex-col items-center justify-center",
         className,
       ]}
     >
-      <h1
-        class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl"
-      >
-        {heading}
-      </h1>
+      {
+        heading && (
+          <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+            {heading}
+          </h1>
+        )
+      }
       <slot />
     </main>
   </body>
