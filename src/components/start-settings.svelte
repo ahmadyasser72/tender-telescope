@@ -33,7 +33,8 @@
       languages: bahasa,
     });
 
-    navigate("/question/1");
+    await navigate("/question/1");
+    window.location.reload();
   };
 </script>
 
