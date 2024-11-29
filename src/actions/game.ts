@@ -1,9 +1,9 @@
+import { getCookie, setCookie } from "./utils";
+
 import type { Difficulty } from "$lib/types";
+
 import { ActionError, defineAction } from "astro:actions";
 import { z } from "astro:schema";
-
-const difficultyCookie = "game-difficulty";
-const langaugesCookie = "game-languages";
 
 export const game = {
   initialize: defineAction({
@@ -11,20 +11,14 @@ export const game = {
       difficulty: z.enum(["pemula", "menengah", "mahir"]),
       languages: z.array(z.string()),
     }),
-    handler: ({ difficulty, languages }, ctx) => {
-      ctx.cookies.set(difficultyCookie, difficulty, {
-        httpOnly: true,
-        path: "/",
-      });
-      ctx.cookies.set(langaugesCookie, languages.join("|"), {
-        httpOnly: true,
-        path: "/",
-      });
+    handler: ({ difficulty, languages }, context) => {
+      setCookie(context, "game-difficulty", difficulty);
+      setCookie(context, "game-languages", languages.join("|"));
     },
   }),
   getPreferences: defineAction({
-    handler: (_, ctx) => {
-      const difficulty = ctx.cookies.get(difficultyCookie)?.value;
+    handler: (_, context) => {
+      const difficulty = getCookie(context, "game-difficulty")?.value;
       if (
         difficulty !== "pemula" &&
         difficulty !== "menengah" &&
@@ -36,7 +30,7 @@ export const game = {
         });
       }
 
-      const languages = ctx.cookies.get(langaugesCookie)?.value.split("|");
+      const languages = getCookie(context, "game-languages")?.value.split("|");
       if (languages === undefined || languages.length === 0) {
         throw new ActionError({
           message: "Bahasa tidak valid!",

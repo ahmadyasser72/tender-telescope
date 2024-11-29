@@ -1,7 +1,11 @@
+import { getCookie, setCookie } from "./utils";
+
 import type { Question } from "$lib/types";
 import { getAnswers, getQuestions } from "$lib/utils.content";
+
 import { defineAction } from "astro:actions";
 import { z } from "astro:schema";
+
 import { createShuffle } from "fast-shuffle";
 
 const questionsFilter = {
@@ -22,14 +26,11 @@ export const questions = {
       index: z.number(),
       ...questionsFilter,
     }),
-    handler: async ({ index, difficulty, languages }, ctx) => {
+    handler: async ({ index, difficulty, languages }, context) => {
       const questions = await getQuestions(difficulty, languages);
 
-      const seed = ctx.cookies.get("prng-seed")?.number() ?? Date.now();
-      ctx.cookies.set("prng-seed", seed.toString(), {
-        httpOnly: true,
-        path: "/",
-      });
+      const seed = getCookie(context, "game-prng-seed")?.number() ?? Date.now();
+      setCookie(context, "game-prng-seed", seed.toString());
 
       const questionShuffle = createShuffle(seed);
       const shuffledQuestions = questionShuffle(questions);
