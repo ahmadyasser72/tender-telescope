@@ -9,22 +9,17 @@ const { level: levelString } = Astro.params;
 const level = Number(levelString);
 if (Number.isNaN(level)) return Astro.redirect("/404");
 
-const difficulty = Astro.cookies.get("game-difficulty")?.value;
-if (
-  difficulty !== "pemula" &&
-  difficulty !== "menengah" &&
-  difficulty !== "mahir"
-) {
-  return Astro.redirect("/start");
-}
+const { data: preferences, error } = await Astro.callAction(
+  actions.game.getPreferences,
+  undefined
+);
 
-const languages = Astro.cookies.get("game-languages")?.value;
-if (languages === undefined) return Astro.redirect("/start");
+if (preferences === undefined && error !== undefined)
+  return Astro.redirect("/start");
 
 const question = await Astro.callAction(actions.questions.get.orThrow, {
   index: level,
-  difficulty,
-  languages: languages.split("|"),
+  ...preferences,
 });
 ---
 
