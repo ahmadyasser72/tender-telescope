@@ -1,12 +1,14 @@
 <script lang="ts">
+  import * as Dialog from "./index.js";
+
+  import { cn } from "$lib/utils.js";
+
   import {
     Dialog as DialogPrimitive,
     type WithoutChildrenOrChild,
   } from "bits-ui";
   import X from "lucide-svelte/icons/x";
   import type { Snippet } from "svelte";
-  import * as Dialog from "./index.js";
-  import { cn } from "$lib/utils.js";
 
   let {
     ref = $bindable(null),

@@ -1,8 +1,7 @@
-import { getCollection } from "astro:content";
-import { PIXABAY_API_KEY } from "astro:env/server";
+import { getQuestions } from "$lib/utils.content";
 
 import type { APIRoute, GetStaticPaths } from "astro";
-import { getQuestions } from "$lib/utils.content";
+import { PIXABAY_API_KEY } from "astro:env/server";
 
 export const prerender = true;
 

@@ -22,6 +22,7 @@
     "typescript": "^5.7.2"
   },
   "devDependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "^4.4.0",
     "bits-ui": "^1.0.0-next.64",
     "clsx": "^2.1.1",
     "lucide-svelte": "^0.461.0",

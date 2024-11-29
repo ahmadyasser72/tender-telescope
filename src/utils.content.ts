@@ -1,5 +1,6 @@
-import { getCollection } from "astro:content";
 import type { Difficulty } from "./types";
+
+import { getCollection } from "astro:content";
 
 export const getAnswers = async (difficulty: Difficulty) => {
   const answers = new Set<string>();

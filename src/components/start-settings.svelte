@@ -1,10 +1,13 @@
 <script lang="ts">
-  import { Button } from "$lib/components/ui/button";
-  import type { Difficulty } from "$lib/types";
-  import { actions } from "astro:actions";
   import SelectBahasa from "./select-bahasa.svelte";
   import SelectKesulitan from "./select-kesulitan.svelte";
+
+  import { Button } from "$lib/components/ui/button";
+  import type { Difficulty } from "$lib/types";
+
+  import { actions } from "astro:actions";
   import { navigate } from "astro:transitions/client";
+
   import { toast } from "svelte-sonner";
 
   interface Props {

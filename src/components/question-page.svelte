@@ -3,9 +3,8 @@
 
   import correctAnswerMP3 from "$lib/assets/correct-answer.mp3";
   import wrongAnswerMP3 from "$lib/assets/wrong-answer.mp3";
-
-  import * as Card from "$lib/components/ui/card";
   import { Button } from "$lib/components/ui/button";
+  import * as Card from "$lib/components/ui/card";
   import type { Question } from "$lib/types";
   import { cn, isBrowser, sleep } from "$lib/utils";
 
