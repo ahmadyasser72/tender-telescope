@@ -57,8 +57,8 @@
   <Card.Header>
     <img
       class="h-48 object-cover"
-      src="https://placehold.co/600x800/EEE/31343C"
-      alt={question.sourceWord}
+      src="/question/{level.current}/image"
+      alt="Gambar {question.sourceWord}"
     />
   </Card.Header>
   <Card.Content>

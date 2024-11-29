@@ -8,12 +8,23 @@ import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
+  adapter: cloudflare(),
   output: "server",
-
   redirects: {
     "/": "/start",
   },
 
   integrations: [svelte(), tailwind({ applyBaseStyles: false })],
-  adapter: cloudflare(),
+
+  experimental: {
+    env: {
+      schema: {
+        PIXABAY_API_KEY: {
+          access: "secret",
+          context: "server",
+          type: "string",
+        },
+      },
+    },
+  },
 });
