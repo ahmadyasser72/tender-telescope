@@ -1,10 +1,14 @@
 <script lang="ts">
+  import QuestionPageDialog from "./question-page-dialog.svelte";
+
+  import correctAnswerMP3 from "$lib/assets/correct-answer.mp3";
+  import wrongAnswerMP3 from "$lib/assets/wrong-answer.mp3";
+
   import * as Card from "$lib/components/ui/card";
   import { Button } from "$lib/components/ui/button";
   import type { Question } from "$lib/types";
-  import { toast } from "svelte-sonner";
-  import QuestionPageDialog from "./question-page-dialog.svelte";
-  import { cn, sleep } from "$lib/utils";
+  import { cn, isBrowser, sleep } from "$lib/utils";
+
   import { tick } from "svelte";
 
   interface Props {
@@ -14,6 +18,12 @@
   const { question }: Props = $props();
   const { answers, level } = $derived(question);
 
+  let correctAudio: HTMLAudioElement, wrongAudio: HTMLAudioElement;
+  if (isBrowser) {
+    correctAudio = new Audio(correctAnswerMP3);
+    wrongAudio = new Audio(wrongAnswerMP3);
+  }
+
   let dialogOpen = $state(false);
   let pickedAnswer = $state("");
   let highlightCorrectAnswer = $state(false);
@@ -21,15 +31,21 @@
   const checkAnswer = async (choice: number) => {
     pickedAnswer = answers.all[choice];
     highlightCorrectAnswer = true;
-    if (answers.correct !== choice) highlightWrongAnswerIndex = choice;
-    await tick();
-    await sleep(1000);
+    const correct = answers.correct === choice;
+    if (!correct) highlightWrongAnswerIndex = choice;
 
-    dialogOpen = true;
+    const audio = correct ? correctAudio : wrongAudio;
+    await tick();
+    audio.play();
+
+    audio.addEventListener("ended", async () => {
+      await sleep(100);
+      dialogOpen = true;
+    });
   };
 </script>
 
-{#if !import.meta.env.SSR}
+{#if isBrowser}
   <QuestionPageDialog
     bind:open={dialogOpen}
     bind:answer={pickedAnswer}

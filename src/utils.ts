@@ -7,3 +7,5 @@ export function cn(...inputs: ClassValue[]) {
 
 export const sleep = (duration: number) =>
   new Promise((resolve) => setTimeout(resolve, duration));
+
+export const isBrowser = !import.meta.env.SSR;
