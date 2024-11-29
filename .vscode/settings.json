@@ -3,6 +3,10 @@
     {
       "fileMatch": ["/src/content/questions/**"],
       "url": "./.astro/collections/questions.schema.json"
+    },
+    {
+      "fileMatch": ["/src/content/answers/**"],
+      "url": "./.astro/collections/answers.schema.json"
     }
   ]
 }

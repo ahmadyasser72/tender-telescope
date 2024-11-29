@@ -1,5 +1,13 @@
 import { defineCollection, reference, z } from "astro:content";
 
+const answerCollection = defineCollection({
+  type: "data",
+  schema: z.object({
+    difficulty: reference("answers"),
+    items: z.array(z.string()),
+  }),
+});
+
 const questionCollection = defineCollection({
   type: "data",
   schema: ({ image }) =>
@@ -16,4 +24,7 @@ const questionCollection = defineCollection({
     }),
 });
 
-export const collections = { questions: questionCollection };
+export const collections = {
+  answers: answerCollection,
+  questions: questionCollection,
+};

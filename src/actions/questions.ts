@@ -1,5 +1,5 @@
 import type { Question } from "$lib/types";
-import { getQuestions } from "$lib/utils.content";
+import { getAnswers, getQuestions } from "$lib/utils.content";
 import { defineAction } from "astro:actions";
 import { z } from "astro:schema";
 import { createShuffle } from "fast-shuffle";
@@ -36,7 +36,7 @@ export const questions = {
       const question = shuffledQuestions[index - 1];
 
       const answer = question.translation;
-      const allAnswers = new Set(questions.map((it) => it.translation));
+      const allAnswers = await getAnswers(difficulty);
       allAnswers.delete(answer);
 
       const answerShuffle = createShuffle(seed + index);

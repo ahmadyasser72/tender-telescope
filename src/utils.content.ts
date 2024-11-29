@@ -1,6 +1,20 @@
 import { getCollection } from "astro:content";
 import type { Difficulty } from "./types";
 
+export const getAnswers = async (difficulty: Difficulty) => {
+  const answers = new Set<string>();
+
+  const entries = await getCollection("answers", ({ id }) => id === difficulty);
+  for (const item of entries.flatMap(({ data }) => data.items)) {
+    answers.add(item);
+  }
+
+  const questions = await getQuestions(difficulty);
+  for (const { translation } of questions) answers.add(translation);
+
+  return answers;
+};
+
 export const getQuestions = async (
   difficulty?: Difficulty,
   languages?: string[],
