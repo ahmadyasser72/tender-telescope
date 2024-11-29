@@ -1,0 +1,185 @@
+{
+  "language": "jepang",
+  "items": [
+    {
+      "image": null,
+      "translation": "apel",
+      "sourceWord": "りんご (ringo)",
+      "difficulty": "pemula"
+    },
+    {
+      "image": null,
+      "translation": "mobil",
+      "sourceWord": "車 (くるま, kuruma)",
+      "difficulty": "pemula"
+    },
+    {
+      "image": null,
+      "translation": "anjing",
+      "sourceWord": "犬 (いぬ, inu)",
+      "difficulty": "pemula"
+    },
+    {
+      "image": null,
+      "translation": "kucing",
+      "sourceWord": "猫 (ねこ, neko)",
+      "difficulty": "pemula"
+    },
+    {
+      "image": null,
+      "translation": "rumah",
+      "sourceWord": "家 (いえ, ie)",
+      "difficulty": "pemula"
+    },
+    {
+      "image": null,
+      "translation": "buku",
+      "sourceWord": "本 (ほん, hon)",
+      "difficulty": "pemula"
+    },
+    {
+      "image": null,
+      "translation": "meja",
+      "sourceWord": "テーブル (teeburu)",
+      "difficulty": "pemula"
+    },
+    {
+      "image": null,
+      "translation": "kursi",
+      "sourceWord": "椅子 (いす, isu)",
+      "difficulty": "pemula"
+    },
+    {
+      "image": null,
+      "translation": "matahari",
+      "sourceWord": "太陽 (たいよう, taiyou)",
+      "difficulty": "pemula"
+    },
+    {
+      "image": null,
+      "translation": "bulan",
+      "sourceWord": "月 (つき, tsuki)",
+      "difficulty": "pemula"
+    },
+    {
+      "image": null,
+      "translation": "hujan",
+      "sourceWord": "雨 (あめ, ame)",
+      "difficulty": "menengah"
+    },
+    {
+      "image": null,
+      "translation": "sepeda",
+      "sourceWord": "自転車 (じてんしゃ, jitensha)",
+      "difficulty": "menengah"
+    },
+    {
+      "image": null,
+      "translation": "sakit kepala",
+      "sourceWord": "頭痛 (ずつう, zutsuu)",
+      "difficulty": "menengah"
+    },
+    {
+      "image": null,
+      "translation": "makanan",
+      "sourceWord": "食べ物 (たべもの, tabemono)",
+      "difficulty": "menengah"
+    },
+    {
+      "image": null,
+      "translation": "perpustakaan",
+      "sourceWord": "図書館 (としょかん, toshokan)",
+      "difficulty": "menengah"
+    },
+    {
+      "image": null,
+      "translation": "dokter",
+      "sourceWord": "医者 (いしゃ, isha)",
+      "difficulty": "menengah"
+    },
+    {
+      "image": null,
+      "translation": "komputer",
+      "sourceWord": "コンピューター (konpyuuta)",
+      "difficulty": "menengah"
+    },
+    {
+      "image": null,
+      "translation": "televisi",
+      "sourceWord": "テレビ (terebi)",
+      "difficulty": "menengah"
+    },
+    {
+      "image": null,
+      "translation": "kue",
+      "sourceWord": "ケーキ (keeki)",
+      "difficulty": "menengah"
+    },
+    {
+      "image": null,
+      "translation": "dapur",
+      "sourceWord": "台所 (だいどころ, daidokoro)",
+      "difficulty": "menengah"
+    },
+    {
+      "image": null,
+      "translation": "komunikasi",
+      "sourceWord": "コミュニケーション (komyunikeeshon)",
+      "difficulty": "mahir"
+    },
+    {
+      "image": null,
+      "translation": "sosial",
+      "sourceWord": "社会 (しゃかい, shakai)",
+      "difficulty": "mahir"
+    },
+    {
+      "image": null,
+      "translation": "pengembangan",
+      "sourceWord": "開発 (かいはつ, kaihatsu)",
+      "difficulty": "mahir"
+    },
+    {
+      "image": null,
+      "translation": "pengetahuan",
+      "sourceWord": "知識 (ちしき, chishiki)",
+      "difficulty": "mahir"
+    },
+    {
+      "image": null,
+      "translation": "perspektif",
+      "sourceWord": "視点 (してん, shiten)",
+      "difficulty": "mahir"
+    },
+    {
+      "image": null,
+      "translation": "penerapan",
+      "sourceWord": "応用 (おうよう, ouyou)",
+      "difficulty": "mahir"
+    },
+    {
+      "image": null,
+      "translation": "evaluasi",
+      "sourceWord": "評価 (ひょうか, hyouka)",
+      "difficulty": "mahir"
+    },
+    {
+      "image": null,
+      "translation": "teknologi",
+      "sourceWord": "技術 (ぎじゅつ, gijutsu)",
+      "difficulty": "mahir"
+    },
+    {
+      "image": null,
+      "translation": "interaksi",
+      "sourceWord": "相互作用 (そうごさよう, sougo sayou)",
+      "difficulty": "mahir"
+    },
+    {
+      "image": null,
+      "translation": "kemajuan",
+      "sourceWord": "進歩 (しんぽ, shinpo)",
+      "difficulty": "mahir"
+    }
+  ]
+}

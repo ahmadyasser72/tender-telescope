@@ -2,6 +2,7 @@ import { getCollection } from "astro:content";
 import { PIXABAY_API_KEY } from "astro:env/server";
 
 import type { APIRoute, GetStaticPaths } from "astro";
+import { getQuestions } from "$lib/utils.content";
 
 export const prerender = true;
 
@@ -9,15 +10,17 @@ export const getStaticPaths = (async () => {
   const indonesianWords = new Set<string>();
   const imageLookup = new Map<string, string>();
   const englishWordLookup = new Map<string, string>();
-  const allQuestions = await getCollection("questions");
+  const allQuestions = await getQuestions();
   for (const {
-    id,
-    data: { translation: indonesianWord, image, sourceWord },
+    language,
+    translation: indonesianWord,
+    image,
+    sourceWord,
   } of allQuestions) {
-    if (id.startsWith("inggris")) {
+    if (language === "inggris") {
       englishWordLookup.set(indonesianWord, sourceWord);
 
-      if (image) imageLookup.set(indonesianWord, image);
+      if (image) imageLookup.set(indonesianWord, image.src);
     }
 
     indonesianWords.add(indonesianWord);

@@ -1,0 +1,185 @@
+{
+  "language": "jerman",
+  "items": [
+    {
+      "image": null,
+      "translation": "apel",
+      "sourceWord": "Apfel",
+      "difficulty": "pemula"
+    },
+    {
+      "image": null,
+      "translation": "mobil",
+      "sourceWord": "Auto",
+      "difficulty": "pemula"
+    },
+    {
+      "image": null,
+      "translation": "anjing",
+      "sourceWord": "Hund",
+      "difficulty": "pemula"
+    },
+    {
+      "image": null,
+      "translation": "kucing",
+      "sourceWord": "Katze",
+      "difficulty": "pemula"
+    },
+    {
+      "image": null,
+      "translation": "rumah",
+      "sourceWord": "Haus",
+      "difficulty": "pemula"
+    },
+    {
+      "image": null,
+      "translation": "buku",
+      "sourceWord": "Buch",
+      "difficulty": "pemula"
+    },
+    {
+      "image": null,
+      "translation": "meja",
+      "sourceWord": "Tisch",
+      "difficulty": "pemula"
+    },
+    {
+      "image": null,
+      "translation": "kursi",
+      "sourceWord": "Stuhl",
+      "difficulty": "pemula"
+    },
+    {
+      "image": null,
+      "translation": "matahari",
+      "sourceWord": "Sonne",
+      "difficulty": "pemula"
+    },
+    {
+      "image": null,
+      "translation": "bulan",
+      "sourceWord": "Mond",
+      "difficulty": "pemula"
+    },
+    {
+      "image": null,
+      "translation": "hujan",
+      "sourceWord": "Regen",
+      "difficulty": "menengah"
+    },
+    {
+      "image": null,
+      "translation": "sepeda",
+      "sourceWord": "Fahrrad",
+      "difficulty": "menengah"
+    },
+    {
+      "image": null,
+      "translation": "sakit kepala",
+      "sourceWord": "Kopfschmerzen",
+      "difficulty": "menengah"
+    },
+    {
+      "image": null,
+      "translation": "makanan",
+      "sourceWord": "Essen",
+      "difficulty": "menengah"
+    },
+    {
+      "image": null,
+      "translation": "perpustakaan",
+      "sourceWord": "Bibliothek",
+      "difficulty": "menengah"
+    },
+    {
+      "image": null,
+      "translation": "dokter",
+      "sourceWord": "Arzt",
+      "difficulty": "menengah"
+    },
+    {
+      "image": null,
+      "translation": "komputer",
+      "sourceWord": "Computer",
+      "difficulty": "menengah"
+    },
+    {
+      "image": null,
+      "translation": "televisi",
+      "sourceWord": "Fernsehen",
+      "difficulty": "menengah"
+    },
+    {
+      "image": null,
+      "translation": "kue",
+      "sourceWord": "Kuchen",
+      "difficulty": "menengah"
+    },
+    {
+      "image": null,
+      "translation": "dapur",
+      "sourceWord": "Küche",
+      "difficulty": "menengah"
+    },
+    {
+      "image": null,
+      "translation": "komunikasi",
+      "sourceWord": "Kommunikation",
+      "difficulty": "mahir"
+    },
+    {
+      "image": null,
+      "translation": "sosial",
+      "sourceWord": "sozial",
+      "difficulty": "mahir"
+    },
+    {
+      "image": null,
+      "translation": "pengembangan",
+      "sourceWord": "Entwicklung",
+      "difficulty": "mahir"
+    },
+    {
+      "image": null,
+      "translation": "pengetahuan",
+      "sourceWord": "Wissen",
+      "difficulty": "mahir"
+    },
+    {
+      "image": null,
+      "translation": "perspektif",
+      "sourceWord": "Perspektive",
+      "difficulty": "mahir"
+    },
+    {
+      "image": null,
+      "translation": "penerapan",
+      "sourceWord": "Anwendung",
+      "difficulty": "mahir"
+    },
+    {
+      "image": null,
+      "translation": "evaluasi",
+      "sourceWord": "Bewertung",
+      "difficulty": "mahir"
+    },
+    {
+      "image": null,
+      "translation": "teknologi",
+      "sourceWord": "Technologie",
+      "difficulty": "mahir"
+    },
+    {
+      "image": null,
+      "translation": "interaksi",
+      "sourceWord": "Interaktion",
+      "difficulty": "mahir"
+    },
+    {
+      "image": null,
+      "translation": "kemajuan",
+      "sourceWord": "Fortschritt",
+      "difficulty": "mahir"
+    }
+  ]
+}

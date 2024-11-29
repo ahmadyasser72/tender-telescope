@@ -35,8 +35,8 @@ export const questions = {
       const shuffledQuestions = questionShuffle(questions);
       const question = shuffledQuestions[index - 1];
 
-      const answer = question.data.translation;
-      const allAnswers = new Set(questions.map(({ data }) => data.translation));
+      const answer = question.translation;
+      const allAnswers = new Set(questions.map((it) => it.translation));
       allAnswers.delete(answer);
 
       const answerShuffle = createShuffle(seed + index);
@@ -45,8 +45,7 @@ export const questions = {
       const correct = answers.indexOf(answer);
 
       return <Question>{
-        ...question.data,
-        language: question.id.split("/")[0],
+        ...question,
         answers: { all: answers, correct },
         level: { current: index, total: questions.length },
       };

@@ -2,19 +2,23 @@
 import Layout from "$lib/layouts/Layout.astro";
 
 import StartSettingsSvelte from "$lib/components/start-settings.svelte";
-import { getCollection } from "astro:content";
-import type { Difficulty } from "$lib/types";
+import type { Difficulty, Language } from "$lib/types";
+import { getQuestions } from "$lib/utils.content";
 
 export const prerender = true;
 
-const languages = new Set<string>();
+const difficulties = new Set<Difficulty>();
+const languages = new Set<Language>();
 
-const allQuestions = await getCollection("questions");
-for (const { id } of allQuestions) languages.add(id.split("/")[0]);
+const allQuestions = await getQuestions();
+for (const { difficulty, language } of allQuestions) {
+  difficulties.add(difficulty);
+  languages.add(language);
+}
 
 const choices = {
   languages: [...languages],
-  difficulties: ["pemula", "menengah", "mahir"] satisfies Difficulty[],
+  difficulties: [...difficulties],
 };
 ---
 
