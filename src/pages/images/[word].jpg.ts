@@ -48,7 +48,8 @@ export const GET: APIRoute = async (context) => {
     key: PIXABAY_API_KEY,
     q: pixabayQuery,
     image_type: "photo",
-    per_page: "12",
+    orientation: "horizontal",
+    per_page: "16",
   }).toString();
 
   const response = await fetch(pixabayUrl);
