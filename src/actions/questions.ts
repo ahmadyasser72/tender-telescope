@@ -16,8 +16,11 @@ const questionsFilter = {
 export const questions = {
   size: defineAction({
     input: z.object(questionsFilter),
-    handler: async ({ difficulty, languages }) => {
-      const questions = await getQuestions(difficulty, languages);
+    handler: async ({ difficulty, languages }, context) => {
+      const seed = getCookie(context, "game-prng-seed")?.number() ?? Date.now();
+      setCookie(context, "game-prng-seed", seed.toString());
+
+      const questions = await getQuestions(difficulty, languages, seed);
       return questions.length;
     },
   }),
@@ -27,14 +30,11 @@ export const questions = {
       ...questionsFilter,
     }),
     handler: async ({ index, difficulty, languages }, context) => {
-      const questions = await getQuestions(difficulty, languages);
-
       const seed = getCookie(context, "game-prng-seed")?.number() ?? Date.now();
       setCookie(context, "game-prng-seed", seed.toString());
 
-      const questionShuffle = createShuffle(seed);
-      const shuffledQuestions = questionShuffle(questions);
-      const question = shuffledQuestions[index - 1];
+      const questions = await getQuestions(difficulty, languages, seed);
+      const question = questions[index - 1];
 
       const correctAnswer = question.translation;
       const allAnswers = await getAnswers(difficulty);
@@ -43,7 +43,7 @@ export const questions = {
       // jawaban benar akan ditambahkan setelah proses acak
       allAnswers.delete(correctAnswer);
       // hapus semua jawaban pertanyaan sebelumnya biar lebih menantang
-      const previousQuestions = shuffledQuestions.slice(0, index - 1);
+      const previousQuestions = questions.slice(0, index - 1);
       for (const { translation } of previousQuestions)
         allAnswers.delete(translation);
 
