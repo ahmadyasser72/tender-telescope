@@ -5,6 +5,11 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+export const base64 = {
+  decode: (s: string) => atob(s),
+  encode: (s: string) => btoa(s),
+};
+
 export const sleep = (duration: number) =>
   new Promise((resolve) => setTimeout(resolve, duration));
 

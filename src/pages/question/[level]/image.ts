@@ -1,3 +1,5 @@
+import { base64 } from "$lib/utils";
+
 import type { APIRoute } from "astro";
 import { actions } from "astro:actions";
 
@@ -19,5 +21,5 @@ export const GET: APIRoute = async (context) => {
     ...preferences,
   });
 
-  return context.redirect(`/images/${question.translation}.jpg`);
+  return context.redirect(`/images/${base64.encode(question.translation)}.jpg`);
 };

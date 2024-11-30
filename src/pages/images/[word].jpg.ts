@@ -1,4 +1,4 @@
-import { randomNumber } from "$lib/utils";
+import { base64, randomNumber } from "$lib/utils";
 import { getQuestions } from "$lib/utils.content";
 
 import type { APIRoute, GetStaticPaths } from "astro";
@@ -27,7 +27,7 @@ export const getStaticPaths = (async () => {
   }
 
   return [...englishWordLookup].map(([indonesianWord, englishWord]) => ({
-    params: { word: indonesianWord },
+    params: { word: base64.encode(indonesianWord) },
     props: {
       pixabayQuery: englishWord,
       image: imageLookup.get(indonesianWord),
