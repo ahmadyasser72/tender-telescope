@@ -56,7 +56,7 @@
   <Card.Header>
     <img
       class="h-48 object-cover"
-      src="/question/{level.current}/image"
+      src="/question/{level.current}/image?t={Date.now()}"
       alt="Gambar {question.sourceWord}"
     />
   </Card.Header>
