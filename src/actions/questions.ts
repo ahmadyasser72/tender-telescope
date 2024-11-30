@@ -36,14 +36,21 @@ export const questions = {
       const shuffledQuestions = questionShuffle(questions);
       const question = shuffledQuestions[index - 1];
 
-      const answer = question.translation;
+      const correctAnswer = question.translation;
       const allAnswers = await getAnswers(difficulty);
-      allAnswers.delete(answer);
+
+      // hapus jawaban yang benar karena daftar jawaban ini akan diacak
+      // jawaban benar akan ditambahkan setelah proses acak
+      allAnswers.delete(correctAnswer);
+      // hapus semua jawaban pertanyaan sebelumnya biar lebih menantang
+      const previousQuestions = shuffledQuestions.slice(0, index - 1);
+      for (const { translation } of previousQuestions)
+        allAnswers.delete(translation);
 
       const answerShuffle = createShuffle(seed + index);
       const otherAnswers = answerShuffle([...allAnswers]).slice(0, 3);
-      const answers = answerShuffle([answer, ...otherAnswers]);
-      const correct = answers.indexOf(answer);
+      const answers = answerShuffle([correctAnswer, ...otherAnswers]);
+      const correct = answers.indexOf(correctAnswer);
 
       return <Question>{
         ...question,
