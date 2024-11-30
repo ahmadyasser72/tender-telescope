@@ -1,3 +1,4 @@
+import { randomNumber } from "$lib/utils";
 import { getQuestions } from "$lib/utils.content";
 
 import type { APIRoute, GetStaticPaths } from "astro";
@@ -47,14 +48,16 @@ export const GET: APIRoute = async (context) => {
     key: PIXABAY_API_KEY,
     q: pixabayQuery,
     image_type: "photo",
-    orientation: "horizontal",
-    per_page: "3",
+    per_page: "12",
   }).toString();
 
   const response = await fetch(pixabayUrl);
   const json: PixabayResponse = await response.json();
 
-  return fetch(json.hits[0].webformatURL);
+  const { hits: items } = json;
+  const item = items[randomNumber(0, items.length - 1)];
+
+  return fetch(item.webformatURL);
 };
 
 /**
