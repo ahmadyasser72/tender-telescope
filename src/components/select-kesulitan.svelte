@@ -4,18 +4,18 @@
 
   interface Props {
     choices: Difficulty[];
-    kesulitan?: Difficulty;
+    difficulty?: Difficulty;
   }
 
-  let { kesulitan = $bindable(), choices }: Props = $props();
+  let { difficulty = $bindable(), choices }: Props = $props();
 
   const triggerContent = $derived(
-    choices.find((difficulty) => difficulty === kesulitan) ??
+    choices.find((difficulty) => difficulty === difficulty) ??
       "Tingkat kesulitan...",
   );
 </script>
 
-<Select.Root type="single" name="difficulty" bind:value={kesulitan}>
+<Select.Root type="single" name="difficulty" bind:value={difficulty}>
   <Select.Trigger class="py-6 sm:text-xl">
     {triggerContent}
   </Select.Trigger>

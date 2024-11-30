@@ -3,7 +3,8 @@
   import SelectKesulitan from "./select-kesulitan.svelte";
 
   import { Button } from "$lib/components/ui/button";
-  import type { Difficulty } from "$lib/types";
+  import type { Difficulty, Language } from "$lib/types";
+  import { isBrowser } from "$lib/utils";
 
   import { actions } from "astro:actions";
   import { navigate } from "astro:transitions/client";
@@ -12,28 +13,34 @@
 
   interface Props {
     choices: {
-      languages: string[];
       difficulties: Difficulty[];
+      languages: Language[];
     };
   }
 
   const { choices }: Props = $props();
 
-  let bahasa = $state<string[]>([]);
-  let kesulitan = $state<Difficulty>();
+  let difficulty = $state<Difficulty>();
+  let languages = $state<Language[]>([]);
+
+  const questionLength = $derived(
+    isBrowser && difficulty && languages.length > 0
+      ? actions.questions.size.orThrow({ difficulty, languages })
+      : Promise.resolve("-"),
+  );
 
   const start = async () => {
-    if (!kesulitan) {
+    if (difficulty === undefined) {
       toast.error("Tingkat kesulitan belum dipilih!");
       return;
-    } else if (bahasa.length === 0) {
+    } else if (languages.length === 0) {
       toast.error("Pilih bahasa asing terlebih dahulu!");
       return;
     }
 
     await actions.game.initialize.orThrow({
-      difficulty: kesulitan,
-      languages: bahasa,
+      difficulty: difficulty,
+      languages: languages,
     });
 
     navigate("/question/1");
@@ -42,13 +49,24 @@
 
 <div class="mt-8 grid grid-cols-3 gap-4">
   <div class="col-span-2">
-    <SelectKesulitan bind:kesulitan choices={choices.difficulties} />
+    <SelectKesulitan bind:difficulty choices={choices.difficulties} />
   </div>
   <Button onclick={start} class="row-span-2 h-auto text-xl sm:text-2xl">
     Mulai <br />
     Game
   </Button>
   <div class="col-span-2">
-    <SelectBahasa bind:bahasa choices={choices.languages} />
+    <SelectBahasa bind:languages choices={choices.languages} />
   </div>
 </div>
+
+<p class="text-center leading-7 [&:not(:first-child)]:mt-6">
+  Jumlah level :
+  <span>
+    {#await questionLength}
+      loading...
+    {:then length}
+      {length}
+    {/await}
+  </span>
+</p>

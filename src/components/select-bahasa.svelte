@@ -1,19 +1,20 @@
 <script lang="ts">
   import * as Select from "$lib/components/ui/select/index.js";
+  import type { Language } from "$lib/types";
 
   interface Props {
-    choices: string[];
-    bahasa: string[];
+    choices: Language[];
+    languages: Language[];
   }
 
-  let { bahasa = $bindable(), choices }: Props = $props();
+  let { languages = $bindable(), choices }: Props = $props();
 
   const triggerContent = $derived(
-    bahasa.length > 0 ? bahasa.join(", ") : "Pilih bahasa asing...",
+    languages.length > 0 ? languages.join(", ") : "Pilih bahasa asing...",
   );
 </script>
 
-<Select.Root type="multiple" name="foreign_languages" bind:value={bahasa}>
+<Select.Root type="multiple" name="foreign_languages" bind:value={languages}>
   <Select.Trigger class="py-6 sm:text-xl">
     {triggerContent}
   </Select.Trigger>
