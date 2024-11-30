@@ -36,8 +36,7 @@
       languages: bahasa,
     });
 
-    await navigate("/question/1");
-    window.location.reload();
+    navigate("/question/1");
   };
 </script>
 
