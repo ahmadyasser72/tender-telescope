@@ -20,4 +20,6 @@ export type Language = QuestionEntry["id"];
 
 export interface GameState {
   volume: number;
+  difficulty?: Difficulty;
+  languages: Language[];
 }

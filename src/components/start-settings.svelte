@@ -23,8 +23,7 @@
   const { choices }: Props = $props();
 
   let volume = $state([gameState.volume * 100]);
-  let difficulty = $state<Difficulty>();
-  let languages = $state<Language[]>([]);
+  const { difficulty, languages } = $derived(gameState);
 
   const questionLength = $derived(
     isBrowser && difficulty && languages.length > 0
@@ -57,14 +56,20 @@
     <Slider bind:value={volume} min={0} max={100} step={5} class="mt-2" />
   </div>
   <div class="col-span-2">
-    <SelectKesulitan bind:difficulty choices={choices.difficulties} />
+    <SelectKesulitan
+      bind:difficulty={gameState.difficulty}
+      choices={choices.difficulties}
+    />
   </div>
   <Button onclick={start} class="row-span-2 h-auto text-xl sm:text-2xl">
     Mulai <br />
     Game
   </Button>
   <div class="col-span-2">
-    <SelectBahasa bind:languages choices={choices.languages} />
+    <SelectBahasa
+      bind:languages={gameState.languages}
+      choices={choices.languages}
+    />
   </div>
 </div>
 
