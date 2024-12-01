@@ -9,12 +9,19 @@
 
   let { languages = $bindable(), choices }: Props = $props();
 
+  let open = $state(false);
   const triggerContent = $derived(
     languages.length > 0 ? languages.join(", ") : "Pilih bahasa asing...",
   );
 </script>
 
-<Select.Root type="multiple" name="foreign_languages" bind:value={languages}>
+<Select.Root
+  type="multiple"
+  name="foreign_languages"
+  bind:open
+  onValueChange={() => (open = false)}
+  bind:value={languages}
+>
   <Select.Trigger class="py-6 sm:text-xl">
     {triggerContent}
   </Select.Trigger>

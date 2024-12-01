@@ -10,7 +10,7 @@
   let { difficulty = $bindable(), choices }: Props = $props();
 
   const triggerContent = $derived(
-    choices.find((difficulty) => difficulty === difficulty) ??
+    choices.find((choice) => choice === difficulty) ??
       "Tingkat kesulitan...",
   );
 </script>
