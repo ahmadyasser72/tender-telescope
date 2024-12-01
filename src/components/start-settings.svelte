@@ -1,9 +1,9 @@
 <script lang="ts">
   import SelectBahasa from "./select-bahasa.svelte";
   import SelectKesulitan from "./select-kesulitan.svelte";
+  import SliderVolume from "./slider-volume.svelte";
 
   import { Button } from "$lib/components/ui/button";
-  import { Slider } from "$lib/components/ui/slider";
   import { gameState } from "$lib/states.svelte";
   import type { Difficulty, Language } from "$lib/types";
   import { isBrowser } from "$lib/utils";
@@ -22,7 +22,6 @@
 
   const { choices }: Props = $props();
 
-  let volume = $state([gameState.volume * 100]);
   const { difficulty, languages } = $derived(gameState);
 
   const questionLength = $derived(
@@ -45,15 +44,14 @@
       languages: languages,
     });
 
-    gameState.volume = volume[0] / 100;
     navigate("/question/1");
   };
 </script>
 
 <div class="mt-8 grid grid-cols-3 gap-4">
-  <div class="col-span-full mx-4 my-2">
-    <span class="text-muted-foreground">Volume ({volume[0]}%)</span>
-    <Slider bind:value={volume} min={0} max={100} step={5} class="mt-2" />
+  <div class="col-span-full gap-2 sm:mx-4">
+    <span class="text-muted-foreground">Volume ({gameState.volume}%)</span>
+    <SliderVolume bind:volume={gameState.volume} />
   </div>
   <div class="col-span-2">
     <SelectKesulitan

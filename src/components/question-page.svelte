@@ -37,7 +37,7 @@
     const audio = correct ? correctAudio : wrongAudio;
     await tick();
 
-    audio.volume = gameState.volume;
+    audio.volume = gameState.volume / 100;
     audio.play();
 
     audio.addEventListener("ended", async () => {
