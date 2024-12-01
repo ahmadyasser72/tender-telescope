@@ -22,7 +22,7 @@
   onValueChange={() => (open = false)}
   bind:value={languages}
 >
-  <Select.Trigger class="py-6 sm:text-xl">
+  <Select.Trigger class="py-4 sm:py-6 sm:text-xl">
     {triggerContent}
   </Select.Trigger>
   <Select.Content>

@@ -2,6 +2,7 @@ import type { CollectionEntry } from "astro:content";
 
 type QuestionEntry = CollectionEntry<"questions">;
 type QuestionRaw = QuestionEntry["data"]["items"][number];
+
 export interface Question extends QuestionRaw {
   language: Language;
   level: {
@@ -16,3 +17,7 @@ export interface Question extends QuestionRaw {
 
 export type Difficulty = QuestionRaw["difficulty"];
 export type Language = QuestionEntry["id"];
+
+export interface GameState {
+  volume: number;
+}

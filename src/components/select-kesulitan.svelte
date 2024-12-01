@@ -10,13 +10,12 @@
   let { difficulty = $bindable(), choices }: Props = $props();
 
   const triggerContent = $derived(
-    choices.find((choice) => choice === difficulty) ??
-      "Tingkat kesulitan...",
+    choices.find((choice) => choice === difficulty) ?? "Tingkat kesulitan...",
   );
 </script>
 
 <Select.Root type="single" name="difficulty" bind:value={difficulty}>
-  <Select.Trigger class="py-6 sm:text-xl">
+  <Select.Trigger class="py-4 sm:py-6 sm:text-xl">
     {triggerContent}
   </Select.Trigger>
   <Select.Content>

@@ -3,6 +3,8 @@
   import SelectKesulitan from "./select-kesulitan.svelte";
 
   import { Button } from "$lib/components/ui/button";
+  import { Slider } from "$lib/components/ui/slider";
+  import { gameState } from "$lib/states.svelte";
   import type { Difficulty, Language } from "$lib/types";
   import { isBrowser } from "$lib/utils";
 
@@ -20,6 +22,7 @@
 
   const { choices }: Props = $props();
 
+  let volume = $state([gameState.volume * 100]);
   let difficulty = $state<Difficulty>();
   let languages = $state<Language[]>([]);
 
@@ -43,11 +46,16 @@
       languages: languages,
     });
 
+    gameState.volume = volume[0] / 100;
     navigate("/question/1");
   };
 </script>
 
 <div class="mt-8 grid grid-cols-3 gap-4">
+  <div class="col-span-full mx-4 my-2">
+    <span class="text-muted-foreground">Volume ({volume[0]}%)</span>
+    <Slider bind:value={volume} min={0} max={100} step={5} class="mt-2" />
+  </div>
   <div class="col-span-2">
     <SelectKesulitan bind:difficulty choices={choices.difficulties} />
   </div>

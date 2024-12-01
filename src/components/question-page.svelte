@@ -5,6 +5,7 @@
   import wrongAnswerMP3 from "$lib/assets/wrong-answer.mp3";
   import { Button } from "$lib/components/ui/button";
   import * as Card from "$lib/components/ui/card";
+  import { gameState } from "$lib/states.svelte";
   import type { Question } from "$lib/types";
   import { cn, isBrowser, sleep } from "$lib/utils";
 
@@ -35,6 +36,8 @@
 
     const audio = correct ? correctAudio : wrongAudio;
     await tick();
+
+    audio.volume = gameState.volume;
     audio.play();
 
     audio.addEventListener("ended", async () => {
