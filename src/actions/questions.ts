@@ -8,31 +8,26 @@ import { z } from "astro:schema";
 
 import { createShuffle } from "fast-shuffle";
 
-const questionsFilter = {
+const gamePreferences = {
   difficulty: z.enum(["pemula", "menengah", "mahir"]),
   languages: z.array(z.string()),
 };
 
 export const questions = {
   size: defineAction({
-    input: z.object(questionsFilter),
-    handler: async ({ difficulty, languages }, context) => {
-      const seed = getCookie(context, "game-prng-seed")?.number() ?? Date.now();
-      setCookie(context, "game-prng-seed", seed.toString());
-
-      const questions = await getQuestions(difficulty, languages, seed);
+    input: z.object(gamePreferences),
+    handler: async ({ difficulty, languages }) => {
+      const questions = await getQuestions(difficulty, languages, 0);
       return questions.length;
     },
   }),
   get: defineAction({
     input: z.object({
       index: z.number(),
-      ...questionsFilter,
+      seed: z.number(),
+      ...gamePreferences,
     }),
-    handler: async ({ index, difficulty, languages }, context) => {
-      const seed = getCookie(context, "game-prng-seed")?.number() ?? Date.now();
-      setCookie(context, "game-prng-seed", seed.toString());
-
+    handler: async ({ index, difficulty, languages, seed }) => {
       const questions = await getQuestions(difficulty, languages, seed);
       const question = questions[index - 1];
 

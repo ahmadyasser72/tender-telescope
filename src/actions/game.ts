@@ -14,6 +14,7 @@ export const game = {
     handler: ({ difficulty, languages }, context) => {
       setCookie(context, "game-difficulty", difficulty);
       setCookie(context, "game-languages", languages.join("|"));
+      setCookie(context, "game-prng-seed", Date.now().toString());
     },
   }),
   getPreferences: defineAction({
@@ -38,7 +39,15 @@ export const game = {
         });
       }
 
-      return { difficulty: <Difficulty>difficulty, languages };
+      const seed = getCookie(context, "game-prng-seed")?.number();
+      if (seed === undefined) {
+        throw new ActionError({
+          message: "Seed belum terinisialisasi!",
+          code: "BAD_REQUEST",
+        });
+      }
+
+      return { difficulty: <Difficulty>difficulty, languages, seed };
     },
   }),
 };
