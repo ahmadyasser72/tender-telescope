@@ -28,7 +28,7 @@
   const questionLength = $derived(
     isBrowser && difficulty && languages.length > 0
       ? actions.questions.size.orThrow({ difficulty, languages })
-      : "-",
+      : Promise.resolve("-"),
   );
 
   const start = async () => {
