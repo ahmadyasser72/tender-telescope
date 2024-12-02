@@ -74,12 +74,15 @@
     Game
   </Button>
 
-  <div class="col-span-2 text-end">Jumlah level :</div>
-  <div class="inline-flex items-center">
+  <div class="col-span-2 text-end max-sm:hidden">Jumlah level :</div>
+  <div class="inline-flex items-center max-sm:justify-center">
     {#await questionLength}
       <Loader class="mr-1 animate-spin" /> Loading...
     {:then length}
-      <div class="font-semibold underline">{length}</div>
+      <span class="mr-1 sm:hidden">Jumlah level :</span>
+      <span class:underline={Number.isInteger(length)} class="font-semibold">
+        {length}
+      </span>
     {/await}
   </div>
 </div>
