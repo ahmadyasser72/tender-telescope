@@ -23,7 +23,7 @@
   bind:value={languages}
 >
   <Select.Trigger class="py-4 sm:py-6 sm:text-xl">
-    {triggerContent}
+    <span>{triggerContent}</span>
   </Select.Trigger>
   <Select.Content>
     <Select.Group>

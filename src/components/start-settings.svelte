@@ -48,27 +48,30 @@
   };
 </script>
 
-<div class="mt-8 grid grid-cols-3 gap-4">
+<div class="mt-8 flex grid-flow-dense grid-cols-3 flex-col gap-4 sm:grid">
   <div class="col-span-full gap-2 sm:mx-4">
     <span class="text-muted-foreground">Volume ({gameState.volume}%)</span>
     <SliderVolume bind:volume={gameState.volume} />
   </div>
+
   <div class="col-span-2">
     <SelectKesulitan
       bind:difficulty={gameState.difficulty}
       choices={choices.difficulties}
     />
   </div>
-  <Button onclick={start} class="row-span-2 h-auto text-xl sm:text-2xl">
-    Mulai <br />
-    Game
-  </Button>
+
   <div class="col-span-2">
     <SelectBahasa
       bind:languages={gameState.languages}
       choices={choices.languages}
     />
   </div>
+
+  <Button onclick={start} class="row-span-2 h-full text-xl sm:w-32 sm:text-2xl">
+    Mulai <br class="hidden sm:block" />
+    Game
+  </Button>
 </div>
 
 <p class="text-center leading-7 [&:not(:first-child)]:mt-6">
