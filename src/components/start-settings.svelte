@@ -11,6 +11,7 @@
   import { actions } from "astro:actions";
   import { navigate } from "astro:transitions/client";
 
+  import { Loader } from "lucide-svelte";
   import { toast } from "svelte-sonner";
 
   interface Props {
@@ -27,7 +28,7 @@
   const questionLength = $derived(
     isBrowser && difficulty && languages.length > 0
       ? actions.questions.size.orThrow({ difficulty, languages })
-      : Promise.resolve("-"),
+      : "-",
   );
 
   const start = async () => {
@@ -72,15 +73,13 @@
     Mulai <br class="hidden sm:block" />
     Game
   </Button>
-</div>
 
-<p class="text-center leading-7 [&:not(:first-child)]:mt-6">
-  Jumlah level :
-  <span>
+  <div class="col-span-2 text-end">Jumlah level :</div>
+  <div class="inline-flex items-center">
     {#await questionLength}
-      loading...
+      <Loader class="mr-1 animate-spin" /> Loading...
     {:then length}
-      {length}
+      <div class="font-semibold underline">{length}</div>
     {/await}
-  </span>
-</p>
+  </div>
+</div>
