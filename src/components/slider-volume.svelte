@@ -1,8 +1,7 @@
 <script lang="ts">
-  import beepMP3 from "$lib/assets/beep.mp3";
   import { Slider } from "$lib/components/ui/slider";
   import { Toggle } from "$lib/components/ui/toggle";
-  import { isBrowser } from "$lib/utils";
+  import { beep } from "$lib/utils.sound.svelte";
 
   import { HeadphoneOff, Headphones } from "lucide-svelte";
 
@@ -15,22 +14,13 @@
   let volumeBeforeMuted = $state(0);
   let muted = $state(volume === 0);
 
-  let beep: HTMLAudioElement;
-  if (isBrowser) beep = new Audio(beepMP3);
-
-  const forcePlayBeep = () => {
-    beep.pause();
-    beep.currentTime = 0;
-    beep.play();
-  };
-
   const onMuteToggle = () => {
     if (muted) {
       volumeBeforeMuted = volume;
       volume = 0;
     } else {
-      forcePlayBeep();
       volume = volumeBeforeMuted > 0 ? volumeBeforeMuted : 100;
+      beep.playForced();
     }
   };
 </script>
@@ -53,7 +43,7 @@
   <Slider
     value={[volume]}
     onValueChange={(value) => (muted = (volume = value[0]) === 0)}
-    onValueCommit={forcePlayBeep}
+    onValueCommit={() => beep.playForced()}
     min={0}
     max={100}
     step={5}

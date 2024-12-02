@@ -1,13 +1,11 @@
 <script lang="ts">
   import QuestionPageDialog from "./question-page-dialog.svelte";
 
-  import correctAnswerMP3 from "$lib/assets/correct-answer.mp3";
-  import wrongAnswerMP3 from "$lib/assets/wrong-answer.mp3";
   import { Button } from "$lib/components/ui/button";
   import * as Card from "$lib/components/ui/card";
-  import { gameState } from "$lib/states.svelte";
   import type { Question } from "$lib/types";
   import { cn, isBrowser, sleep } from "$lib/utils";
+  import { correctAnswer, wrongAnswer } from "$lib/utils.sound.svelte";
 
   import { tick } from "svelte";
 
@@ -17,12 +15,6 @@
 
   const { question }: Props = $props();
   const { answers, level } = $derived(question);
-
-  let correctAudio: HTMLAudioElement, wrongAudio: HTMLAudioElement;
-  if (isBrowser) {
-    correctAudio = new Audio(correctAnswerMP3);
-    wrongAudio = new Audio(wrongAnswerMP3);
-  }
 
   let dialogOpen = $state(false);
   let pickedAnswer = $state("");
@@ -34,20 +26,17 @@
     const correct = answers.correct === choice;
     if (!correct) highlightWrongAnswerIndex = choice;
 
-    const audio = correct ? correctAudio : wrongAudio;
+    const audio = correct ? correctAnswer : wrongAnswer;
     await tick();
 
-    audio.volume = gameState.volume / 100;
-    if (audio.volume === 0) {
-      await sleep(1000);
-      dialogOpen = true;
-    } else {
-      audio.play();
-
-      audio.addEventListener("ended", async () => {
+    if (audio.play()) {
+      audio.raw.addEventListener("ended", async () => {
         await sleep(100);
         dialogOpen = true;
       });
+    } else {
+      await sleep(1000);
+      dialogOpen = true;
     }
   };
 </script>
