@@ -38,12 +38,17 @@
     await tick();
 
     audio.volume = gameState.volume / 100;
-    audio.play();
-
-    audio.addEventListener("ended", async () => {
-      await sleep(100);
+    if (audio.volume === 0) {
+      await sleep(1000);
       dialogOpen = true;
-    });
+    } else {
+      audio.play();
+
+      audio.addEventListener("ended", async () => {
+        await sleep(100);
+        dialogOpen = true;
+      });
+    }
   };
 </script>
 
