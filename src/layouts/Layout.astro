@@ -3,6 +3,9 @@ import "$lib/styles/app.css";
 
 import { Toaster } from "$lib/components/ui/sonner";
 
+import AnimationStyle from "astro-vtbot/animations/AnimationStyle.astro";
+import { customZoom } from "astro-vtbot/animations/zoom";
+import ProgressBar from "astro-vtbot/components/ProgressBar.astro";
 import { ViewTransitions } from "astro:transitions";
 
 interface Props {
@@ -12,12 +15,28 @@ interface Props {
 }
 
 const { title, heading, class: className } = Astro.props;
+
+const zoom2Scope = customZoom("zoom2", {
+  keyframes: { scale: { forwardOut: 0, backwardIn: 0 } },
+});
+const zoom3Scope = customZoom("zoom3", {
+  keyframes: { scale: { forwardOut: 0, backwardIn: 0 } },
+  base: { easing: "cubic-bezier(.16,.73,.05,1.1)" },
+  extensions: {
+    forwards: { new: { "animation-delay": "0.2s" } },
+    backwards: { new: { "animation-delay": "0.2s" } },
+  },
+});
 ---
 
 <!doctype html>
 <html lang="en" transition:animate="none">
   <head>
     <ViewTransitions />
+    <ProgressBar />
+
+    <AnimationStyle name="zoom2" />
+    <AnimationStyle name="zoom3" />
 
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -30,21 +49,19 @@ const { title, heading, class: className } = Astro.props;
     <Toaster client:only="svelte" />
 
     <main
-      class:list={[
-        "container flex min-h-screen flex-col items-center justify-center",
-      ]}
+      class="container flex min-h-screen flex-col items-center justify-center"
     >
       {
         heading && (
           <h1
             class="my-4 scroll-m-20 text-center text-4xl font-extrabold tracking-tight"
-            transition:animate="fade"
+            data-astro-transition-scope={zoom2Scope}
           >
             {heading}
           </h1>
         )
       }
-      <div class:list={className} transition:animate="slide">
+      <div class:list={className} data-astro-transition-scope={zoom3Scope}>
         <slot />
       </div>
     </main>

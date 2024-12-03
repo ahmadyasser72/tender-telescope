@@ -15,6 +15,7 @@
     "@astrojs/svelte": "^6.0.2",
     "@astrojs/tailwind": "^5.1.2",
     "astro": "^4.16.15",
+    "astro-vtbot": "^1.10.7",
     "fast-shuffle": "^6.1.1",
     "svelte": "^5.2.8",
     "svelte-persisted-store": "^0.12.0",

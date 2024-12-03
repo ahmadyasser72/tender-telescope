@@ -1,5 +1,6 @@
 // @ts-check
 
+import vtbot from "astro-vtbot";
 import { defineConfig } from "astro/config";
 
 import netlify from "@astrojs/netlify";
@@ -14,7 +15,11 @@ export default defineConfig({
     "/": "/start",
   },
 
-  integrations: [svelte(), tailwind({ applyBaseStyles: false })],
+  integrations: [
+    svelte(),
+    tailwind({ applyBaseStyles: false }),
+    vtbot({ loadingIndicator: false }),
+  ],
 
   experimental: {
     env: {
