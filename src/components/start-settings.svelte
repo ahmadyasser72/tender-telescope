@@ -49,7 +49,7 @@
   };
 </script>
 
-<div class="mt-8 flex grid-flow-dense grid-cols-3 flex-col gap-4 sm:grid">
+<div class="flex grid-flow-dense grid-cols-3 flex-col gap-4 sm:grid">
   <div class="col-span-full gap-2 sm:mx-4">
     <span class="text-muted-foreground">Volume ({gameState.volume}%)</span>
     <SliderVolume bind:volume={gameState.volume} />

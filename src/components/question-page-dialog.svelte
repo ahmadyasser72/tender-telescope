@@ -68,9 +68,10 @@
     <Dialog.Footer>
       {#if nextLevel !== undefined}
         <Button
-          onclick={() =>
-            navigate(`/question/${nextLevel}`, { history: "replace" })}
-          >Level selanjutnya</Button
+          onclick={() => {
+            open = false;
+            navigate(`/question/${nextLevel}`, { history: "replace" });
+          }}>Level selanjutnya</Button
         >
       {/if}
     </Dialog.Footer>

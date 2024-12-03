@@ -1,5 +1,3 @@
-import { getCookie, setCookie } from "./utils";
-
 import type { Question } from "$lib/types";
 import { getAnswers, getQuestions } from "$lib/utils.content";
 

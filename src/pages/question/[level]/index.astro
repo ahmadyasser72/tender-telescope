@@ -1,6 +1,7 @@
 ---
 import QuestionPageSvelte from "$lib/components/question-page.svelte";
 import Layout from "$lib/layouts/Layout.astro";
+import { padNumber, titleCase } from "$lib/utils";
 
 import { actions } from "astro:actions";
 
@@ -10,7 +11,7 @@ if (Number.isNaN(level)) return Astro.redirect("/404");
 
 const { data: preferences, error } = await Astro.callAction(
   actions.game.getPreferences,
-  undefined,
+  undefined
 );
 
 if (preferences === undefined && error !== undefined)
@@ -20,8 +21,14 @@ const question = await Astro.callAction(actions.questions.get.orThrow, {
   index: level,
   ...preferences,
 });
+
+const { difficulty, language } = question;
+const { current, total } = question.level;
+const levelText = `Level ${padNumber(current)}/${padNumber(total)}`;
+const heading = `${levelText} [${titleCase(language)}]`;
+const title = `${levelText} [${titleCase(language)} ${titleCase(difficulty)}]`;
 ---
 
-<Layout title=`Level ${question.level.current}/${question.level.total}`>
+<Layout {title} {heading} class="flex flex-col items-center">
   <QuestionPageSvelte {question} client:load />
 </Layout>

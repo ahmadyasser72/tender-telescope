@@ -16,4 +16,12 @@ export const sleep = (duration: number) =>
 export const randomNumber = (min: number, max: number) =>
   Math.floor(Math.random() * (max - min + 1)) + min;
 
+export const padNumber = (value: number) => value.toString().padStart(2, "0");
+export const titleCase = (value: string) =>
+  value
+    .toLowerCase()
+    .split(" ")
+    .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
+    .join(" ");
+
 export const isBrowser = !import.meta.env.SSR;
