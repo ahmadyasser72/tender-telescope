@@ -67,7 +67,9 @@
       const start = Date.now();
       handle = setInterval(() => {
         timer = Math.max(0, initialTimer - (Date.now() - start));
-        if (timer === 0) {
+        if (pickedAnswer !== undefined) {
+          clearInterval(handle);
+        } else if (timer === 0) {
           clearInterval(handle);
           checkAnswer(-1, true);
         }
