@@ -58,16 +58,24 @@
     return `${padNumber(minute)}:${padNumber(second)}.${padNumber(ms, 3)}`;
   });
 
+  let questionImage = $state<HTMLImageElement>();
   onMount(() => {
     timer = initialTimer;
-    const start = Date.now();
-    const handle = setInterval(() => {
-      timer = Math.max(0, initialTimer - (Date.now() - start));
-      if (timer === 0) {
-        clearInterval(handle);
-        checkAnswer(-1, true);
-      }
-    });
+
+    let handle: ReturnType<typeof setInterval>;
+    const startTimer = () => {
+      const start = Date.now();
+      handle = setInterval(() => {
+        timer = Math.max(0, initialTimer - (Date.now() - start));
+        if (timer === 0) {
+          clearInterval(handle);
+          checkAnswer(-1, true);
+        }
+      });
+    };
+
+    if (questionImage?.complete) startTimer();
+    else questionImage?.addEventListener("load", startTimer);
 
     return () => clearInterval(handle);
   });
@@ -82,6 +90,7 @@
 <Card.Root class="min-w-full max-w-96 text-center sm:min-w-96">
   <Card.Header>
     <img
+      bind:this={questionImage}
       class="h-48 object-cover"
       src="/question/{level.current}/image?q={question.sourceWord}"
       alt="Gambar {question.sourceWord}"
