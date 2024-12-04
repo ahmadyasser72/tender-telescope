@@ -16,7 +16,8 @@ export const sleep = (duration: number) =>
 export const randomNumber = (min: number, max: number) =>
   Math.floor(Math.random() * (max - min + 1)) + min;
 
-export const padNumber = (value: number) => value.toString().padStart(2, "0");
+export const padNumber = (value: number, width = 2) =>
+  value.toString().padStart(width, "0");
 export const titleCase = (value: string) =>
   value
     .toLowerCase()

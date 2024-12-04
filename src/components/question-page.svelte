@@ -4,10 +4,10 @@
   import { Button } from "$lib/components/ui/button";
   import * as Card from "$lib/components/ui/card";
   import type { Question } from "$lib/types";
-  import { cn, sleep } from "$lib/utils";
+  import { cn, padNumber, sleep } from "$lib/utils";
   import { correctAnswer, wrongAnswer } from "$lib/utils.sound.svelte";
 
-  import { tick } from "svelte";
+  import { onMount } from "svelte";
 
   interface Props {
     question: Question;
@@ -17,19 +17,18 @@
   const { answers, level } = $derived(question);
 
   let dialogOpen = $state(false);
-  let pickedAnswer = $state("");
+  let pickedAnswer = $state<string>();
   let highlightCorrectAnswer = $state(false);
-  let highlightWrongAnswerIndex = $state(-1);
-  const checkAnswer = async (choice: number) => {
+  let highlightWrongAnswer = $state<number | true>();
+  const checkAnswer = async (choice: number, timeout = false) => {
     pickedAnswer = answers.all[choice];
     highlightCorrectAnswer = true;
     const correct = answers.correct === choice;
-    if (!correct) highlightWrongAnswerIndex = choice;
+    if (!correct) highlightWrongAnswer = timeout || choice;
 
     const audio = correct ? correctAnswer : wrongAnswer;
-    await tick();
 
-    if (audio.play()) {
+    if (await audio.play()) {
       audio.raw.addEventListener("ended", async () => {
         await sleep(100);
         dialogOpen = true;
@@ -39,6 +38,39 @@
       dialogOpen = true;
     }
   };
+
+  const initialTimer = $derived.by(() => {
+    switch (question.difficulty) {
+      case "pemula":
+        return 90_000;
+      case "menengah":
+        return 30_000;
+      case "mahir":
+        return 10_000;
+    }
+  });
+
+  let timer = $state(0);
+  const timeLeft = $derived.by(() => {
+    const ms = timer % 1000;
+    const second = Math.floor((timer % 60_000) / 1000);
+    const minute = Math.floor(timer / 60_000);
+    return `${padNumber(minute)}:${padNumber(second)}.${padNumber(ms, 3)}`;
+  });
+
+  onMount(() => {
+    timer = initialTimer;
+    const start = Date.now();
+    const handle = setInterval(() => {
+      timer = Math.max(0, initialTimer - (Date.now() - start));
+      if (timer === 0) {
+        clearInterval(handle);
+        checkAnswer(-1, true);
+      }
+    });
+
+    return () => clearInterval(handle);
+  });
 </script>
 
 <QuestionPageDialog
@@ -54,21 +86,35 @@
       src="/question/{level.current}/image?q={question.sourceWord}"
       alt="Gambar {question.sourceWord}"
     />
-    <Card.Title class="text-4xl capitalize">{question.sourceWord}</Card.Title>
+    <Card.Title class="pt-2 text-4xl capitalize"
+      >{question.sourceWord}</Card.Title
+    >
   </Card.Header>
-  <Card.Footer></Card.Footer>
+  <Card.Footer class="justify-center pb-4">
+    <Card.Description class="text-center">
+      Waktu tersisa: <span
+        class={cn([
+          "font-semibold text-green-500 underline decoration-dotted",
+          timer < initialTimer / 2 && "text-orange-500 decoration-wavy",
+          timer === 0 && "text-red-500 decoration-solid decoration-2",
+        ])}>{timeLeft}</span
+      >
+    </Card.Description>
+  </Card.Footer>
 </Card.Root>
 
 <div class="grid grid-cols-2 gap-4 py-8 md:gap-8 md:px-12">
   {#each answers.all as answer, idx}
+    {@const isCorrect = idx === answers.correct}
     <Button
       onclick={() => checkAnswer(idx)}
       class={cn(
         "capitalize",
-        highlightCorrectAnswer &&
-          (idx === answers.correct ? "!bg-green-500" : "opacity-0"),
-        highlightWrongAnswerIndex === idx && "!bg-red-500 opacity-100",
-        pickedAnswer !== "" && "pointer-events-none",
+        pickedAnswer !== undefined && "pointer-events-none",
+        highlightCorrectAnswer && (isCorrect ? "!bg-green-500" : "opacity-0"),
+        ((highlightWrongAnswer === true && !isCorrect) ||
+          highlightWrongAnswer === idx) &&
+          "!bg-red-500 opacity-100",
       )}
       size="big"
     >

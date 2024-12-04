@@ -7,7 +7,7 @@
 
   interface Props {
     open: boolean;
-    answer: string;
+    answer?: string;
     question: Question;
   }
 
@@ -22,11 +22,15 @@
       ? question.level.current + 1
       : undefined,
   );
+
   const correctAnswer = $derived(
     question.answers.all[question.answers.correct],
   );
   const isCorrect = $derived(answer === correctAnswer);
-  const title = $derived(isCorrect ? "Jawaban benar!" : "Jawaban salah!");
+  const title = $derived.by(() => {
+    if (answer === undefined) return "Habis waktu!";
+    else return isCorrect ? "Jawaban benar!" : "Jawaban salah!";
+  });
 </script>
 
 <Dialog.Root bind:open>
@@ -37,7 +41,7 @@
     <Dialog.Header>
       <Dialog.Title class="text-2xl">{title}</Dialog.Title>
       <Dialog.Description class="text-base">
-        {#if isCorrect}
+        {#if isCorrect || answer === undefined}
           Bahasa Indonesia dari kata
           <span class="font-semibold capitalize text-black underline">
             {question.sourceWord}

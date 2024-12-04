@@ -8,15 +8,21 @@ import wrongAnswerMP3 from "$lib/assets/wrong-answer.mp3";
 const createSound = (src: string) => {
   const audio = (isBrowser && new Audio(src)) as HTMLAudioElement;
 
-  const play = () => {
+  const play = async () => {
     audio.muted = gameState.volume === 0;
     audio.volume = gameState.volume / 100;
-    if (!audio.muted) audio.play();
+    if (!audio.muted) {
+      try {
+        await audio.play();
+      } catch {
+        return false;
+      }
+    }
 
     return !audio.muted;
   };
 
-  const playForced = () => {
+  const playForced = async () => {
     audio.pause();
     audio.currentTime = 0;
     return play();
