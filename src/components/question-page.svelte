@@ -51,7 +51,7 @@
   <Card.Header>
     <img
       class="h-48 object-cover"
-      src="/question/{level.current}/image"
+      src="/question/{level.current}/image?q={question.sourceWord}"
       alt="Gambar {question.sourceWord}"
     />
     <Card.Title class="text-4xl capitalize">{question.sourceWord}</Card.Title>
