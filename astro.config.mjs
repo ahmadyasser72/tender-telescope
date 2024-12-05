@@ -21,14 +21,12 @@ export default defineConfig({
     vtbot({ loadingIndicator: false }),
   ],
 
-  experimental: {
-    env: {
-      schema: {
-        PIXABAY_API_KEY: {
-          access: "secret",
-          context: "server",
-          type: "string",
-        },
+  env: {
+    schema: {
+      PIXABAY_API_KEY: {
+        access: "secret",
+        context: "server",
+        type: "string",
       },
     },
   },

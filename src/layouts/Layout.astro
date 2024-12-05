@@ -6,7 +6,7 @@ import { Toaster } from "$lib/components/ui/sonner";
 import AnimationStyle from "astro-vtbot/animations/AnimationStyle.astro";
 import { customZoom } from "astro-vtbot/animations/zoom";
 import ProgressBar from "astro-vtbot/components/ProgressBar.astro";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
   title: string;
@@ -32,7 +32,7 @@ const zoom3Scope = customZoom("zoom3", {
 <!doctype html>
 <html lang="en" transition:animate="none">
   <head>
-    <ViewTransitions />
+    <ClientRouter />
     <ProgressBar />
 
     <AnimationStyle name="zoom2" />
