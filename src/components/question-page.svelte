@@ -62,24 +62,25 @@
   onMount(() => {
     timer = initialTimer;
 
-    let handle: ReturnType<typeof setInterval>;
+    let handle: ReturnType<typeof requestAnimationFrame>;
     const startTimer = () => {
       const start = Date.now();
-      handle = setInterval(() => {
+      const tick = () => {
         timer = Math.max(0, initialTimer - (Date.now() - start));
-        if (pickedAnswer !== undefined) {
-          clearInterval(handle);
-        } else if (timer === 0) {
-          clearInterval(handle);
+        if (timer === 0) {
           checkAnswer(-1, true);
+        } else if (pickedAnswer === undefined) {
+          handle = requestAnimationFrame(tick);
         }
-      });
+      };
+
+      tick();
     };
 
     if (questionImage?.complete) startTimer();
     else questionImage?.addEventListener("load", startTimer);
 
-    return () => clearInterval(handle);
+    return () => cancelAnimationFrame(handle);
   });
 </script>
 
