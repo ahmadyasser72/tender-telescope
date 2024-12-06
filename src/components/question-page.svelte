@@ -4,7 +4,7 @@
   import { Button } from "$lib/components/ui/button";
   import * as Card from "$lib/components/ui/card";
   import type { Question } from "$lib/types";
-  import { cn, padNumber, sleep } from "$lib/utils";
+  import { base64, cn, padNumber, sleep } from "$lib/utils";
   import { correctAnswer, wrongAnswer } from "$lib/utils.sound.svelte";
 
   import { onMount } from "svelte";
@@ -95,7 +95,7 @@
     <img
       bind:this={questionImage}
       class="h-48 object-cover"
-      src="/question/{level.current}/image?q={question.sourceWord}"
+      src="/images/{base64.encode(question.translation)}.jpg"
       alt="Gambar {question.sourceWord}"
     />
     <Card.Title class="pt-2 text-4xl capitalize"
