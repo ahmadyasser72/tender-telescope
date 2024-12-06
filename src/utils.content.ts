@@ -47,7 +47,5 @@ export const getQuestions = async (
   const questionsCount = Math.min(...questions.map((items) => items.length));
   return questionsShuffle(
     Array.from({ length: questionsCount }, (_, idx) => idx % languagesCount),
-  )
-    .slice(0, questionsCount)
-    .map((languageIdx, questionIdx) => questions[languageIdx][questionIdx]);
+  ).map((languageIdx, questionIdx) => questions[languageIdx][questionIdx]);
 };
