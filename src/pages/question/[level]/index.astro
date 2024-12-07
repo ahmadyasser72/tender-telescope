@@ -11,7 +11,7 @@ if (Number.isNaN(level)) return Astro.redirect("/404");
 
 const { data: preferences, error } = await Astro.callAction(
   actions.game.getPreferences,
-  undefined
+  undefined,
 );
 
 if (preferences === undefined && error !== undefined)

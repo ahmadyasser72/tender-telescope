@@ -12,6 +12,7 @@ const questionCollection = defineCollection({
   type: "data",
   schema: ({ image }) =>
     z.object({
+      code: z.string(),
       language: reference("questions"),
       items: z.array(
         z.object({

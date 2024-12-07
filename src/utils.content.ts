@@ -35,7 +35,7 @@ export const getQuestions = async (
         .filter(
           (it) => difficulty === undefined || it.difficulty === difficulty,
         )
-        .map((it) => ({ ...it, language: id })),
+        .map((it) => ({ ...it, language: id, code: data.code })),
     );
 
   if (seed === undefined) return questions.flat();

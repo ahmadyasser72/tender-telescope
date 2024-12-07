@@ -5,7 +5,7 @@ import beepMP3 from "$lib/assets/beep.mp3";
 import correctAnswerMP3 from "$lib/assets/correct-answer.mp3";
 import wrongAnswerMP3 from "$lib/assets/wrong-answer.mp3";
 
-const createSound = (src: string) => {
+export const createSound = (src: string) => {
   const audio = (isBrowser && new Audio(src)) as HTMLAudioElement;
 
   const play = async () => {
