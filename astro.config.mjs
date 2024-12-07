@@ -28,6 +28,11 @@ export default defineConfig({
         context: "server",
         type: "string",
       },
+      VOICE_RSS_API_KEY: {
+        access: "secret",
+        context: "server",
+        type: "string",
+      },
     },
   },
 });
