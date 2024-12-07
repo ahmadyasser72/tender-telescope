@@ -1,4 +1,4 @@
-import ttsMP3 from "$lib/assets/placeholder/tts.mp3";
+import ttsPlaceholder from "$lib/assets/placeholder/tts.mp3";
 import { randomNumber } from "$lib/utils";
 import { getQuestions } from "$lib/utils.content";
 
@@ -19,7 +19,7 @@ export const getStaticPaths = (async () => {
 export const GET: APIRoute = async (context) => {
   const { word } = context.params;
   if (import.meta.env.DEV || word === undefined) {
-    return context.redirect(ttsMP3);
+    return context.redirect(ttsPlaceholder);
   }
 
   const { languageCode } = context.props;

@@ -1,3 +1,4 @@
+import imagePlaceholder from "$lib/assets/placeholder/image.jpg";
 import { base64, randomNumber } from "$lib/utils";
 import { getQuestions } from "$lib/utils.content";
 
@@ -37,7 +38,7 @@ export const getStaticPaths = (async () => {
 
 export const GET: APIRoute = async (context) => {
   if (import.meta.env.DEV) {
-    return context.redirect("https://placehold.co/600x800/EEE/31343C");
+    return context.redirect(imagePlaceholder.src);
   }
 
   const { pixabayQuery, image } = context.props;
