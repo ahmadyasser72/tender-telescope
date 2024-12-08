@@ -2,7 +2,10 @@
 import StartSettingsSvelte from "$lib/components/start-settings.svelte";
 import Layout from "$lib/layouts/Layout.astro";
 import type { Difficulty, Language } from "$lib/types";
+import { combinations, range } from "$lib/utils";
 import { getQuestions } from "$lib/utils.content";
+
+import { actions } from "astro:actions";
 
 export const prerender = true;
 
@@ -15,6 +18,25 @@ for (const { difficulty, language } of allQuestions) {
   languages.add(language);
 }
 
+const languagesArray = [...languages];
+const languageIndices = range(languagesArray.length);
+const levelCountMap = new Map<string, number>();
+for (const languageIdx of languageIndices) {
+  for (const combination of combinations(languageIndices, languageIdx + 1)) {
+    const languages = combination.map((idx) => languagesArray[idx]);
+
+    for (const difficulty of difficulties) {
+      levelCountMap.set(
+        [difficulty, ...languages].join("-"),
+        await Astro.callAction(actions.questions.size.orThrow, {
+          difficulty,
+          languages,
+        }),
+      );
+    }
+  }
+}
+
 const choices = {
   languages: [...languages],
   difficulties: [...difficulties],
@@ -22,5 +44,5 @@ const choices = {
 ---
 
 <Layout title="Pengaturan permainan" heading="Pengaturan" class="max-sm:w-full">
-  <StartSettingsSvelte {choices} client:load />
+  <StartSettingsSvelte {choices} {levelCountMap} client:load />
 </Layout>

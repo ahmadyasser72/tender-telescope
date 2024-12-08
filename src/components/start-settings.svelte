@@ -6,12 +6,10 @@
   import { Button } from "$lib/components/ui/button";
   import { gameState } from "$lib/states.svelte";
   import type { Difficulty, Language } from "$lib/types";
-  import { isBrowser } from "$lib/utils";
 
   import { actions } from "astro:actions";
   import { navigate } from "astro:transitions/client";
 
-  import { Loader } from "lucide-svelte";
   import { toast } from "svelte-sonner";
 
   interface Props {
@@ -19,16 +17,17 @@
       difficulties: Difficulty[];
       languages: Language[];
     };
+    levelCountMap: Map<string, number>;
   }
 
-  const { choices }: Props = $props();
+  const { choices, levelCountMap }: Props = $props();
 
   const { difficulty, languages } = $derived(gameState);
 
-  const questionLength = $derived(
-    isBrowser && difficulty && languages.length > 0
-      ? actions.questions.size.orThrow({ difficulty, languages })
-      : Promise.resolve("-"),
+  const levelCount = $derived(
+    difficulty && languages.length > 0
+      ? levelCountMap.get([difficulty, ...languages.slice().sort()].join("-"))!
+      : "-",
   );
 
   const start = async () => {
@@ -76,13 +75,9 @@
 
   <div class="col-span-2 text-end max-sm:hidden">Jumlah level :</div>
   <div class="inline-flex items-center max-sm:justify-center">
-    {#await questionLength}
-      <Loader class="mr-1 animate-spin" /> Loading...
-    {:then length}
-      <span class="mr-1 sm:hidden">Jumlah level :</span>
-      <span class:underline={Number.isInteger(length)} class="font-semibold">
-        {length}
-      </span>
-    {/await}
+    <span class="mr-1 sm:hidden">Jumlah level :</span>
+    <span class:underline={levelCount !== "-"} class="font-semibold">
+      {levelCount}
+    </span>
   </div>
 </div>
