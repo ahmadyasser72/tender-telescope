@@ -1,9 +1,9 @@
-import type { GameState } from "./types";
+import type { GamePreferences } from "./types";
 import { isBrowser } from "./utils";
 
-const STORAGE_KEY = "game-state-v1";
+const STORAGE_KEY = "game-preferences-v1";
 
-let initialState: GameState = {
+let initialState: GamePreferences = {
   volume: 100,
   difficulty: undefined,
   languages: [],
@@ -14,10 +14,12 @@ if (isBrowser) {
   if (localState) initialState = JSON.parse(localState);
 }
 
-export const gameState = $state<GameState>(initialState);
+export const gamePreferences = $state<GamePreferences>(initialState);
 
 if (isBrowser) {
   $effect.root(() => {
-    $effect(() => localStorage.setItem(STORAGE_KEY, JSON.stringify(gameState)));
+    $effect(() =>
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(gamePreferences)),
+    );
   });
 }

@@ -4,7 +4,7 @@
   import SliderVolume from "./slider-volume.svelte";
 
   import { Button } from "$lib/components/ui/button";
-  import { gameState } from "$lib/states.svelte";
+  import { gamePreferences } from "$lib/states.svelte";
   import type { Difficulty, Language } from "$lib/types";
 
   import { actions } from "astro:actions";
@@ -22,7 +22,7 @@
 
   const { choices, levelCountMap }: Props = $props();
 
-  const { difficulty, languages } = $derived(gameState);
+  const { difficulty, languages } = $derived(gamePreferences);
 
   const levelCount = $derived(
     difficulty && languages.length > 0
@@ -50,20 +50,21 @@
 
 <div class="flex grid-flow-dense grid-cols-3 flex-col gap-4 sm:grid">
   <div class="col-span-full gap-2 sm:mx-4">
-    <span class="text-muted-foreground">Volume ({gameState.volume}%)</span>
-    <SliderVolume bind:volume={gameState.volume} />
+    <span class="text-muted-foreground">Volume ({gamePreferences.volume}%)</span
+    >
+    <SliderVolume bind:volume={gamePreferences.volume} />
   </div>
 
   <div class="col-span-2">
     <SelectKesulitan
-      bind:difficulty={gameState.difficulty}
+      bind:difficulty={gamePreferences.difficulty}
       choices={choices.difficulties}
     />
   </div>
 
   <div class="col-span-2">
     <SelectBahasa
-      bind:languages={gameState.languages}
+      bind:languages={gamePreferences.languages}
       choices={choices.languages}
     />
   </div>

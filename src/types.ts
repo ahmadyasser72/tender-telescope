@@ -18,7 +18,7 @@ export interface Question extends QuestionRaw {
 export type Difficulty = QuestionRaw["difficulty"];
 export type Language = QuestionEntry["id"];
 
-export interface GameState {
+export interface GamePreferences {
   volume: number;
   difficulty?: Difficulty;
   languages: Language[];

@@ -1,4 +1,4 @@
-import { gameState } from "./states.svelte";
+import { gamePreferences } from "./states.svelte";
 import { isBrowser } from "./utils";
 
 import beepMP3 from "$lib/assets/beep.mp3";
@@ -8,9 +8,10 @@ import wrongAnswerMP3 from "$lib/assets/wrong-answer.mp3";
 export const createSound = (src: string) => {
   const audio = (isBrowser && new Audio(src)) as HTMLAudioElement;
 
+  const { volume } = $derived(gamePreferences);
   const play = async () => {
-    audio.muted = gameState.volume === 0;
-    audio.volume = gameState.volume / 100;
+    audio.muted = volume === 0;
+    audio.volume = volume / 100;
     if (!audio.muted) {
       try {
         await audio.play();
