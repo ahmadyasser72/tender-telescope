@@ -3,17 +3,15 @@ import StartSettingsSvelte from "$lib/components/start-settings.svelte";
 import Layout from "$lib/layouts/Layout.astro";
 import type { Difficulty, Language } from "$lib/types";
 import { combinations, range } from "$lib/utils";
-import { getQuestions } from "$lib/utils.content";
-
-import { actions } from "astro:actions";
-
-export const prerender = true;
+import { processQuestions } from "$lib/utils.content";
+import { getQuestions } from "$lib/utils.server";
 
 const difficulties = new Set<Difficulty>();
 const languages = new Set<Language>();
 
 const allQuestions = await getQuestions();
-for (const { difficulty, language } of allQuestions) {
+const questions = allQuestions.flatMap(([_, items]) => items);
+for (const { difficulty, language } of questions) {
   difficulties.add(difficulty);
   languages.add(language);
 }
@@ -28,10 +26,8 @@ for (const languageIdx of languageIndices) {
     for (const difficulty of difficulties) {
       levelCountMap.set(
         [difficulty, ...languages].join("-"),
-        await Astro.callAction(actions.questions.size.orThrow, {
-          difficulty,
-          languages,
-        }),
+        processQuestions(allQuestions, { difficulty, languages, seed: 0 })
+          .length,
       );
     }
   }

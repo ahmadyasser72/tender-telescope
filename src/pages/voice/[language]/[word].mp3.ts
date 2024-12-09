@@ -1,14 +1,12 @@
 import ttsPlaceholder from "$lib/assets/placeholder/tts.mp3";
 import { randomNumber } from "$lib/utils";
-import { getQuestions } from "$lib/utils.content";
+import { getQuestions, stripResponse } from "$lib/utils.server";
 
 import type { APIRoute, GetStaticPaths } from "astro";
 import { VOICE_RSS_API_KEY } from "astro:env/server";
 
-export const prerender = true;
-
 export const getStaticPaths = (async () => {
-  const allQuestions = await getQuestions();
+  const allQuestions = (await getQuestions()).flatMap(([_, items]) => items);
 
   return allQuestions.map(({ language, sourceWord, code }) => ({
     params: { language, word: sourceWord },
@@ -18,15 +16,15 @@ export const getStaticPaths = (async () => {
 
 export const GET: APIRoute = async (context) => {
   const { word } = context.params;
-  if (import.meta.env.DEV || word === undefined) {
+  if (import.meta.env.DEV) {
     return context.redirect(ttsPlaceholder);
   }
 
   const { languageCode } = context.props;
 
   const urls = [
-    ttsGoogleTranslate(languageCode, word),
-    ...ttsSimplyTranslate(languageCode, word),
+    ttsGoogleTranslate(languageCode, word!),
+    ...ttsSimplyTranslate(languageCode, word!),
   ];
 
   // coba download tts google translate terlebih dahulu, sekaligus
@@ -35,7 +33,7 @@ export const GET: APIRoute = async (context) => {
     try {
       const url = urls.splice(randomNumber(0, urls.length - 1), 1)[0];
       const response = await fetch(url);
-      if (response.ok) return response;
+      if (response.ok) return stripResponse(response);
     } catch {
       // coba yang lain bila timeout
       continue;
@@ -45,7 +43,7 @@ export const GET: APIRoute = async (context) => {
   // kalau gagal baru gunakan VoiceRSS,
   // ini karena kualitas TTS google translate lebih bagus dan
   // VoiceRSS gratisan hanya bisa maksimal 350 requests per harinya
-  return fetch(ttsVoiceRSS(languageCode, word));
+  return fetch(ttsVoiceRSS(languageCode, word!)).then(stripResponse);
 };
 
 const ttsGoogleTranslate = (code: string, text: string) => {

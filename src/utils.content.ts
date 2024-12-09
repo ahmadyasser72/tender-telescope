@@ -1,47 +1,46 @@
-import type { Difficulty } from "./types";
-
-import { getCollection } from "astro:content";
+import type {
+  Answer,
+  Difficulty,
+  GamePreferences,
+  GameState,
+  Language,
+  Question,
+} from "./types";
+import type { getAnswers, getQuestions } from "./utils.server";
 
 import { createShuffle } from "fast-shuffle";
 
-export const getAnswers = async (difficulty: Difficulty) => {
-  const answers = new Set<string>();
-
-  const entries = await getCollection("answers", ({ id }) => id === difficulty);
-  for (const item of entries.flatMap(({ data }) => data.items)) {
-    answers.add(item);
-  }
-
-  const questions = await getQuestions(difficulty);
-  for (const { translation } of questions) answers.add(translation);
-
-  return answers;
+export const filterQuestions = (
+  questions: Awaited<ReturnType<typeof getQuestions>>,
+  difficulty?: Difficulty,
+  languages?: Language[],
+): Question[][] => {
+  return questions
+    .filter(
+      ([it]) =>
+        languages === undefined ||
+        languages.length === 0 ||
+        languages.some((language) => language === it),
+    )
+    .map(([_, items]) =>
+      items.filter(
+        (it) =>
+          (difficulty || undefined) === undefined ||
+          it.difficulty === difficulty,
+      ),
+    );
 };
 
-export const getQuestions = async (
-  difficulty?: Difficulty,
-  languages?: string[],
-  seed?: number,
-) => {
-  const entries = await getCollection("questions");
-  const questions = entries
-    .filter(
-      ({ id }) =>
-        languages === undefined ||
-        languages.some((language) => language === id),
-    )
-    .map(({ data, id }) =>
-      data.items
-        .filter(
-          (it) => difficulty === undefined || it.difficulty === difficulty,
-        )
-        .map((it) => ({ ...it, language: id, code: data.code })),
-    );
-
-  if (seed === undefined) return questions.flat();
+export const shuffleQuestions = (
+  questions: ReturnType<typeof filterQuestions>,
+  seed: number = 0,
+): Question[] => {
+  const questionsShuffle =
+    seed === 0
+      ? <T>(it: T) => it // noop bila seed 0
+      : createShuffle(seed);
 
   const languagesCount = questions.length;
-  const questionsShuffle = createShuffle(seed);
   if (languagesCount === 1) return questionsShuffle(questions[0]);
 
   const questionsCount = Math.min(...questions.map((items) => items.length));
@@ -50,4 +49,37 @@ export const getQuestions = async (
       Array.from({ length: questionsCount }, (_, idx) => idx % languagesCount),
     ).map((languageIdx, questionIdx) => questions[languageIdx][questionIdx]),
   );
+};
+
+export const processQuestions = (
+  questions: Awaited<ReturnType<typeof getQuestions>>,
+  preferences: Partial<
+    Pick<GamePreferences, "difficulty" | "languages" | "seed">
+  >,
+): Question[] => {
+  const filtered = filterQuestions(
+    questions,
+    preferences.difficulty,
+    preferences.languages,
+  );
+
+  return shuffleQuestions(filtered, preferences.seed);
+};
+
+export const processAnswer = (
+  answerMap: Awaited<ReturnType<typeof getAnswers>>,
+  question: Question,
+  preferences: Pick<GamePreferences, "seed">,
+  state: Pick<GameState, "level">,
+): Answer => {
+  const correctAnswer = question.translation;
+  const allAnswers = new Set([...answerMap.get(question.difficulty)!]);
+  allAnswers.delete(correctAnswer);
+
+  const answerShuffle = createShuffle(preferences.seed + state.level.current);
+  const otherAnswers = answerShuffle([...allAnswers]).slice(0, 3);
+  const choices = answerShuffle([correctAnswer, ...otherAnswers]);
+  const correct = choices.indexOf(correctAnswer);
+
+  return { choices, correct };
 };

@@ -4,11 +4,8 @@
   import SliderVolume from "./slider-volume.svelte";
 
   import { Button } from "$lib/components/ui/button";
-  import { gamePreferences } from "$lib/states.svelte";
+  import { gamePreferences, initializeGame } from "$lib/states.svelte";
   import type { Difficulty, Language } from "$lib/types";
-
-  import { actions } from "astro:actions";
-  import { navigate } from "astro:transitions/client";
 
   import { toast } from "svelte-sonner";
 
@@ -39,15 +36,7 @@
       return;
     }
 
-    // trigger event navigasi agar progress bar muncul
-    document.dispatchEvent(new Event("astro:before-preparation"));
-
-    await actions.game.initialize.orThrow({
-      difficulty: difficulty,
-      languages: languages,
-    });
-
-    navigate("/question/1");
+    await initializeGame();
   };
 </script>
 

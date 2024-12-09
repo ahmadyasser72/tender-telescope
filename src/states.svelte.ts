@@ -1,25 +1,57 @@
-import type { GamePreferences } from "./types";
+import type { GamePreferences, GameState } from "./types";
 import { isBrowser } from "./utils";
 
-const STORAGE_KEY = "game-preferences-v1";
+import { navigate } from "astro:transitions/client";
 
-let initialState: GamePreferences = {
-  volume: 100,
-  difficulty: undefined,
-  languages: [],
+const STORAGE_KEY = "data-v1";
+
+const initial = {
+  state: {
+    level: { current: 0, total: 0 },
+  } satisfies GameState,
+  preferences: {
+    volume: 100,
+    difficulty: undefined,
+    languages: [],
+    seed: 0,
+  } satisfies GamePreferences,
 };
 
 if (isBrowser) {
-  const localState = localStorage.getItem(STORAGE_KEY);
-  if (localState) initialState = JSON.parse(localState);
+  const data = localStorage.getItem(STORAGE_KEY);
+  if (data) Object.assign(initial, JSON.parse(data));
 }
 
-export const gamePreferences = $state<GamePreferences>(initialState);
+export const gameState = $state<GameState>(initial.state);
+export const gamePreferences = $state<GamePreferences>(initial.preferences);
 
 if (isBrowser) {
   $effect.root(() => {
     $effect(() =>
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(gamePreferences)),
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify({
+          state: gameState,
+          preferences: gamePreferences,
+        }),
+      ),
     );
   });
 }
+
+export const initializeGame = async () => {
+  gamePreferences.seed = Date.now();
+  gameState.level.current = 1;
+
+  await navigate(`/game?t=${Date.now()}`);
+};
+
+export const gotoNextLevel = async () => {
+  document.addEventListener(
+    "astro:page-load",
+    () => (gameState.level.current += 1),
+    { once: true },
+  );
+
+  await navigate(`/game?t=${Date.now()}`, { history: "replace" });
+};

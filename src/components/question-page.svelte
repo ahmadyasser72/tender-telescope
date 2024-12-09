@@ -4,7 +4,7 @@
   import { Badge } from "$lib/components/ui/badge";
   import { Button } from "$lib/components/ui/button";
   import * as Card from "$lib/components/ui/card";
-  import type { Question } from "$lib/types";
+  import type { Answer, Question } from "$lib/types";
   import { base64, cn, padNumber, sleep } from "$lib/utils";
   import {
     correctAnswer,
@@ -17,11 +17,11 @@
   import { toast } from "svelte-sonner";
 
   interface Props {
+    answer: Answer;
     question: Question;
   }
 
-  const { question }: Props = $props();
-  const { answers } = $derived(question);
+  const { answer, question }: Props = $props();
 
   let ttsAudio = $state<ReturnType<typeof createSound>>();
   let ttsPlaying = $state(false);
@@ -50,9 +50,9 @@
   let highlightCorrectAnswer = $state(false);
   let highlightWrongAnswer = $state<number | true>();
   const checkAnswer = async (choice: number, timeout = false) => {
-    pickedAnswer = answers.all[choice];
+    pickedAnswer = answer.choices[choice];
     highlightCorrectAnswer = true;
-    const correct = answers.correct === choice;
+    const correct = answer.correct === choice;
     if (!correct) highlightWrongAnswer = timeout || choice;
 
     const audio = correct ? correctAnswer : wrongAnswer;
@@ -119,7 +119,8 @@
 
 <QuestionPageDialog
   bind:open={dialogOpen}
-  bind:answer={pickedAnswer}
+  bind:choice={pickedAnswer}
+  {answer}
   {question}
 />
 
@@ -163,8 +164,8 @@
 </Card.Root>
 
 <div class="grid grid-cols-2 gap-4 py-8 md:gap-8 md:px-12">
-  {#each answers.all as answer, idx}
-    {@const isCorrect = idx === answers.correct}
+  {#each answer.choices as choice, idx}
+    {@const isCorrect = idx === answer.correct}
     <Button
       onclick={() => checkAnswer(idx)}
       class={cn(
@@ -177,7 +178,7 @@
       )}
       size="big"
     >
-      {answer}
+      {choice}
     </Button>
   {/each}
 </div>

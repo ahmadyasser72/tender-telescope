@@ -1,0 +1,12 @@
+---
+import GamePage from "$lib/components/game-page.svelte";
+import Layout from "$lib/layouts/Layout.astro";
+import { getAnswers, getQuestions } from "$lib/utils.server";
+
+const answerMap = await getAnswers();
+const questions = await getQuestions();
+---
+
+<Layout title="Game" heading="-" class="flex flex-col items-center">
+  <GamePage {answerMap} {questions} client:only="svelte" />
+</Layout>

@@ -5,6 +5,8 @@
     "baseUrl": ".",
     "paths": {
       "$lib/*": ["./src/*"]
-    }
+    },
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
   }
 }

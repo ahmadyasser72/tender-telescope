@@ -1,17 +1,15 @@
 import imagePlaceholder from "$lib/assets/placeholder/image.jpg";
 import { base64, randomNumber } from "$lib/utils";
-import { getQuestions } from "$lib/utils.content";
+import { getQuestions, stripResponse } from "$lib/utils.server";
 
 import type { APIRoute, GetStaticPaths } from "astro";
 import { PIXABAY_API_KEY } from "astro:env/server";
-
-export const prerender = true;
 
 export const getStaticPaths = (async () => {
   const indonesianWords = new Set<string>();
   const imageLookup = new Map<string, string>();
   const englishWordLookup = new Map<string, string>();
-  const allQuestions = await getQuestions();
+  const allQuestions = (await getQuestions()).flatMap(([_, items]) => items);
   for (const {
     language,
     translation: indonesianWord,
@@ -59,7 +57,7 @@ export const GET: APIRoute = async (context) => {
   const { hits: items } = json;
   const item = items[randomNumber(0, items.length - 1)];
 
-  return fetch(item.webformatURL);
+  return fetch(item.webformatURL).then(stripResponse);
 };
 
 /**
