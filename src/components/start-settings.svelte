@@ -39,6 +39,9 @@
       return;
     }
 
+    // trigger event navigasi agar progress bar muncul
+    document.dispatchEvent(new Event("astro:before-preparation"));
+
     await actions.game.initialize.orThrow({
       difficulty: difficulty,
       languages: languages,
