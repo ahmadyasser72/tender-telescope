@@ -25,7 +25,7 @@ jobs:
 
           - platform: "ubuntu-22.04"
             android: true
-            args: ""
+            args: "--apk"
 
     runs-on: ${{ matrix.platform }}
     steps:
