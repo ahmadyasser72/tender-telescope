@@ -25,7 +25,7 @@ jobs:
 
           - platform: "ubuntu-22.04"
             android: true
-            args: ""
+            args: "--apk --split-per-abi"
 
     runs-on: ${{ matrix.platform }}
     steps:
@@ -78,7 +78,7 @@ jobs:
           bun add -D @tauri-apps/cli
           bun tauri android init
 
-      - uses: tauri-apps/tauri-action@2a2f2a82549f0aacb51f9f7720471f118386ae7e
+      - uses: ahmadyasser72/tauri-action@42269c0cb8fb330dfc4797733aca6c8b4d600a01
         env:
           NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
