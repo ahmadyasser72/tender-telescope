@@ -17,6 +17,9 @@ jobs:
       - name: install dependencies (bun)
         run: bun install --frozen-lockfile
       - name: build frontend
+        env:
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          VOICE_RSS_API_KEY: ${{ secrets.VOICE_RSS_API_KEY }}
         run: bun run build
 
       - uses: actions/upload-artifact@v4
@@ -105,8 +108,6 @@ jobs:
         env:
           NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
-          VOICE_RSS_API_KEY: ${{ secrets.VOICE_RSS_API_KEY }}
         with:
           tagName: app-v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version.
           releaseName: "App v__VERSION__"
