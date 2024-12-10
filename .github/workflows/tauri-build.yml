@@ -2,9 +2,6 @@ name: "publish"
 
 on:
   workflow_dispatch:
-  push:
-    tags:
-      - "app-v*"
 
 jobs:
   build-astro:
@@ -58,27 +55,28 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
 
-      - name: setup bun
-        uses: oven-sh/setup-bun@v2
-      - name: install dependencies (bun)
-        run: bun install --frozen-lockfile
-
       - uses: actions/download-artifact@v4
         with:
           name: astro-build
           path: dist
 
-      - name: Setup Java
+      - name: setup bun
+        uses: oven-sh/setup-bun@v2
+      - name: install dependencies (bun)
+        run: bun install --frozen-lockfile
+
+      - name: setup java
         if: matrix.android
         uses: actions/setup-java@v4
         with:
           distribution: "zulu"
           java-version: "17"
 
-      - name: Setup Android SDK
+      - name: setup android sdk
         if: matrix.android
         uses: android-actions/setup-android@v3
-      - name: Setup Android NDK
+
+      - name: setup android ndk
         if: matrix.android
         uses: nttld/setup-ndk@v1
         id: setup-ndk
@@ -86,23 +84,24 @@ jobs:
           ndk-version: r26d
           link-to-sdk: true
 
-      - name: install Rust stable
+      - name: setup android signing
+        if: matrix.android
+        run: |
+          cd src-tauri/gen/android
+          echo "keyAlias=${{ secrets.ANDROID_KEY_ALIAS }}" > keystore.properties
+          echo "password=${{ secrets.ANDROID_KEY_PASSWORD }}" >> keystore.properties
+          base64 -d <<< "${{ secrets.ANDROID_KEY_BASE64 }}" > $RUNNER_TEMP/keystore.jks
+          echo "storeFile=$RUNNER_TEMP/keystore.jks" >> keystore.properties
+
+      - name: install rust stable
         uses: dtolnay/rust-toolchain@stable # Set this to dtolnay/rust-toolchain@nightly
         with:
           targets: ${{ matrix.android && 'aarch64-linux-android,armv7-linux-androideabi' || '' }}
 
-      - name: Rust cache
+      - name: rust cache
         uses: swatinem/rust-cache@v2
         with:
           workspaces: "./src-tauri -> target"
-
-      - name: init android
-        if: matrix.android
-        env:
-          NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
-        run: |
-          bun add -D @tauri-apps/cli
-          bun tauri android init
 
       - uses: ahmadyasser72/tauri-action@42269c0cb8fb330dfc4797733aca6c8b4d600a01
         env:
