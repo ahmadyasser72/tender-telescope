@@ -23,6 +23,10 @@ jobs:
           - platform: "windows-latest"
             args: ""
 
+          - platform: "ubuntu-22.04"
+            android: true
+            args: ""
+
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v4
@@ -33,24 +37,50 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
 
+      - name: Setup Java
+        if: matrix.android
+        uses: actions/setup-java@v4
+        with:
+          distribution: "zulu"
+          java-version: "17"
+
+      - name: Setup Android SDK
+        if: matrix.android
+        uses: android-actions/setup-android@v3
+      - name: Setup Android NDK
+        if: matrix.android
+        uses: nttld/setup-ndk@v1
+        id: setup-ndk
+        with:
+          ndk-version: r26d
+          link-to-sdk: true
+
       - name: setup bun
         uses: oven-sh/setup-bun@v2
-      - name: Install Dependencies
+      - name: install dependencies (bun)
         run: bun install --frozen-lockfile
 
       - name: install Rust stable
         uses: dtolnay/rust-toolchain@stable # Set this to dtolnay/rust-toolchain@nightly
         with:
-          # Those targets are only used on macos runners so it's in an `if` to slightly speed up windows and linux builds.
-          targets: ${{ matrix.platform == 'macos-latest' && 'aarch64-apple-darwin,x86_64-apple-darwin' || '' }}
+          targets: ${{ matrix.android && 'aarch64-linux-android,armv7-linux-androideabi' || '' }}
 
       - name: Rust cache
         uses: swatinem/rust-cache@v2
         with:
           workspaces: "./src-tauri -> target"
 
-      - uses: tauri-apps/tauri-action@v0
+      - name: init android
+        if: matrix.android
         env:
+          NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+        run: |
+          bun add -D @tauri-apps/cli
+          bun tauri android init
+
+      - uses: tauri-apps/tauri-action@2a2f2a82549f0aacb51f9f7720471f118386ae7e
+        env:
+          NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
           VOICE_RSS_API_KEY: ${{ secrets.VOICE_RSS_API_KEY }}
@@ -59,5 +89,6 @@ jobs:
           releaseName: "App v__VERSION__"
           releaseBody: "See the assets to download this version and install."
           releaseDraft: true
+          mobile: ${{ matrix.android }}
           prerelease: false
           args: ${{ matrix.args }}
