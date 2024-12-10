@@ -62,21 +62,21 @@ jobs:
 
       - name: setup bun
         uses: oven-sh/setup-bun@v2
-      - name: install dependencies (bun)
+      - name: install bun dependencies
         run: bun install --frozen-lockfile
 
-      - name: setup java
+      - name: setup java (android only)
         if: matrix.android
         uses: actions/setup-java@v4
         with:
           distribution: "zulu"
           java-version: "17"
 
-      - name: setup android sdk
+      - name: setup android sdk (android only)
         if: matrix.android
         uses: android-actions/setup-android@v3
 
-      - name: setup android ndk
+      - name: setup android ndk (android only)
         if: matrix.android
         uses: nttld/setup-ndk@v1
         id: setup-ndk
@@ -84,7 +84,7 @@ jobs:
           ndk-version: r26d
           link-to-sdk: true
 
-      - name: setup android signing
+      - name: setup android signing (android only)
         if: matrix.android
         run: |
           cd src-tauri/gen/android
@@ -96,7 +96,7 @@ jobs:
       - name: install rust stable
         uses: dtolnay/rust-toolchain@stable # Set this to dtolnay/rust-toolchain@nightly
         with:
-          targets: ${{ matrix.android && 'aarch64-linux-android,armv7-linux-androideabi' || '' }}
+          targets: ${{ matrix.android && 'aarch64-linux-android,armv7-linux-androideabi,i686-linux-android,x86_64-linux-android' || '' }}
 
       - name: rust cache
         uses: swatinem/rust-cache@v2
