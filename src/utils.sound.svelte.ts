@@ -1,10 +1,10 @@
 import { gamePreferences } from "./states.svelte";
 import { isBrowser, sleep } from "./utils";
 
-import beepMP3 from "$lib/assets/beep.mp3";
-import bgmMP3 from "$lib/assets/bgm.mp3";
-import correctAnswerMP3 from "$lib/assets/correct-answer.mp3";
-import wrongAnswerMP3 from "$lib/assets/wrong-answer.mp3";
+import beepMP3 from "$lib/assets/audio/beep.mp3";
+import bgmMP3 from "$lib/assets/audio/bgm.mp3";
+import correctAnswerMP3 from "$lib/assets/audio/correct-answer.mp3";
+import wrongAnswerMP3 from "$lib/assets/audio/wrong-answer.mp3";
 
 export const createSound = (src: string, volumeRatio = 1) => {
   const audio = (isBrowser && new Audio(src)) as HTMLAudioElement;
