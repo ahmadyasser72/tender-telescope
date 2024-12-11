@@ -74,6 +74,13 @@
             await gotoNextLevel();
           }}>Level selanjutnya</Button
         >
+      {:else}
+        <Button
+          onclick={() => {
+            open = false;
+            window.history.back();
+          }}>Kembali ke pengaturan</Button
+        >
       {/if}
     </Dialog.Footer>
   </Dialog.Content>
