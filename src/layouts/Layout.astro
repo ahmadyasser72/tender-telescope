@@ -19,14 +19,6 @@ const { title, heading, class: className } = Astro.props;
 const zoom2Scope = customZoom("zoom2", {
   keyframes: { scale: { forwardOut: 0, backwardIn: 0 } },
 });
-const zoom3Scope = customZoom("zoom3", {
-  keyframes: { scale: { forwardOut: 0, backwardIn: 0 } },
-  base: { easing: "cubic-bezier(.16,.73,.05,1.1)" },
-  extensions: {
-    forwards: { new: { "animation-delay": "0.2s" } },
-    backwards: { new: { "animation-delay": "0.2s" } },
-  },
-});
 ---
 
 <!doctype html>
@@ -36,7 +28,6 @@ const zoom3Scope = customZoom("zoom3", {
     <ProgressBar />
 
     <AnimationStyle name="zoom2" />
-    <AnimationStyle name="zoom3" />
 
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -62,7 +53,7 @@ const zoom3Scope = customZoom("zoom3", {
           </h1>
         )
       }
-      <div class:list={className} data-astro-transition-scope={zoom3Scope}>
+      <div class:list={className} transition:name="slide">
         <slot />
       </div>
     </main>
