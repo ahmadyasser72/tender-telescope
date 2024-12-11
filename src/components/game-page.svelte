@@ -8,7 +8,7 @@
 
   import { navigate } from "astro:transitions/client";
 
-  import { onMount } from "svelte";
+  import { LoaderCircle } from "lucide-svelte";
 
   interface Props {
     answerMap: Map<Difficulty, Set<string>>;
@@ -19,13 +19,16 @@
   const { level } = $derived(gameState);
 
   const questions = $derived(processQuestions(rawQuestions, gamePreferences));
-  const question = $derived(questions[level.current - 1]);
+  const { answer, question } = $derived.by(() => {
+    const question = questions[level.current - 1];
 
-  const answer = $derived(
-    processAnswer(answerMap, question, gamePreferences, gameState),
-  );
-
-  onMount(() => (gameState.level.total = questions.length));
+    return {
+      question,
+      answer: (import.meta.env.SSR
+        ? undefined
+        : processAnswer(answerMap, question, gamePreferences, gameState))!,
+    };
+  });
 
   $effect(() => {
     const h1 = document.querySelector("h1#main-heading") as HTMLHeadingElement;
@@ -37,7 +40,12 @@
     const { difficulty, languages } = $state.snapshot(gamePreferences);
 
     if (!difficulty || languages.length === 0) navigate("/");
+    else gameState.level.total = questions.length;
   });
 </script>
 
-<QuestionPage {answer} {question} />
+{#if import.meta.env.SSR}
+  <LoaderCircle class="h-32 w-32 animate-spin" />
+{:else}
+  <QuestionPage {answer} {question} />
+{/if}
