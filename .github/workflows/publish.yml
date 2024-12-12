@@ -43,6 +43,9 @@ jobs:
 
           - platform: "ubuntu-22.04"
             android: true
+            args: "--apk"
+          - platform: "ubuntu-22.04"
+            android: true
             args: "--apk --split-per-abi"
 
     runs-on: ${{ matrix.platform }}
