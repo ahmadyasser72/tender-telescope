@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { gamePreferences } from "$lib/states.svelte";
-  import { bgm } from "$lib/utils.sound.svelte";
+  import { bgm } from "$lib/states/audio.svelte";
+  import { gamePreferences } from "$lib/states/game.svelte";
 
   const loopBgm = async () => {
     if (await bgm.play()) {

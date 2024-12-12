@@ -1,12 +1,12 @@
-import { gamePreferences } from "./states.svelte";
-import { isBrowser, sleep } from "./utils";
+import { gamePreferences } from "./game.svelte";
 
 import beepMP3 from "$lib/assets/audio/beep.mp3";
 import bgmMP3 from "$lib/assets/audio/bgm.mp3";
 import correctAnswerMP3 from "$lib/assets/audio/correct-answer.mp3";
 import wrongAnswerMP3 from "$lib/assets/audio/wrong-answer.mp3";
+import { isBrowser, sleep } from "$lib/utils";
 
-export const createSound = (src: string, volumeRatio = 1) => {
+export const createAudio = (src: string, volumeRatio = 1) => {
   const audio = (isBrowser && new Audio(src)) as HTMLAudioElement;
 
   const volume = $derived(gamePreferences.volume * volumeRatio);
@@ -45,8 +45,8 @@ export const createSound = (src: string, volumeRatio = 1) => {
   return { raw: audio, play, playForced };
 };
 
-export const beep = createSound(beepMP3);
-export const correctAnswer = createSound(correctAnswerMP3);
-export const wrongAnswer = createSound(wrongAnswerMP3);
+export const beep = createAudio(beepMP3);
+export const correctAnswer = createAudio(correctAnswerMP3);
+export const wrongAnswer = createAudio(wrongAnswerMP3);
 
-export const bgm = createSound(bgmMP3, 1 / 3);
+export const bgm = createAudio(bgmMP3, 1 / 3);

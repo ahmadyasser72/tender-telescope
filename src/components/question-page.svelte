@@ -4,13 +4,13 @@
   import { Badge } from "$lib/components/ui/badge";
   import { Button } from "$lib/components/ui/button";
   import * as Card from "$lib/components/ui/card";
-  import type { Answer, Question } from "$lib/types";
-  import { base64, cn, padNumber, sleep } from "$lib/utils";
   import {
     correctAnswer,
-    createSound,
+    createAudio,
     wrongAnswer,
-  } from "$lib/utils.sound.svelte";
+  } from "$lib/states/audio.svelte";
+  import type { Answer, Question } from "$lib/types";
+  import { base64, cn, padNumber, sleep } from "$lib/utils";
 
   import { Play } from "lucide-svelte";
   import { onMount } from "svelte";
@@ -23,11 +23,11 @@
 
   const { answer, question }: Props = $props();
 
-  let ttsAudio = $state<ReturnType<typeof createSound>>();
+  let ttsAudio = $state<ReturnType<typeof createAudio>>();
   let ttsPlaying = $state(false);
   const playTTS = async () => {
     ttsPlaying = true;
-    ttsAudio ??= createSound(
+    ttsAudio ??= createAudio(
       `/voice/${question.language}/${question.sourceWord}.mp3`,
     );
 

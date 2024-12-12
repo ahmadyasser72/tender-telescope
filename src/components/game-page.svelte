@@ -1,7 +1,7 @@
 <script lang="ts">
   import QuestionPage from "./question-page.svelte";
 
-  import { gamePreferences, gameState } from "$lib/states.svelte";
+  import { gamePreferences, gameState } from "$lib/states/game.svelte";
   import type { Difficulty, Language, Question } from "$lib/types";
   import { isBrowser, padNumber, titleCase } from "$lib/utils";
   import { processAnswer, processQuestions } from "$lib/utils.content";

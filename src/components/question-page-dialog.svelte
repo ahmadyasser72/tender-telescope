@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Button } from "$lib/components/ui/button";
   import * as Dialog from "$lib/components/ui/dialog";
-  import { gameState, gotoNextLevel } from "$lib/states.svelte";
+  import { gameState, gotoNextLevel } from "$lib/states/game.svelte";
   import type { Answer, Question } from "$lib/types";
 
   interface Props {

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Slider } from "$lib/components/ui/slider";
   import { Toggle } from "$lib/components/ui/toggle";
-  import { beep } from "$lib/utils.sound.svelte";
+  import { beep } from "$lib/states/audio.svelte";
 
   import { HeadphoneOff, Headphones } from "lucide-svelte";
 

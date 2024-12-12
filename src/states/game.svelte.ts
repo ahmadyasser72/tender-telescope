@@ -1,5 +1,5 @@
-import type { GamePreferences, GameState } from "./types";
-import { isBrowser } from "./utils";
+import type { GamePreferences, GameState } from "$lib/types";
+import { isBrowser } from "$lib/utils";
 
 import { navigate } from "astro:transitions/client";
 

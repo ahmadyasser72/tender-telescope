@@ -4,7 +4,7 @@
   import SliderVolume from "./slider-volume.svelte";
 
   import { Button } from "$lib/components/ui/button";
-  import { gamePreferences, initializeGame } from "$lib/states.svelte";
+  import { gamePreferences, initializeGame } from "$lib/states/game.svelte";
   import type { Difficulty, Language } from "$lib/types";
 
   import { toast } from "svelte-sonner";
