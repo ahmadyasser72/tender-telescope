@@ -3,7 +3,7 @@
 
   import { gamePreferences, gameState } from "$lib/states.svelte";
   import type { Difficulty, Language, Question } from "$lib/types";
-  import { padNumber, titleCase } from "$lib/utils";
+  import { isBrowser, padNumber, titleCase } from "$lib/utils";
   import { processAnswer, processQuestions } from "$lib/utils.content";
 
   import { navigate } from "astro:transitions/client";
@@ -24,9 +24,9 @@
 
     return {
       question,
-      answer: (import.meta.env.SSR
-        ? undefined
-        : processAnswer(answerMap, question, gamePreferences, gameState))!,
+      answer: (isBrowser
+        ? processAnswer(answerMap, question, gamePreferences, gameState)
+        : undefined)!,
     };
   });
 
@@ -44,8 +44,8 @@
   });
 </script>
 
-{#if import.meta.env.SSR}
-  <LoaderCircle class="h-32 w-32 animate-spin" />
-{:else}
+{#if isBrowser}
   <QuestionPage {answer} {question} />
+{:else}
+  <LoaderCircle class="h-32 w-32 animate-spin" />
 {/if}
