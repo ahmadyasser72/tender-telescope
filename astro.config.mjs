@@ -26,6 +26,12 @@ export default defineConfig({
         context: "server",
         type: "string",
       },
+      GITHUB_REPOSITORY: {
+        access: "public",
+        context: "client",
+        type: "string",
+        optional: true,
+      },
     },
   },
 

@@ -8,8 +8,9 @@
 </script>
 
 <Sonner
-  theme="system"
+  theme="light"
   class="toaster group"
+  closeButton
   richColors
   position="top-right"
   toastOptions={{

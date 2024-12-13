@@ -1,7 +1,6 @@
+import { isTauri as isTauriFn } from "@tauri-apps/api/core";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
-
-export { isTauri } from "@tauri-apps/api/core";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -54,3 +53,4 @@ export function* combinations<T>(iterable: T[], r: number) {
 }
 
 export const isBrowser = !import.meta.env.SSR;
+export const isTauri = isBrowser && isTauriFn();
