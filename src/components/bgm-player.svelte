@@ -2,14 +2,25 @@
   import { bgm } from "$lib/states/audio.svelte";
   import { gamePreferences } from "$lib/states/game.svelte";
 
-  const loopBgm = async () => {
-    if (await bgm.play()) {
-      bgm.raw.addEventListener("ended", () => loopBgm(), { once: true });
+  import { onDestroy } from "svelte";
+
+  const reset = () => {
+    bgm.raw.pause();
+    bgm.raw.currentTime = 0;
+  };
+
+  const loop = async () => {
+    if (await bgm.play())
+      bgm.raw.addEventListener("ended", () => loop(), { once: true });
+    else {
+      reset();
     }
   };
 
   $effect(() => {
     gamePreferences.volume;
-    loopBgm();
+    loop();
   });
+
+  onDestroy(() => reset());
 </script>
