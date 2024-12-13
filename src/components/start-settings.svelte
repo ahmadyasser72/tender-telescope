@@ -28,7 +28,7 @@
   );
 
   const start = async () => {
-    if (difficulty === undefined) {
+    if (!difficulty) {
       toast.error("Tingkat kesulitan belum dipilih!");
       return;
     } else if (languages.length === 0) {
