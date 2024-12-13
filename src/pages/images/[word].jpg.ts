@@ -1,9 +1,13 @@
-import imagePlaceholder from "$lib/assets/placeholder/image.jpg";
-import { base64, randomNumber } from "$lib/utils";
+import { randomNumber } from "$lib/utils";
 import { getQuestions, stripResponse } from "$lib/utils.server";
 
 import type { APIRoute, GetStaticPaths } from "astro";
 import { PIXABAY_API_KEY } from "astro:env/server";
+
+interface Props {
+  pixabayQuery: string;
+  image?: string;
+}
 
 export const getStaticPaths = (async () => {
   const indonesianWords = new Set<string>();
@@ -26,20 +30,22 @@ export const getStaticPaths = (async () => {
   }
 
   return [...englishWordLookup].map(([indonesianWord, englishWord]) => ({
-    params: { word: base64.encode(indonesianWord) },
+    params: { word: indonesianWord },
     props: {
       pixabayQuery: englishWord,
       image: imageLookup.get(indonesianWord),
-    },
+    } satisfies Props,
   }));
 }) satisfies GetStaticPaths;
 
 export const GET: APIRoute = async (context) => {
   if (import.meta.env.DEV) {
-    return context.redirect(imagePlaceholder.src);
+    return import("$lib/assets/placeholder/image.jpg")
+      .then((image) => image.default.src)
+      .then(context.redirect);
   }
 
-  const { pixabayQuery, image } = context.props;
+  const { pixabayQuery, image } = context.props as Props;
   if (image !== undefined) return context.redirect(image);
 
   const pixabayUrl = new URL("https://pixabay.com/api");

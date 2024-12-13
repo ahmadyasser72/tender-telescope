@@ -10,7 +10,7 @@
     wrongAnswer,
   } from "$lib/states/audio.svelte";
   import type { Answer, Question } from "$lib/types";
-  import { base64, cn, padNumber, sleep } from "$lib/utils";
+  import { cn, padNumber, sleep } from "$lib/utils";
 
   import { Play } from "lucide-svelte";
   import { onMount } from "svelte";
@@ -28,7 +28,7 @@
   const playTTS = async () => {
     ttsPlaying = true;
     ttsAudio ??= createAudio(
-      `/voice/${question.language}/${question.sourceWord}.mp3`,
+      `/voice/${question.language}/${question.translation}.mp3`,
     );
 
     if (await ttsAudio.play()) {
@@ -128,8 +128,8 @@
   <Card.Header>
     <img
       bind:this={questionImage}
-      class="h-40 object-cover"
-      src="/images/{base64.encode(question.translation)}.jpg"
+      class="pointer-events-none h-40 object-cover"
+      src="/images/{question.translation}.jpg"
       alt="Gambar {question.sourceWord}"
     />
     <Card.Title class="pt-2 text-4xl capitalize"

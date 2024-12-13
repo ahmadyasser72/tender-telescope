@@ -1,30 +1,33 @@
-import ttsPlaceholder from "$lib/assets/placeholder/tts.mp3";
+import type { Question } from "$lib/types";
 import { randomNumber } from "$lib/utils";
 import { getQuestions, stripResponse } from "$lib/utils.server";
 
 import type { APIRoute, GetStaticPaths } from "astro";
 import { VOICE_RSS_API_KEY } from "astro:env/server";
 
+type Props = Pick<Question, "code" | "sourceWord">;
+
 export const getStaticPaths = (async () => {
   const allQuestions = (await getQuestions()).flatMap(([_, items]) => items);
 
-  return allQuestions.map(({ language, sourceWord, code }) => ({
-    params: { language, word: sourceWord },
-    props: { languageCode: code },
+  return allQuestions.map(({ language, translation, code, sourceWord }) => ({
+    params: { language, word: translation },
+    props: { code, sourceWord } satisfies Props,
   }));
 }) satisfies GetStaticPaths;
 
 export const GET: APIRoute = async (context) => {
-  const { word } = context.params;
   if (import.meta.env.DEV) {
-    return context.redirect(ttsPlaceholder);
+    return import("$lib/assets/placeholder/tts.mp3")
+      .then((asset) => asset.default)
+      .then(context.redirect);
   }
 
-  const { languageCode } = context.props;
+  const { code, sourceWord } = context.props as Props;
 
   const urls = [
-    ttsGoogleTranslate(languageCode, word!),
-    ...ttsSimplyTranslate(languageCode, word!),
+    ttsGoogleTranslate(code, sourceWord),
+    ...ttsSimplyTranslate(code, sourceWord),
   ];
 
   // coba download tts google translate terlebih dahulu, sekaligus
@@ -43,7 +46,7 @@ export const GET: APIRoute = async (context) => {
   // kalau gagal baru gunakan VoiceRSS,
   // ini karena kualitas TTS google translate lebih bagus dan
   // VoiceRSS gratisan hanya bisa maksimal 350 requests per harinya
-  return fetch(ttsVoiceRSS(languageCode, word!)).then(stripResponse);
+  return fetch(ttsVoiceRSS(code, sourceWord)).then(stripResponse);
 };
 
 const ttsGoogleTranslate = (code: string, text: string) => {
