@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Button } from "$lib/components/ui/button";
-  import { isTauri } from "$lib/utils";
+  import { isTauri, isTauriAndroid } from "$lib/utils";
   import { getGithubRelease } from "$lib/utils.github";
 
   import { toast, type ExternalToast } from "svelte-sonner";
@@ -56,7 +56,11 @@
     href="/start-settings"
     size="big">Mulai</Button
   >
-  <Button onclick={close} size="big" variant="outline">Keluar</Button>
+
+  {#if !isTauriAndroid}
+    <Button onclick={close} size="big" variant="outline">Keluar</Button>
+  {/if}
+
   {#if !isTauri}
     <Button
       onclick={downloadRelease}
