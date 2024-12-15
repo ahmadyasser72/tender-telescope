@@ -54,4 +54,3 @@ export function* combinations<T>(iterable: T[], r: number) {
 
 export const isBrowser = !import.meta.env.SSR;
 export const isTauri = isBrowser && isTauriFn();
-export const isTauriAndroid = isTauri && navigator.maxTouchPoints > 0;

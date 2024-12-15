@@ -1,18 +1,9 @@
 <script lang="ts">
   import { Button } from "$lib/components/ui/button";
-  import { isTauri, isTauriAndroid } from "$lib/utils";
+  import { isTauri } from "$lib/utils";
   import { getGithubRelease } from "$lib/utils.github";
 
   import { toast, type ExternalToast } from "svelte-sonner";
-
-  const close = async () => {
-    if (isTauri) {
-      const { getCurrentWindow } = await import("@tauri-apps/api/window");
-      await getCurrentWindow().close();
-    } else {
-      window.close();
-    }
-  };
 
   let toastId = $state<ReturnType<typeof toast>>();
   let release = $state<Awaited<ReturnType<typeof getGithubRelease>>>();
@@ -56,10 +47,6 @@
     href="/start-settings"
     size="big">Mulai</Button
   >
-
-  {#if !isTauriAndroid}
-    <Button onclick={close} size="big" variant="outline">Keluar</Button>
-  {/if}
 
   {#if !isTauri}
     <Button
