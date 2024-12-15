@@ -14,19 +14,15 @@ export const createAudio = (src: string, volumeRatio = 1) => {
     audio.muted = volume === 0;
     audio.volume = volume;
     if (!audio.muted) {
-      try {
-        audio.play();
+      await audio.play();
 
-        if (src !== bgmWebm) {
-          bgm.raw.volume = bgm.volume / 3;
-          audio.addEventListener(
-            "ended",
-            () => sleep(100).then(() => (bgm.raw.volume = bgm.volume)),
-            { once: true },
-          );
-        }
-      } catch {
-        return false;
+      if (src !== bgmWebm) {
+        bgm.raw.volume = bgm.volume / 3;
+        audio.addEventListener(
+          "ended",
+          () => sleep(100).then(() => (bgm.raw.volume = bgm.volume)),
+          { once: true },
+        );
       }
     }
 
