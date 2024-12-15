@@ -6,7 +6,7 @@
   import * as Card from "$lib/components/ui/card";
   import {
     correctAnswer,
-    createAudio,
+    GameAudio,
     wrongAnswer,
   } from "$lib/states/audio.svelte";
   import type { Answer, Question } from "$lib/types";
@@ -23,11 +23,11 @@
 
   const { answer, question }: Props = $props();
 
-  let ttsAudio = $state<ReturnType<typeof createAudio>>();
+  let ttsAudio = $state<GameAudio>();
   let ttsPlaying = $state(false);
   const playTTS = async () => {
     ttsPlaying = true;
-    ttsAudio ??= createAudio(
+    ttsAudio ??= new GameAudio(
       `/voice/${question.language}/${question.translation}.mp3`,
     );
 

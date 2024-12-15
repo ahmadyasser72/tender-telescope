@@ -1,45 +1,61 @@
 import { gamePreferences } from "./game.svelte";
 
-import beepWebm from "$lib/assets/audio/beep.webm";
-import bgmWebm from "$lib/assets/audio/bgm.webm";
-import correctAnswerWebm from "$lib/assets/audio/correct-answer.webm";
-import wrongAnswerWebm from "$lib/assets/audio/wrong-answer.webm";
 import { isBrowser, sleep } from "$lib/utils";
 
-export const createAudio = (src: string, volumeRatio = 1) => {
-  const audio = (isBrowser && new Audio(src)) as HTMLAudioElement;
+export class GameAudio {
+  raw = (isBrowser && new Audio()) as HTMLAudioElement;
+  src: string | (() => Promise<typeof import("*.webm")>);
 
-  const volume = $derived((gamePreferences.volume * volumeRatio) / 100);
-  const play = async () => {
-    audio.muted = volume === 0;
-    audio.volume = volume;
-    if (!audio.muted) {
-      await audio.play();
+  volumeRatio = $state(1);
+  volume = $derived((gamePreferences.volume * this.volumeRatio) / 100);
 
-      if (src !== bgmWebm) {
+  constructor(src: typeof this.src) {
+    this.src = src;
+  }
+
+  async initialize() {
+    if (this.raw.src === "") {
+      this.raw.src =
+        typeof this.src === "function" ? (await this.src()).default : this.src;
+
+      if (this.raw.src.includes("bgm")) this.volumeRatio = 1 / 3;
+    }
+  }
+
+  async play() {
+    await this.initialize();
+
+    this.raw.muted = this.volume === 0;
+    this.raw.volume = this.volume;
+    if (!this.raw.muted) {
+      await this.raw.play();
+
+      if (bgm !== undefined && this.src !== bgm.src) {
         bgm.raw.volume = bgm.volume / 3;
-        audio.addEventListener(
+        this.raw.addEventListener(
           "ended",
-          () => sleep(100).then(() => (bgm.raw.volume = bgm.volume)),
+          () => sleep(50).then(() => (bgm.raw.volume = bgm.volume)),
           { once: true },
         );
       }
     }
 
-    return !audio.muted;
-  };
+    return !this.raw.muted;
+  }
 
-  const playForced = async () => {
-    audio.pause();
-    audio.currentTime = 0;
-    return play();
-  };
+  async playForced() {
+    this.raw.pause();
+    this.raw.currentTime = 0;
+    return this.play();
+  }
+}
 
-  return { raw: audio, volume, play, playForced };
-};
+export const beep = new GameAudio(() => import("$lib/assets/audio/beep.webm"));
+export const correctAnswer = new GameAudio(
+  () => import("$lib/assets/audio/correct-answer.webm"),
+);
+export const wrongAnswer = new GameAudio(
+  () => import("$lib/assets/audio/wrong-answer.webm"),
+);
 
-export const beep = createAudio(beepWebm);
-export const correctAnswer = createAudio(correctAnswerWebm);
-export const wrongAnswer = createAudio(wrongAnswerWebm);
-
-export const bgm = createAudio(bgmWebm, 1 / 3);
+export const bgm = new GameAudio(() => import("$lib/assets/audio/bgm.webm"));
