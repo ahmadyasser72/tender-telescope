@@ -28,7 +28,7 @@
   const playTTS = async () => {
     ttsPlaying = true;
     ttsAudio ??= new GameAudio(
-      `/voice/${question.language}/${question.translation}.mp3`,
+      `/generated/${question.language}/${question.id}/voice.mp3`,
     );
 
     if (await ttsAudio.play()) {
@@ -110,7 +110,7 @@
       tick();
     };
 
-    if (questionImage?.complete) startTimer();
+    if (questionImage === undefined || questionImage.complete) startTimer();
     else questionImage?.addEventListener("load", startTimer);
 
     return () => cancelAnimationFrame(handle);
@@ -124,14 +124,17 @@
   {question}
 />
 
-<Card.Root class="min-w-full max-w-96 text-center sm:min-w-96">
+<Card.Root class="flex flex-col justify-evenly text-center lg:max-w-md">
   <Card.Header>
-    <img
-      bind:this={questionImage}
-      class="pointer-events-none h-40 object-cover"
-      src="/images/{question.translation}.jpg"
-      alt="Gambar {question.sourceWord}"
-    />
+    {#if question.imageQuery}
+      <img
+        bind:this={questionImage}
+        class="pointer-events-none h-40 object-cover"
+        src="/generated/{question.language}/{question.id}/image.jpg"
+        alt="Gambar {question.imageQuery}"
+      />
+    {/if}
+
     <Card.Title class="pt-2 text-4xl capitalize"
       >{question.sourceWord}</Card.Title
     >
@@ -163,20 +166,19 @@
   </Card.Content>
 </Card.Root>
 
-<div class="grid grid-cols-2 gap-4 py-8 md:gap-8 md:px-12">
+<div class="flex flex-col gap-4 max-lg:py-8">
   {#each answer.choices as choice, idx}
     {@const isCorrect = idx === answer.correct}
     <Button
       onclick={() => checkAnswer(idx)}
       class={cn(
-        "capitalize",
+        "h-auto whitespace-normal text-center capitalize md:py-4 lg:text-lg",
         pickedAnswer !== undefined && "pointer-events-none",
         highlightCorrectAnswer && (isCorrect ? "!bg-green-500" : "opacity-0"),
         ((highlightWrongAnswer === true && !isCorrect) ||
           highlightWrongAnswer === idx) &&
           "!bg-red-500 opacity-100",
       )}
-      size="big"
     >
       {choice}
     </Button>

@@ -3,184 +3,184 @@
   "language": "jepang",
   "items": [
     {
-      "image": null,
       "translation": "apel",
       "sourceWord": "りんご",
-      "difficulty": "pemula"
+      "difficulty": "pemula",
+      "imageQuery": "apple"
     },
     {
-      "image": null,
       "translation": "mobil",
       "sourceWord": "車 (くるま)",
-      "difficulty": "pemula"
+      "difficulty": "pemula",
+      "imageQuery": "car"
     },
     {
-      "image": null,
       "translation": "anjing",
       "sourceWord": "犬 (いぬ)",
-      "difficulty": "pemula"
+      "difficulty": "pemula",
+      "imageQuery": "dog"
     },
     {
-      "image": null,
       "translation": "kucing",
       "sourceWord": "猫 (ねこ)",
-      "difficulty": "pemula"
+      "difficulty": "pemula",
+      "imageQuery": "cat"
     },
     {
-      "image": null,
       "translation": "rumah",
       "sourceWord": "家 (いえ)",
-      "difficulty": "pemula"
+      "difficulty": "pemula",
+      "imageQuery": "house"
     },
     {
-      "image": null,
       "translation": "buku",
       "sourceWord": "本 (ほん)",
-      "difficulty": "pemula"
+      "difficulty": "pemula",
+      "imageQuery": "book"
     },
     {
-      "image": null,
       "translation": "meja",
       "sourceWord": "テーブル",
-      "difficulty": "pemula"
+      "difficulty": "pemula",
+      "imageQuery": "table"
     },
     {
-      "image": null,
       "translation": "kursi",
       "sourceWord": "椅子 (いす)",
-      "difficulty": "pemula"
+      "difficulty": "pemula",
+      "imageQuery": "chair"
     },
     {
-      "image": null,
       "translation": "matahari",
       "sourceWord": "太陽 (たいよう)",
-      "difficulty": "pemula"
+      "difficulty": "pemula",
+      "imageQuery": "sun"
     },
     {
-      "image": null,
       "translation": "bulan",
       "sourceWord": "月 (つき)",
-      "difficulty": "pemula"
+      "difficulty": "pemula",
+      "imageQuery": "moon"
     },
     {
-      "image": null,
       "translation": "hujan",
       "sourceWord": "雨 (あめ)",
-      "difficulty": "menengah"
+      "difficulty": "menengah",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "sepeda",
       "sourceWord": "自転車 (じてんしゃ)",
-      "difficulty": "menengah"
+      "difficulty": "menengah",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "sakit kepala",
       "sourceWord": "頭痛 (ずつう)",
-      "difficulty": "menengah"
+      "difficulty": "menengah",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "makanan",
       "sourceWord": "食べ物 (たべもの)",
-      "difficulty": "menengah"
+      "difficulty": "menengah",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "perpustakaan",
       "sourceWord": "図書館 (としょかん)",
-      "difficulty": "menengah"
+      "difficulty": "menengah",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "dokter",
       "sourceWord": "医者 (いしゃ)",
-      "difficulty": "menengah"
+      "difficulty": "menengah",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "komputer",
       "sourceWord": "コンピューター",
-      "difficulty": "menengah"
+      "difficulty": "menengah",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "televisi",
       "sourceWord": "テレビ",
-      "difficulty": "menengah"
+      "difficulty": "menengah",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "kue",
       "sourceWord": "ケーキ",
-      "difficulty": "menengah"
+      "difficulty": "menengah",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "dapur",
       "sourceWord": "台所 (だいどころ)",
-      "difficulty": "menengah"
+      "difficulty": "menengah",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "komunikasi",
       "sourceWord": "コミュニケーション",
-      "difficulty": "mahir"
+      "difficulty": "mahir",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "sosial",
       "sourceWord": "社会 (しゃかい)",
-      "difficulty": "mahir"
+      "difficulty": "mahir",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "pengembangan",
       "sourceWord": "開発 (かいはつ)",
-      "difficulty": "mahir"
+      "difficulty": "mahir",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "pengetahuan",
       "sourceWord": "知識 (ちしき)",
-      "difficulty": "mahir"
+      "difficulty": "mahir",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "perspektif",
       "sourceWord": "視点 (してん)",
-      "difficulty": "mahir"
+      "difficulty": "mahir",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "penerapan",
       "sourceWord": "応用 (おうよう)",
-      "difficulty": "mahir"
+      "difficulty": "mahir",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "evaluasi",
       "sourceWord": "評価 (ひょうか)",
-      "difficulty": "mahir"
+      "difficulty": "mahir",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "teknologi",
       "sourceWord": "技術 (ぎじゅつ)",
-      "difficulty": "mahir"
+      "difficulty": "mahir",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "interaksi",
       "sourceWord": "相互作用 (そうごさよう)",
-      "difficulty": "mahir"
+      "difficulty": "mahir",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "kemajuan",
       "sourceWord": "進歩 (しんぽ)",
-      "difficulty": "mahir"
+      "difficulty": "mahir",
+      "imageQuery": null
     }
   ]
 }

@@ -10,19 +10,19 @@ const answerCollection = defineCollection({
 
 const questionCollection = defineCollection({
   type: "data",
-  schema: ({ image }) =>
-    z.object({
-      code: z.string(),
-      language: reference("questions"),
-      items: z.array(
-        z.object({
-          image: image().nullable(),
-          translation: z.string(),
-          sourceWord: z.string(),
-          difficulty: z.enum(["pemula", "menengah", "mahir"]),
-        }),
-      ),
-    }),
+  schema: z.object({
+    code: z.string(),
+    language: reference("questions"),
+    items: z.array(
+      z.object({
+        imageQuery: z.string().nullable(),
+        translation: z.string(),
+        sourceWord: z.string(),
+        explained: z.string().optional(),
+        difficulty: z.enum(["pemula", "menengah", "mahir"]),
+      }),
+    ),
+  }),
 });
 
 export const collections = {

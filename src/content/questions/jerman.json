@@ -3,184 +3,184 @@
   "language": "jerman",
   "items": [
     {
-      "image": null,
       "translation": "apel",
       "sourceWord": "Apfel",
-      "difficulty": "pemula"
+      "difficulty": "pemula",
+      "imageQuery": "apple"
     },
     {
-      "image": null,
       "translation": "mobil",
       "sourceWord": "Auto",
-      "difficulty": "pemula"
+      "difficulty": "pemula",
+      "imageQuery": "car"
     },
     {
-      "image": null,
       "translation": "anjing",
       "sourceWord": "Hund",
-      "difficulty": "pemula"
+      "difficulty": "pemula",
+      "imageQuery": "dog"
     },
     {
-      "image": null,
       "translation": "kucing",
       "sourceWord": "Katze",
-      "difficulty": "pemula"
+      "difficulty": "pemula",
+      "imageQuery": "cat"
     },
     {
-      "image": null,
       "translation": "rumah",
       "sourceWord": "Haus",
-      "difficulty": "pemula"
+      "difficulty": "pemula",
+      "imageQuery": "house"
     },
     {
-      "image": null,
       "translation": "buku",
       "sourceWord": "Buch",
-      "difficulty": "pemula"
+      "difficulty": "pemula",
+      "imageQuery": "book"
     },
     {
-      "image": null,
       "translation": "meja",
       "sourceWord": "Tisch",
-      "difficulty": "pemula"
+      "difficulty": "pemula",
+      "imageQuery": "table"
     },
     {
-      "image": null,
       "translation": "kursi",
       "sourceWord": "Stuhl",
-      "difficulty": "pemula"
+      "difficulty": "pemula",
+      "imageQuery": "chair"
     },
     {
-      "image": null,
       "translation": "matahari",
       "sourceWord": "Sonne",
-      "difficulty": "pemula"
+      "difficulty": "pemula",
+      "imageQuery": "sun"
     },
     {
-      "image": null,
       "translation": "bulan",
       "sourceWord": "Mond",
-      "difficulty": "pemula"
+      "difficulty": "pemula",
+      "imageQuery": "moon"
     },
     {
-      "image": null,
       "translation": "hujan",
       "sourceWord": "Regen",
-      "difficulty": "menengah"
+      "difficulty": "menengah",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "sepeda",
       "sourceWord": "Fahrrad",
-      "difficulty": "menengah"
+      "difficulty": "menengah",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "sakit kepala",
       "sourceWord": "Kopfschmerzen",
-      "difficulty": "menengah"
+      "difficulty": "menengah",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "makanan",
       "sourceWord": "Essen",
-      "difficulty": "menengah"
+      "difficulty": "menengah",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "perpustakaan",
       "sourceWord": "Bibliothek",
-      "difficulty": "menengah"
+      "difficulty": "menengah",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "dokter",
       "sourceWord": "Arzt",
-      "difficulty": "menengah"
+      "difficulty": "menengah",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "komputer",
       "sourceWord": "Computer",
-      "difficulty": "menengah"
+      "difficulty": "menengah",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "televisi",
       "sourceWord": "Fernsehen",
-      "difficulty": "menengah"
+      "difficulty": "menengah",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "kue",
       "sourceWord": "Kuchen",
-      "difficulty": "menengah"
+      "difficulty": "menengah",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "dapur",
       "sourceWord": "Küche",
-      "difficulty": "menengah"
+      "difficulty": "menengah",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "komunikasi",
       "sourceWord": "Kommunikation",
-      "difficulty": "mahir"
+      "difficulty": "mahir",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "sosial",
       "sourceWord": "sozial",
-      "difficulty": "mahir"
+      "difficulty": "mahir",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "pengembangan",
       "sourceWord": "Entwicklung",
-      "difficulty": "mahir"
+      "difficulty": "mahir",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "pengetahuan",
       "sourceWord": "Wissen",
-      "difficulty": "mahir"
+      "difficulty": "mahir",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "perspektif",
       "sourceWord": "Perspektive",
-      "difficulty": "mahir"
+      "difficulty": "mahir",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "penerapan",
       "sourceWord": "Anwendung",
-      "difficulty": "mahir"
+      "difficulty": "mahir",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "evaluasi",
       "sourceWord": "Bewertung",
-      "difficulty": "mahir"
+      "difficulty": "mahir",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "teknologi",
       "sourceWord": "Technologie",
-      "difficulty": "mahir"
+      "difficulty": "mahir",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "interaksi",
       "sourceWord": "Interaktion",
-      "difficulty": "mahir"
+      "difficulty": "mahir",
+      "imageQuery": null
     },
     {
-      "image": null,
       "translation": "kemajuan",
       "sourceWord": "Fortschritt",
-      "difficulty": "mahir"
+      "difficulty": "mahir",
+      "imageQuery": null
     }
   ]
 }

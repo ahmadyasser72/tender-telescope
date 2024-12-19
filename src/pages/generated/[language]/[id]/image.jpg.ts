@@ -1,41 +1,21 @@
+import type { Question } from "$lib/types";
 import { randomNumber } from "$lib/utils";
 import { getQuestions, stripResponse } from "$lib/utils.server";
 
 import type { APIRoute, GetStaticPaths } from "astro";
 import { PIXABAY_API_KEY } from "astro:env/server";
 
-interface Props {
-  pixabayQuery: string;
-  image?: string;
-}
+type Props = Pick<Question, "imageQuery">;
 
 export const getStaticPaths = (async () => {
-  const indonesianWords = new Set<string>();
-  const imageLookup = new Map<string, string>();
-  const englishWordLookup = new Map<string, string>();
   const allQuestions = (await getQuestions()).flatMap(([_, items]) => items);
-  for (const {
-    language,
-    translation: indonesianWord,
-    image,
-    sourceWord,
-  } of allQuestions) {
-    if (language === "inggris") {
-      englishWordLookup.set(indonesianWord, sourceWord);
 
-      if (image) imageLookup.set(indonesianWord, image.src);
-    }
-
-    indonesianWords.add(indonesianWord);
-  }
-
-  return [...englishWordLookup].map(([indonesianWord, englishWord]) => ({
-    params: { word: indonesianWord },
-    props: {
-      pixabayQuery: englishWord,
-      image: imageLookup.get(indonesianWord),
-    } satisfies Props,
-  }));
+  return allQuestions
+    .filter(({ imageQuery }) => typeof imageQuery === "string")
+    .map(({ id, language, imageQuery }) => ({
+      params: { language, id },
+      props: { imageQuery } satisfies Props,
+    }));
 }) satisfies GetStaticPaths;
 
 export const GET: APIRoute = async (context) => {
@@ -45,25 +25,33 @@ export const GET: APIRoute = async (context) => {
       .then(context.redirect);
   }
 
-  const { pixabayQuery, image } = context.props as Props;
-  if (image !== undefined) return context.redirect(image);
+  const { imageQuery } = context.props as Props;
+
+  const items = await fetchPixabay(imageQuery!.toLowerCase());
+  const randomItem = items.splice(randomNumber(0, items.length - 1), 1)[0];
+
+  return fetch(randomItem.webformatURL).then(stripResponse);
+};
+
+const pixabayResponses = new Map<string, PixabayResponse["hits"]>();
+const fetchPixabay = async (imageQuery: string) => {
+  const cache = pixabayResponses.get(imageQuery);
+  if (cache !== undefined && cache.length > 0) return cache;
 
   const pixabayUrl = new URL("https://pixabay.com/api");
   pixabayUrl.search = new URLSearchParams({
     key: PIXABAY_API_KEY,
-    q: pixabayQuery,
+    q: imageQuery,
     image_type: "photo",
     orientation: "horizontal",
     per_page: "16",
   }).toString();
 
   const response = await fetch(pixabayUrl);
-  const json: PixabayResponse = await response.json();
+  const { hits: items }: PixabayResponse = await response.json();
+  pixabayResponses.set(imageQuery, items);
 
-  const { hits: items } = json;
-  const item = items[randomNumber(0, items.length - 1)];
-
-  return fetch(item.webformatURL).then(stripResponse);
+  return items;
 };
 
 /**

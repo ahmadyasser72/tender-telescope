@@ -38,7 +38,14 @@
     <Dialog.Header>
       <Dialog.Title class="text-2xl">{title}</Dialog.Title>
       <Dialog.Description class="text-base">
-        {#if isCorrect || choice === undefined}
+        {#if isCorrect && question.explained !== undefined}
+          {@const split = question.explained
+            .split(".")
+            .map((line) => line.trim())}
+          {#each split as line}
+            <p>{line}.</p>
+          {/each}
+        {:else if choice === undefined}
           Bahasa Indonesia dari kata
           <span class="font-semibold capitalize text-black underline">
             {question.sourceWord}

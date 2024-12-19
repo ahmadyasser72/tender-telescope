@@ -27,6 +27,11 @@ export const getQuestions = async () => {
   const entries = await getCollection("questions");
   return entries.map(({ data, id }): [typeof id, Question[]] => [
     id,
-    data.items.map((it) => ({ ...it, language: id, code: data.code })),
+    data.items.map((it, idx) => ({
+      ...it,
+      language: id,
+      code: data.code,
+      id: idx,
+    })),
   ]);
 };

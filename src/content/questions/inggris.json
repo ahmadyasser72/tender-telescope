@@ -3,184 +3,1089 @@
   "language": "inggris",
   "items": [
     {
-      "image": null,
-      "translation": "apel",
-      "sourceWord": "apple",
-      "difficulty": "pemula"
+      "translation": "Halo, apa kabar?",
+      "sourceWord": "Hello, how are you?",
+      "explained": "Menggunakan “Simple Present Tense”. Struktur: Subject (I) + Verb to be (am) + Complement (fine). Digunakan untuk menanyakan kondisi seseorang pada saat ini.",
+      "difficulty": "pemula",
+      "imageQuery": "greeting"
     },
     {
-      "image": null,
-      "translation": "mobil",
-      "sourceWord": "car",
-      "difficulty": "pemula"
+      "translation": "Saya baik, terima kasih.",
+      "sourceWord": "I am fine, thank you.",
+      "explained": "Menggunakan “Simple Present Tense”. Struktur: Subject (I) + Verb to be (am) + Complement (fine). Menyatakan kondisi saat ini.",
+      "difficulty": "pemula",
+      "imageQuery": "smile"
     },
     {
-      "image": null,
-      "translation": "anjing",
-      "sourceWord": "dog",
-      "difficulty": "pemula"
+      "translation": "Siapa nama kamu?",
+      "sourceWord": "What is your name?",
+      "explained": "Menggunakan “Simple Present Tense”. Struktur: Question word (What) + Verb to be (is) + Subject (your name). Menanyakan identitas seseorang.",
+      "difficulty": "pemula",
+      "imageQuery": "handshake"
     },
     {
-      "image": null,
-      "translation": "kucing",
-      "sourceWord": "cat",
-      "difficulty": "pemula"
+      "translation": "Nama saya John.",
+      "sourceWord": "My name is John.",
+      "explained": "Menggunakan “Simple Present Tense”. Struktur: Subject (My name) + Verb to be (is) + Complement (John). Menyatakan identitas seseorang.",
+      "difficulty": "pemula",
+      "imageQuery": "handshake"
     },
     {
-      "image": null,
-      "translation": "rumah",
-      "sourceWord": "house",
-      "difficulty": "pemula"
+      "translation": "Apakah kamu suka kopi?",
+      "sourceWord": "Do you like coffee?",
+      "explained": "Menggunakan “Simple Present Tense”. Struktur: Question word (Do) + Subject (you) + Verb (like) + Object (coffee). Digunakan untuk menanyakan preferensi atau kebiasaan seseorang.",
+      "difficulty": "pemula",
+      "imageQuery": "coffee"
     },
     {
-      "image": null,
-      "translation": "buku",
-      "sourceWord": "book",
-      "difficulty": "pemula"
+      "translation": "Ya, saya suka kopi.",
+      "sourceWord": "Yes, I like coffee.",
+      "explained": "Menggunakan “Simple Present Tense”. Struktur: Subject (I) + Verb (like) + Object (coffee). Menyatakan preferensi.",
+      "difficulty": "pemula",
+      "imageQuery": "coffee"
     },
     {
-      "image": null,
-      "translation": "meja",
-      "sourceWord": "table",
-      "difficulty": "pemula"
+      "translation": "Saya biasanya bangun pukul 7 pagi.",
+      "sourceWord": "I usually wake up at 7 AM.",
+      "explained": "Menggunakan “Simple Present Tense” dengan kata keterangan (usually). Struktur: Subject (I) + Adverb (usually) + Verb (wake up) + Time (at 7 AM). Menyatakan kebiasaan atau rutinitas sehari-hari.",
+      "difficulty": "pemula",
+      "imageQuery": "alarm"
     },
     {
-      "image": null,
-      "translation": "kursi",
-      "sourceWord": "chair",
-      "difficulty": "pemula"
+      "translation": "Setelah itu, saya mandi.",
+      "sourceWord": "After that, I take a shower.",
+      "explained": "Menggunakan “Simple Present Tense”. Struktur: Subject (I) + Verb (take) + Object (a shower). Menyatakan kegiatan yang dilakukan setelah aktivitas lain.",
+      "difficulty": "pemula",
+      "imageQuery": "bathtub"
     },
     {
-      "image": null,
-      "translation": "matahari",
-      "sourceWord": "sun",
-      "difficulty": "pemula"
+      "translation": "Saya pergi ke sekolah dengan sepeda.",
+      "sourceWord": "I go to school by bicycle.",
+      "explained": "Menggunakan “Simple Present Tense”. Struktur: Subject (I) + Verb (go) + Object (to school) + by + Transport (bicycle). Menyatakan kebiasaan atau rutinitas sehari-hari.",
+      "difficulty": "pemula",
+      "imageQuery": "bicycle"
     },
     {
-      "image": null,
-      "translation": "bulan",
-      "sourceWord": "moon",
-      "difficulty": "pemula"
+      "translation": "Saya suka membaca buku di sore hari.",
+      "sourceWord": "I like reading books in the afternoon.",
+      "explained": "Menggunakan “Simple Present Tense”. Struktur: Subject (I) + Verb (like) + Object (reading books) + Time Expression (in the afternoon). Menyatakan kebiasaan.",
+      "difficulty": "pemula",
+      "imageQuery": "book"
     },
     {
-      "image": null,
-      "translation": "hujan",
-      "sourceWord": "rain",
-      "difficulty": "menengah"
+      "translation": "Apakah kamu suka bermain sepak bola?",
+      "sourceWord": "Do you like playing football?",
+      "explained": "Menggunakan “Simple Present Tense”. Struktur: Question word (Do) + Subject (you) + Verb (like) + Object (playing football). Menanyakan preferensi atau kebiasaan seseorang.",
+      "difficulty": "pemula",
+      "imageQuery": "football"
     },
     {
-      "image": null,
-      "translation": "sepeda",
-      "sourceWord": "bicycle",
-      "difficulty": "menengah"
+      "translation": "Saya tidak suka makan sayuran.",
+      "sourceWord": "I don’t like eating vegetables.",
+      "explained": "Menggunakan “Simple Present Tense”. Struktur: Subject (I) + do not (don’t) + Verb (like) + Object (eating vegetables). Menyatakan ketidaksukaan atau preferensi.",
+      "difficulty": "pemula",
+      "imageQuery": "vegetables"
     },
     {
-      "image": null,
-      "translation": "sakit kepala",
-      "sourceWord": "headache",
-      "difficulty": "menengah"
+      "translation": "Kami pergi ke pantai pada akhir pekan.",
+      "sourceWord": "We go to the beach on weekends.",
+      "explained": "Menggunakan “Simple Present Tense”. Struktur: Subject (We) + Verb (go) + Object (to the beach) + Time Expression (on weekends). Menyatakan kebiasaan atau rutinitas.",
+      "difficulty": "pemula",
+      "imageQuery": "beach"
     },
     {
-      "image": null,
-      "translation": "makanan",
-      "sourceWord": "food",
-      "difficulty": "menengah"
+      "translation": "Kami bermain game komputer di waktu senggang.",
+      "sourceWord": "We play computer games in our free time.",
+      "explained": "Menggunakan “Simple Present Tense”. Struktur: Subject (We) + Verb (play) + Object (computer games) + Time Expression (in our free time). Menyatakan kebiasaan.",
+      "difficulty": "pemula",
+      "imageQuery": "gaming"
     },
     {
-      "image": null,
-      "translation": "perpustakaan",
-      "sourceWord": "library",
-      "difficulty": "menengah"
+      "translation": "Dia bekerja di sebuah restoran.",
+      "sourceWord": "She works in a restaurant.",
+      "explained": "Menggunakan “Simple Present Tense”. Struktur: Subject (She) + Verb (works) + Object (in a restaurant). Menyatakan pekerjaan seseorang.",
+      "difficulty": "pemula",
+      "imageQuery": "cafe"
     },
     {
-      "image": null,
-      "translation": "dokter",
-      "sourceWord": "doctor",
-      "difficulty": "menengah"
+      "translation": "Kami makan malam bersama setiap malam.",
+      "sourceWord": "We have dinner together every night.",
+      "explained": "Menggunakan “Simple Present Tense”. Struktur: Subject (We) + Verb (have) + Object (dinner) + Time Expression (every night). Menyatakan rutinitas.",
+      "difficulty": "pemula",
+      "imageQuery": "dinner"
     },
     {
-      "image": null,
-      "translation": "komputer",
-      "sourceWord": "computer",
-      "difficulty": "menengah"
+      "translation": "Apa kamu ingin minum teh?",
+      "sourceWord": "Would you like to drink tea?",
+      "explained": "Menggunakan “Polite Request (Would you like)”. Struktur: Would + Subject (you) + Verb (like) + Object (to drink tea). Digunakan untuk menawarkan sesuatu dengan sopan.",
+      "difficulty": "pemula",
+      "imageQuery": "tea"
     },
     {
-      "image": null,
-      "translation": "televisi",
-      "sourceWord": "television",
-      "difficulty": "menengah"
+      "translation": "Saya tidak tahu jawabannya.",
+      "sourceWord": "I don’t know the answer.",
+      "explained": "Menggunakan “Simple Present Tense”. Struktur: Subject (I) + do not (don’t) + Verb (know) + Object (the answer). Menyatakan ketidaktahuan.",
+      "difficulty": "pemula",
+      "imageQuery": "confused"
     },
     {
-      "image": null,
-      "translation": "kue",
-      "sourceWord": "cake",
-      "difficulty": "menengah"
+      "translation": "Ini adalah buku saya.",
+      "sourceWord": "This is my book.",
+      "explained": "Menggunakan “Simple Present Tense”. Struktur: This + is + Possessive Pronoun (my) + Noun (book). Menyatakan kepemilikan.",
+      "difficulty": "pemula",
+      "imageQuery": "book"
     },
     {
-      "image": null,
-      "translation": "dapur",
-      "sourceWord": "kitchen",
-      "difficulty": "menengah"
+      "translation": "Apakah ini tempat dudukmu?",
+      "sourceWord": "Is this your seat?",
+      "explained": "Menggunakan “Simple Present Tense”. Struktur: Question word (Is) + this + Possessive Pronoun (your) + Noun (seat). Menanyakan kepemilikan.",
+      "difficulty": "pemula",
+      "imageQuery": "questions"
     },
     {
-      "image": null,
-      "translation": "komunikasi",
-      "sourceWord": "communication",
-      "difficulty": "mahir"
+      "translation": "Saya punya dua kucing.",
+      "sourceWord": "I have two cats.",
+      "explained": "Menggunakan “Simple Present Tense”. Struktur: Subject (I) + have + Object (two cats). Menyatakan kepemilikan.",
+      "difficulty": "pemula",
+      "imageQuery": "cat"
     },
     {
-      "image": null,
-      "translation": "sosial",
-      "sourceWord": "social",
-      "difficulty": "mahir"
+      "translation": "Saya baru membeli telepon baru.",
+      "sourceWord": "I have just bought a new phone.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (I) + have + Verb (bought) + Object (a new phone). Menyatakan kejadian yang baru saja terjadi.",
+      "difficulty": "pemula",
+      "imageQuery": "handphone"
     },
     {
-      "image": null,
-      "translation": "pengembangan",
-      "sourceWord": "development",
-      "difficulty": "mahir"
+      "translation": "Kami telah belajar bahasa Inggris selama satu tahun.",
+      "sourceWord": "We have been learning English for a year.",
+      "explained": "Menggunakan “Present Perfect Continuous Tense”. Struktur: Subject (We) + have + been + Verb (learning) + Object (English) + Time Expression (for a year). Menyatakan aktivitas yang dimulai di masa lalu dan masih berlanjut.",
+      "difficulty": "pemula",
+      "imageQuery": "book"
     },
     {
-      "image": null,
-      "translation": "pengetahuan",
-      "sourceWord": "knowledge",
-      "difficulty": "mahir"
+      "translation": "Dia sudah menonton film tersebut.",
+      "sourceWord": "He has watched that movie.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (He) + has + Verb (watched) + Object (that movie). Menyatakan kejadian yang sudah selesai dilakukan, namun relevan sekarang.",
+      "difficulty": "pemula",
+      "imageQuery": "theater"
     },
     {
-      "image": null,
-      "translation": "perspektif",
-      "sourceWord": "perspective",
-      "difficulty": "mahir"
+      "translation": "Kami sudah makan pagi.",
+      "sourceWord": "We have had breakfast.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (We) + have + Verb (had) + Object (breakfast). Menyatakan kegiatan yang baru selesai dilakukan.",
+      "difficulty": "pemula",
+      "imageQuery": "breakfast"
     },
     {
-      "image": null,
-      "translation": "penerapan",
-      "sourceWord": "application",
-      "difficulty": "mahir"
+      "translation": "Apakah kamu sudah mengerjakan tugas?",
+      "sourceWord": "Have you done the homework?",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Question word (Have) + Subject (you) + Verb (done) + Object (the homework). Menanyakan apakah kegiatan sudah selesai dilakukan.",
+      "difficulty": "pemula",
+      "imageQuery": "homework"
     },
     {
-      "image": null,
-      "translation": "evaluasi",
-      "sourceWord": "evaluation",
-      "difficulty": "mahir"
+      "translation": "Saya belum menyelesaikan pekerjaan saya.",
+      "sourceWord": "I haven’t finished my work.",
+      "explained": "Menggunakan “Present Perfect Tense” dengan bentuk negatif. Struktur: Subject (I) + have + not + Verb (finished) + Object (my work). Menyatakan kegiatan yang belum selesai dilakukan.",
+      "difficulty": "pemula",
+      "imageQuery": "homework"
     },
     {
-      "image": null,
-      "translation": "teknologi",
-      "sourceWord": "technology",
-      "difficulty": "mahir"
+      "translation": "Dia belum pulang.",
+      "sourceWord": "She hasn’t come home.",
+      "explained": "Menggunakan “Present Perfect Tense” dengan bentuk negatif. Struktur: Subject (She) + has + not + Verb (come) + Object (home). Menyatakan kejadian yang belum terjadi.",
+      "difficulty": "pemula",
+      "imageQuery": "going"
     },
     {
-      "image": null,
-      "translation": "interaksi",
-      "sourceWord": "interaction",
-      "difficulty": "mahir"
+      "translation": "Apakah kamu sudah menerima surat itu?",
+      "sourceWord": "Have you received the letter?",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Question word (Have) + Subject (you) + Verb (received) + Object (the letter). Menanyakan apakah kejadian sudah terjadi.",
+      "difficulty": "pemula",
+      "imageQuery": "mail"
     },
     {
-      "image": null,
-      "translation": "kemajuan",
-      "sourceWord": "progress",
-      "difficulty": "mahir"
+      "translation": "Mereka belum pergi ke bioskop.",
+      "sourceWord": "They haven’t gone to the cinema.",
+      "explained": "Menggunakan “Present Perfect Tense” dengan bentuk negatif. Struktur: Subject (They) + have + not + Verb (gone) + Object (to the cinema). Menyatakan kejadian yang belum terjadi.",
+      "difficulty": "pemula",
+      "imageQuery": "theater"
+    },
+    {
+      "translation": "Apakah Anda sudah melihatnya?",
+      "sourceWord": "Have you seen it?",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Question word (Have) + Subject (you) + Verb (seen) + Object (it). Menanyakan apakah kejadian sudah terjadi.",
+      "difficulty": "pemula",
+      "imageQuery": "seeing"
+    },
+    {
+      "translation": "Saya baru saja tiba di rumah.",
+      "sourceWord": "I have just arrived home.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (I) + have + just + Verb (arrived) + Object (home). Menyatakan kejadian yang baru saja terjadi.",
+      "difficulty": "pemula",
+      "imageQuery": "going"
+    },
+    {
+      "translation": "Dia belum memulai tugasnya.",
+      "sourceWord": "She hasn’t started her task.",
+      "explained": "Menggunakan “Present Perfect Tense” dengan bentuk negatif. Struktur: Subject (She) + has + not + Verb (started) + Object (her task). Menyatakan kejadian yang belum terjadi.",
+      "difficulty": "pemula",
+      "imageQuery": "homework"
+    },
+    {
+      "translation": "Saya sudah menonton film itu.",
+      "sourceWord": "I have watched that movie.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (I) + have + Verb (watched) + Object (that movie). Menyatakan kegiatan yang sudah selesai dilakukan, namun relevan sekarang.",
+      "difficulty": "pemula",
+      "imageQuery": "theater"
+    },
+    {
+      "translation": "Mereka sudah membaca buku itu.",
+      "sourceWord": "They have read that book.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (They) + have + Verb (read) + Object (that book). Menyatakan kegiatan yang sudah selesai dilakukan.",
+      "difficulty": "pemula",
+      "imageQuery": "book"
+    },
+    {
+      "translation": "Kamu sudah belajar bahasa Inggris selama dua tahun.",
+      "sourceWord": "You have been learning English for two years.",
+      "explained": "Menggunakan “Present Perfect Continuous Tense”. Struktur: Subject (You) + have + been + Verb (learning) + Object (English) + Time Expression (for two years). Menyatakan aktivitas yang dimulai di masa lalu dan masih berlanjut.",
+      "difficulty": "pemula",
+      "imageQuery": "book"
+    },
+    {
+      "translation": "Kami sudah menunggu selama satu jam.",
+      "sourceWord": "We have been waiting for an hour.",
+      "explained": "Menggunakan “Present Perfect Continuous Tense”. Struktur: Subject (We) + have + been + Verb (waiting) + Time Expression (for an hour). Menyatakan aktivitas yang dimulai di masa lalu dan masih berlanjut.",
+      "difficulty": "pemula",
+      "imageQuery": "wait"
+    },
+    {
+      "translation": "Saya baru saja selesai makan.",
+      "sourceWord": "I have just finished eating.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (I) + have + just + Verb (finished) + Object (eating). Menyatakan kejadian yang baru saja selesai dilakukan.",
+      "difficulty": "pemula",
+      "imageQuery": "breakfast"
+    },
+    {
+      "translation": "Dia sudah selesai bekerja.",
+      "sourceWord": "He has finished working.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (He) + has + Verb (finished) + Object (working). Menyatakan kejadian yang sudah selesai dilakukan.",
+      "difficulty": "pemula",
+      "imageQuery": "homework"
+    },
+    {
+      "translation": "Apakah kamu pernah pergi ke Paris?",
+      "sourceWord": "Have you ever been to Paris?",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Question word (Have) + Subject (you) + ever + Verb (been) + Object (to Paris). Menanyakan pengalaman hidup seseorang.",
+      "difficulty": "pemula",
+      "imageQuery": "eiffel"
+    },
+    {
+      "translation": "Mereka belum pernah ke Jepang.",
+      "sourceWord": "They have never been to Japan.",
+      "explained": "Menggunakan “Present Perfect Tense” dengan bentuk negatif. Struktur: Subject (They) + have + never + Verb (been) + Object (to Japan). Menyatakan pengalaman hidup yang belum terjadi.",
+      "difficulty": "pemula",
+      "imageQuery": "japan"
+    },
+    {
+      "translation": "Saya sudah pergi ke Bali beberapa kali.",
+      "sourceWord": "I have been to Bali several times.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (I) + have + Verb (been) + Object (to Bali) + Time Expression (several times). Menyatakan pengalaman hidup seseorang.",
+      "difficulty": "pemula",
+      "imageQuery": "beach"
+    },
+    {
+      "translation": "Mereka tidak datang ke sekolah hari ini.",
+      "sourceWord": "They aren’t coming to school today.",
+      "explained": "Menggunakan “Present Continuous Tense” dengan bentuk negatif. Struktur: Subject (They) + Verb to be (aren’t) + Verb (coming) + Object (to school) + Time Expression (today). Menyatakan kejadian yang sedang berlangsung, namun dalam bentuk negatif.",
+      "difficulty": "pemula",
+      "imageQuery": "homework"
+    },
+    {
+      "translation": "Dia sedang membaca buku.",
+      "sourceWord": "He is reading a book.",
+      "explained": "Menggunakan “Present Continuous Tense”. Struktur: Subject (He) + Verb to be (is) + Verb (reading) + Object (a book). Menyatakan aktivitas yang sedang berlangsung saat ini.",
+      "difficulty": "pemula",
+      "imageQuery": "book"
+    },
+    {
+      "translation": "Kami sedang bermain sepak bola.",
+      "sourceWord": "We are playing football.",
+      "explained": "Menggunakan “Present Continuous Tense”. Struktur: Subject (We) + Verb to be (are) + Verb (playing) + Object (football). Menyatakan aktivitas yang sedang berlangsung.",
+      "difficulty": "pemula",
+      "imageQuery": "football"
+    },
+    {
+      "translation": "Mereka sedang belajar matematika.",
+      "sourceWord": "They are studying mathematics.",
+      "explained": "Menggunakan “Present Continuous Tense”. Struktur: Subject (They) + Verb to be (are) + Verb (studying) + Object (mathematics). Menyatakan aktivitas yang sedang berlangsung.",
+      "difficulty": "pemula",
+      "imageQuery": "book"
+    },
+    {
+      "translation": "Apakah kamu sedang tidur?",
+      "sourceWord": "Are you sleeping?",
+      "explained": "Menggunakan “Present Continuous Tense”. Struktur: Question word (Are) + Subject (you) + Verb (sleeping). Menanyakan aktivitas yang sedang berlangsung.",
+      "difficulty": "pemula",
+      "imageQuery": "sleep"
+    },
+    {
+      "translation": "Apakah mereka sedang menonton film?",
+      "sourceWord": "Are they watching a movie?",
+      "explained": "Menggunakan “Present Continuous Tense”. Struktur: Question word (Are) + Subject (they) + Verb (watching) + Object (a movie). Menanyakan aktivitas yang sedang berlangsung.",
+      "difficulty": "pemula",
+      "imageQuery": "theater"
+    },
+    {
+      "translation": "Saya tidak sedang bekerja sekarang.",
+      "sourceWord": "I’m not working now.",
+      "explained": "Menggunakan “Present Continuous Tense” dengan bentuk negatif. Struktur: Subject (I) + Verb to be (am) + not + Verb (working). Menyatakan aktivitas yang tidak sedang berlangsung.",
+      "difficulty": "pemula",
+      "imageQuery": "homework"
+    },
+    {
+      "translation": "Dia sedang memasak makan malam.",
+      "sourceWord": "She is cooking dinner.",
+      "explained": "Menggunakan “Present Continuous Tense”. Struktur: Subject (She) + Verb to be (is) + Verb (cooking) + Object (dinner). Menyatakan aktivitas yang sedang berlangsung.",
+      "difficulty": "pemula",
+      "imageQuery": "dinner"
+    },
+    {
+      "translation": "Saya baru saja makan siang.",
+      "sourceWord": "I have just had lunch.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (I) + have + Verb (had) + Object (lunch). Menyatakan kegiatan yang baru saja selesai dilakukan.",
+      "difficulty": "pemula",
+      "imageQuery": "breakfast"
+    },
+    {
+      "translation": "Mereka sudah pergi ke pasar.",
+      "sourceWord": "They have gone to the market.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (They) + have + Verb (gone) + Object (to the market). Menyatakan kejadian yang sudah terjadi, tapi relevan dengan sekarang.",
+      "difficulty": "pemula",
+      "imageQuery": "market"
+    },
+    {
+      "translation": "Kami sedang mengembangkan aplikasi baru untuk meningkatkan pengalaman pengguna.",
+      "sourceWord": "We are developing a new app to enhance user experience.",
+      "explained": "Menggunakan “Present Continuous Tense”. Struktur: Subject (We) + are + Verb-ing (developing) + Object (a new app) + Purpose (to enhance user experience). Menyatakan kegiatan yang sedang berlangsung.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Tim pengembangan perangkat lunak kami bekerja keras untuk menyelesaikan proyek tepat waktu.",
+      "sourceWord": "Our software development team is working hard to complete the project on time.",
+      "explained": "Menggunakan “Present Continuous Tense”. Struktur: Subject (Our software development team) + is + Verb-ing (working) + Object (hard) + Purpose (to complete the project on time). Menyatakan kegiatan yang sedang berlangsung.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami sedang mengevaluasi hasil penelitian untuk mengambil keputusan yang tepat.",
+      "sourceWord": "We are evaluating the research results to make informed decisions.",
+      "explained": "Menggunakan “Present Continuous Tense”. Struktur: Subject (We) + are + Verb-ing (evaluating) + Object (the research results) + Purpose (to make informed decisions). Menyatakan kegiatan yang sedang berlangsung.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Dia sedang menyiapkan presentasi untuk pertemuan minggu depan.",
+      "sourceWord": "She is preparing a presentation for next week's meeting.",
+      "explained": "Menggunakan “Present Continuous Tense”. Struktur: Subject (She) + is + Verb-ing (preparing) + Object (a presentation) + Prepositional Phrase (for next week's meeting). Menyatakan kegiatan yang sedang berlangsung.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami sedang meningkatkan kualitas produk kami untuk memenuhi permintaan pelanggan.",
+      "sourceWord": "We are improving the quality of our products to meet customer demand.",
+      "explained": "Menggunakan “Present Continuous Tense”. Struktur: Subject (We) + are + Verb-ing (improving) + Object (the quality of our products) + Purpose (to meet customer demand). Menyatakan kegiatan yang sedang berlangsung.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Saya sedang menunggu balasan email dari klien kami.",
+      "sourceWord": "I am waiting for a reply from our client.",
+      "explained": "Menggunakan “Present Continuous Tense”. Struktur: Subject (I) + am + Verb-ing (waiting) + Object (for a reply) + Prepositional Phrase (from our client). Menyatakan kegiatan yang sedang berlangsung.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami sedang merancang program pelatihan baru untuk karyawan baru.",
+      "sourceWord": "We are designing a new training program for new employees.",
+      "explained": "Menggunakan “Present Continuous Tense”. Struktur: Subject (We) + are + Verb-ing (designing) + Object (a new training program) + Prepositional Phrase (for new employees). Menyatakan kegiatan yang sedang berlangsung.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Dia sedang mengerjakan laporan yang harus diserahkan besok.",
+      "sourceWord": "He is working on the report that is due tomorrow.",
+      "explained": "Menggunakan “Present Continuous Tense”. Struktur: Subject (He) + is + Verb-ing (working) + Object (on the report) + Relative Clause (that is due tomorrow). Menyatakan kegiatan yang sedang berlangsung.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami sedang menilai keberhasilan strategi pemasaran terbaru kami.",
+      "sourceWord": "We are assessing the success of our latest marketing strategy.",
+      "explained": "Menggunakan “Present Continuous Tense”. Struktur: Subject (We) + are + Verb-ing (assessing) + Object (the success of our latest marketing strategy). Menyatakan kegiatan yang sedang berlangsung.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Perusahaan kami sedang melakukan riset pasar untuk memperluas jangkauan produk.",
+      "sourceWord": "Our company is conducting market research to expand product reach.",
+      "explained": "Menggunakan “Present Continuous Tense”. Struktur: Subject (Our company) + is + Verb-ing (conducting) + Object (market research) + Purpose (to expand product reach). Menyatakan kegiatan yang sedang berlangsung.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Dia sudah mempersiapkan presentasi untuk rapat besok.",
+      "sourceWord": "He has prepared the presentation for tomorrow's meeting.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (He) + has + Verb (prepared) + Object (the presentation) + Purpose (for tomorrow's meeting). Menyatakan kegiatan yang sudah selesai dilakukan.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami sudah membeli tiket konser.",
+      "sourceWord": "We have bought the concert tickets.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (We) + have + Verb (bought) + Object (the concert tickets). Menyatakan kegiatan yang sudah selesai dilakukan.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Saya belum melihat film itu.",
+      "sourceWord": "I haven't seen that movie.",
+      "explained": "Menggunakan “Present Perfect Tense” dengan bentuk negatif. Struktur: Subject (I) + have + not + Verb (seen) + Object (that movie). Menyatakan kejadian yang belum terjadi.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami telah bertemu dengan klien baru minggu lalu.",
+      "sourceWord": "We met the new client last week.",
+      "explained": "Menggunakan “Past Simple Tense”. Struktur: Subject (We) + Verb (met) + Object (the new client) + Time Expression (last week). Menyatakan kegiatan yang sudah selesai dilakukan di waktu tertentu.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Mereka sudah membeli mobil baru.",
+      "sourceWord": "They have bought a new car.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (They) + have + Verb (bought) + Object (a new car). Menyatakan kegiatan yang sudah selesai dilakukan.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Apakah kamu sudah mendapatkan pekerjaan baru?",
+      "sourceWord": "Have you gotten a new job?",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Question word (Have) + Subject (you) + Verb (gotten) + Object (a new job). Menanyakan apakah kegiatan sudah selesai dilakukan.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Dia telah mengunjungi banyak negara di Eropa.",
+      "sourceWord": "She has visited many countries in Europe.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (She) + has + Verb (visited) + Object (many countries) + Time Expression (in Europe). Menyatakan pengalaman hidup seseorang.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Saya sudah membersihkan kamar saya.",
+      "sourceWord": "I have cleaned my room.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (I) + have + Verb (cleaned) + Object (my room). Menyatakan kegiatan yang sudah selesai dilakukan.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami sudah mengonfirmasi jadwal rapat.",
+      "sourceWord": "We have confirmed the meeting schedule.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (We) + have + Verb (confirmed) + Object (the meeting schedule). Menyatakan kegiatan yang sudah selesai dilakukan.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Mereka sudah memesan hotel untuk liburan musim panas.",
+      "sourceWord": "They have booked a hotel for the summer vacation.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (They) + have + Verb (booked) + Object (a hotel) + Purpose (for the summer vacation). Menyatakan kegiatan yang sudah selesai dilakukan.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Dia sudah mendapatkan hadiah untuk ulang tahunnya.",
+      "sourceWord": "He has received a gift for his birthday.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (He) + has + Verb (received) + Object (a gift) + Purpose (for his birthday). Menyatakan kegiatan yang sudah selesai dilakukan.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Saya sudah menyiapkan bahan untuk presentasi besok.",
+      "sourceWord": "I have prepared the materials for tomorrow's presentation.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (I) + have + Verb (prepared) + Object (the materials) + Purpose (for tomorrow's presentation). Menyatakan kegiatan yang sudah selesai dilakukan.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami sudah mengatur pertemuan dengan klien.",
+      "sourceWord": "We have arranged a meeting with the client.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (We) + have + Verb (arranged) + Object (a meeting) + Prepositional Phrase (with the client). Menyatakan kegiatan yang sudah selesai dilakukan.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Dia sudah menuntaskan semua pekerjaan rumah.",
+      "sourceWord": "She has completed all the homework.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (She) + has + Verb (completed) + Object (all the homework). Menyatakan kejadian yang sudah selesai dilakukan.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Saya sudah merencanakan liburan akhir tahun.",
+      "sourceWord": "I have planned the end-of-year holiday.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (I) + have + Verb (planned) + Object (the end-of-year holiday). Menyatakan kejadian yang sudah selesai dilakukan.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami sudah memperbarui informasi kontak kami.",
+      "sourceWord": "We have updated our contact information.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (We) + have + Verb (updated) + Object (our contact information). Menyatakan kejadian yang sudah selesai dilakukan.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Apakah Anda sudah menyelesaikan laporan tahunan?",
+      "sourceWord": "Have you finished the annual report?",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Question word (Have) + Subject (you) + Verb (finished) + Object (the annual report). Menanyakan apakah kegiatan sudah selesai dilakukan.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Apa yang kamu lakukan sekarang?",
+      "sourceWord": "What are you doing now?",
+      "explained": "Menggunakan “Present Continuous Tense”. Struktur: Question word (What) + Subject (you) + Verb (doing) + Object (now). Digunakan untuk menanyakan aktivitas yang sedang berlangsung.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Saya sedang makan siang.",
+      "sourceWord": "I am having lunch.",
+      "explained": "Menggunakan “Present Continuous Tense”. Struktur: Subject (I) + Verb to be (am) + Verb (having) + Object (lunch). Menyatakan aktivitas yang sedang berlangsung.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Saya sudah menunggu selama satu jam.",
+      "sourceWord": "I have been waiting for an hour.",
+      "explained": "Menggunakan “Present Perfect Continuous Tense”. Struktur: Subject (I) + have + been + Verb (waiting) + Time Expression (for an hour). Menyatakan aktivitas yang dimulai di masa lalu dan masih berlanjut.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Dia sudah membaca buku itu beberapa kali.",
+      "sourceWord": "He has read that book several times.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (He) + has + Verb (read) + Object (that book) + Time Expression (several times). Menyatakan kejadian yang telah terjadi beberapa kali.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami sudah tinggal di sini selama lima tahun.",
+      "sourceWord": "We have lived here for five years.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (We) + have + Verb (lived) + Object (here) + Time Expression (for five years). Menyatakan aktivitas yang telah dimulai di masa lalu dan masih berlanjut.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Mereka sudah selesai mengerjakan proyek mereka.",
+      "sourceWord": "They have finished their project.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (They) + have + Verb (finished) + Object (their project). Menyatakan kejadian yang sudah selesai dilakukan.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Apakah kamu sudah memeriksa emailmu?",
+      "sourceWord": "Have you checked your email?",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Question word (Have) + Subject (you) + Verb (checked) + Object (your email). Menanyakan apakah suatu kegiatan sudah dilakukan.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami telah bekerja keras selama beberapa minggu.",
+      "sourceWord": "We have been working hard for several weeks.",
+      "explained": "Menggunakan “Present Perfect Continuous Tense”. Struktur: Subject (We) + have + been + Verb (working) + Time Expression (for several weeks). Menyatakan aktivitas yang dimulai di masa lalu dan masih berlanjut.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Apakah kamu sudah mengunjungi museum itu?",
+      "sourceWord": "Have you visited that museum?",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Question word (Have) + Subject (you) + Verb (visited) + Object (that museum). Menanyakan apakah kegiatan sudah selesai dilakukan.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Dia belum memutuskan apa yang harus dilakukan.",
+      "sourceWord": "He hasn’t decided what to do.",
+      "explained": "Menggunakan “Present Perfect Tense” dengan bentuk negatif. Struktur: Subject (He) + has + not + Verb (decided) + Object (what to do). Menyatakan kejadian yang belum terjadi.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Mereka sudah pergi ke Paris beberapa kali.",
+      "sourceWord": "They have been to Paris several times.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (They) + have + Verb (been) + Object (to Paris) + Time Expression (several times). Menyatakan pengalaman hidup seseorang.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Apakah kamu sudah mendengar berita itu?",
+      "sourceWord": "Have you heard the news?",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Question word (Have) + Subject (you) + Verb (heard) + Object (the news). Menanyakan apakah kejadian sudah terjadi.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Saya sudah menyelesaikan semua pekerjaan rumah saya.",
+      "sourceWord": "I have finished all my homework.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (I) + have + Verb (finished) + Object (all my homework). Menyatakan kegiatan yang sudah selesai dilakukan.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Dia belum mengembalikan bukunya.",
+      "sourceWord": "She hasn’t returned her book.",
+      "explained": "Menggunakan “Present Perfect Tense” dengan bentuk negatif. Struktur: Subject (She) + has + not + Verb (returned) + Object (her book). Menyatakan kejadian yang belum terjadi.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami sudah menyelesaikan proyek besar itu.",
+      "sourceWord": "We have completed that big project.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (We) + have + Verb (completed) + Object (that big project). Menyatakan kejadian yang sudah selesai dilakukan.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Saya sudah menulis surat itu.",
+      "sourceWord": "I have written that letter.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (I) + have + Verb (written) + Object (that letter). Menyatakan kegiatan yang sudah selesai dilakukan.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami sudah memesan makanan.",
+      "sourceWord": "We have ordered the food.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (We) + have + Verb (ordered) + Object (the food). Menyatakan kegiatan yang sudah selesai dilakukan.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Mereka sudah makan siang.",
+      "sourceWord": "They have had lunch.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (They) + have + Verb (had) + Object (lunch). Menyatakan kegiatan yang sudah selesai dilakukan.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Apakah kamu sudah selesai dengan tugasmu?",
+      "sourceWord": "Have you finished your task?",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Question word (Have) + Subject (you) + Verb (finished) + Object (your task). Menanyakan apakah kegiatan sudah selesai dilakukan.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Saya belum mengunjungi teman saya yang baru.",
+      "sourceWord": "I haven’t visited my new friend yet.",
+      "explained": "Menggunakan “Present Perfect Tense” dengan bentuk negatif. Struktur: Subject (I) + have + not + Verb (visited) + Object (my new friend). Menyatakan kejadian yang belum terjadi.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami sudah membeli tiket pesawat.",
+      "sourceWord": "We have bought the plane tickets.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (We) + have + Verb (bought) + Object (the plane tickets). Menyatakan kegiatan yang sudah selesai dilakukan.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Dia akan pergi ke kantor besok.",
+      "sourceWord": "She will go to the office tomorrow.",
+      "explained": "Menggunakan “Future Simple Tense”. Struktur: Subject (She) + will + Verb (go) + Object (to the office) + Time Expression (tomorrow). Menyatakan aksi yang akan terjadi di masa depan.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Mereka akan pergi berlibur musim panas ini.",
+      "sourceWord": "They are going to go on vacation this summer.",
+      "explained": "Menggunakan “Be Going to (Future)”. Struktur: Subject (They) + Verb to be (are) + going to + Verb (go) + Object (on vacation) + Time Expression (this summer). Menyatakan rencana atau tujuan di masa depan.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Saya akan belajar bahasa Inggris minggu depan.",
+      "sourceWord": "I will study English next week.",
+      "explained": "Menggunakan “Future Simple Tense”. Struktur: Subject (I) + will + Verb (study) + Object (English) + Time Expression (next week). Menyatakan aksi yang akan terjadi di masa depan.",
+      "difficulty": "menengah",
+      "imageQuery": null
+    },
+    {
+      "translation": "Saya sudah menyelesaikan PR saya.",
+      "sourceWord": "I have already finished my homework.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (I) + have/has + Past Participle (finished) + Object (my homework). Menyatakan tindakan yang sudah selesai dalam waktu yang tidak ditentukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Apakah kamu pernah ke Jepang?",
+      "sourceWord": "Have you ever been to Japan?",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Question word (Have) + Subject (you) + ever + Past Participle (been) + Object (to Japan). Menanyakan pengalaman yang relevan dengan masa lalu.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Jika kamu belajar lebih giat, kamu akan lulus ujian.",
+      "sourceWord": "If you study harder, you will pass the exam.",
+      "explained": "Menggunakan “Conditional Sentence Type 1”. Struktur: If + Subject (you) + Verb (study) + Object (harder) + Result Clause (you will pass). Menyatakan kemungkinan yang tergantung pada suatu kondisi.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Jika saya kaya, saya akan membeli rumah besar.",
+      "sourceWord": "If I were rich, I would buy a big house.",
+      "explained": "Menggunakan “Conditional Sentence Type 2”. Struktur: If + Subject (I) + Verb (were) + Object (rich) + Result Clause (I would buy). Menyatakan situasi hipotetis atau tidak nyata.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Pada saat ini tahun depan, saya akan lulus.",
+      "sourceWord": "By this time next year, I will have graduated.",
+      "explained": "Menggunakan “Future Perfect Tense”. Struktur: Subject (I) + will have + Past Participle (graduated) + Time Expression (by this time next year). Menyatakan bahwa tindakan akan selesai pada titik waktu tertentu di masa depan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Mari kita akhiri hari ini.",
+      "sourceWord": "Let’s call it a day.",
+      "explained": "Ini adalah “idiom” yang berarti mengakhiri pekerjaan atau aktivitas pada hari itu.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Jangan khawatir tentang itu.",
+      "sourceWord": "Don’t worry about it.",
+      "explained": "Menggunakan “Imperative Sentence”. Struktur: Verb (Don’t worry) + Object (about it). Digunakan untuk memberi perintah atau nasihat.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami telah meninjau laporan tahunan perusahaan.",
+      "sourceWord": "We have reviewed the company's annual report.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (We) + have + Verb (reviewed) + Object (the company's annual report). Menyatakan kejadian yang sudah selesai dilakukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Dia telah menyelesaikan proyek pengembangan produk baru.",
+      "sourceWord": "He has completed the new product development project.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (He) + has + Verb (completed) + Object (the new product development project). Menyatakan kejadian yang sudah selesai dilakukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami telah menganalisis hasil survei pelanggan.",
+      "sourceWord": "We have analyzed the customer survey results.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (We) + have + Verb (analyzed) + Object (the customer survey results). Menyatakan kejadian yang sudah selesai dilakukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Dia telah mengembangkan strategi pemasaran untuk tahun depan.",
+      "sourceWord": "She has developed the marketing strategy for next year.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (She) + has + Verb (developed) + Object (the marketing strategy) + Time Expression (for next year). Menyatakan kegiatan yang sudah selesai dilakukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Perusahaan kami telah memperkenalkan produk baru yang inovatif.",
+      "sourceWord": "Our company has introduced an innovative new product.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (Our company) + has + Verb (introduced) + Object (an innovative new product). Menyatakan kejadian yang sudah selesai dilakukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami telah berhasil meningkatkan penjualan tahun ini.",
+      "sourceWord": "We have successfully increased sales this year.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (We) + have + Verb (increased) + Object (sales) + Time Expression (this year). Menyatakan kegiatan yang sudah selesai dilakukan dengan hasil yang baik.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Dia telah menulis buku yang sangat diterima oleh masyarakat.",
+      "sourceWord": "He has written a book that has been well received by the public.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (He) + has + Verb (written) + Object (a book). Menyatakan kejadian yang telah selesai dilakukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami telah mencapai target penjualan yang ambisius tahun ini.",
+      "sourceWord": "We have achieved the ambitious sales target this year.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (We) + have + Verb (achieved) + Object (the ambitious sales target) + Time Expression (this year). Menyatakan kejadian yang sudah selesai dilakukan dengan hasil yang baik.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Tim kami telah menyiapkan laporan keuangan yang komprehensif.",
+      "sourceWord": "Our team has prepared a comprehensive financial report.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (Our team) + has + Verb (prepared) + Object (a comprehensive financial report). Menyatakan kejadian yang sudah selesai dilakukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami telah mengidentifikasi peluang pasar baru di Asia.",
+      "sourceWord": "We have identified new market opportunities in Asia.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (We) + have + Verb (identified) + Object (new market opportunities) + Time Expression (in Asia). Menyatakan kejadian yang sudah selesai dilakukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Perusahaan kami telah membangun kemitraan strategis dengan perusahaan teknologi besar.",
+      "sourceWord": "Our company has established strategic partnerships with major technology firms.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (Our company) + has + Verb (established) + Object (strategic partnerships) + Prepositional Phrase (with major technology firms). Menyatakan kegiatan yang sudah selesai dilakukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Dia telah memimpin tim dalam beberapa proyek besar.",
+      "sourceWord": "She has led the team in several major projects.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (She) + has + Verb (led) + Object (the team) + Prepositional Phrase (in several major projects). Menyatakan pengalaman seseorang yang sudah selesai dilakukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami telah melakukan riset pasar yang mendalam untuk produk baru.",
+      "sourceWord": "We have conducted in-depth market research for the new product.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (We) + have + Verb (conducted) + Object (in-depth market research) + Purpose (for the new product). Menyatakan kegiatan yang sudah selesai dilakukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami telah menandatangani kontrak dengan mitra strategis baru.",
+      "sourceWord": "We have signed a contract with a new strategic partner.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (We) + have + Verb (signed) + Object (a contract) + Prepositional Phrase (with a new strategic partner). Menyatakan kegiatan yang sudah selesai dilakukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Saya telah mengirimkan proposal kepada manajemen untuk disetujui.",
+      "sourceWord": "I have submitted the proposal to management for approval.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (I) + have + Verb (submitted) + Object (the proposal) + Prepositional Phrase (to management) + Purpose (for approval). Menyatakan kejadian yang sudah selesai dilakukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Mereka telah mengunjungi banyak tempat wisata.",
+      "sourceWord": "They have visited many tourist spots.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (They) + have + Past Participle (visited) + Object (many tourist spots). Menyatakan aksi yang telah dilakukan dalam waktu yang tidak ditentukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Dia telah mengembangkan program perangkat lunak ini selama dua tahun.",
+      "sourceWord": "He has been developing this software program for two years.",
+      "explained": "Menggunakan “Present Perfect Continuous Tense”. Struktur: Subject (He) + has + been + Verb (developing) + Object (this software program) + Time Expression (for two years). Menyatakan aktivitas yang telah dimulai di masa lalu dan masih berlanjut.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Perusahaan kami telah meluncurkan platform digital untuk mempercepat transformasi bisnis.",
+      "sourceWord": "Our company has launched a digital platform to accelerate business transformation.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (Our company) + has + Verb (launched) + Object (a digital platform) + Purpose (to accelerate business transformation). Menyatakan kegiatan yang sudah selesai dilakukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami telah memperkenalkan teknologi baru untuk meningkatkan efisiensi operasional.",
+      "sourceWord": "We have introduced new technology to improve operational efficiency.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (We) + have + Verb (introduced) + Object (new technology) + Purpose (to improve operational efficiency). Menyatakan kegiatan yang sudah selesai dilakukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Tim kami telah berhasil mengatasi tantangan besar dalam pengembangan perangkat lunak.",
+      "sourceWord": "Our team has successfully overcome major challenges in software development.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (Our team) + has + Verb (overcome) + Object (major challenges) + Prepositional Phrase (in software development). Menyatakan keberhasilan yang telah tercapai.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami telah melakukan audit menyeluruh terhadap keuangan perusahaan.",
+      "sourceWord": "We have conducted a thorough audit of the company's finances.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (We) + have + Verb (conducted) + Object (a thorough audit) + Prepositional Phrase (of the company's finances). Menyatakan kegiatan yang sudah selesai dilakukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Dia telah berkontribusi signifikan dalam inovasi produk di perusahaan.",
+      "sourceWord": "She has made significant contributions to product innovation at the company.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (She) + has + Verb (made) + Object (significant contributions) + Prepositional Phrase (to product innovation at the company). Menyatakan kontribusi yang telah dilakukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami telah mencapai kesepakatan dengan mitra global untuk ekspansi pasar.",
+      "sourceWord": "We have reached an agreement with global partners for market expansion.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (We) + have + Verb (reached) + Object (an agreement) + Prepositional Phrase (with global partners) + Purpose (for market expansion). Menyatakan hasil yang telah dicapai.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Dia telah memimpin tim riset dan pengembangan dalam menciptakan solusi baru.",
+      "sourceWord": "She has led the research and development team in creating new solutions.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (She) + has + Verb (led) + Object (the research and development team) + Prepositional Phrase (in creating new solutions). Menyatakan pengalaman dalam memimpin tim.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami telah merancang dan mengimplementasikan sistem yang dapat mengotomatisasi proses bisnis.",
+      "sourceWord": "We have designed and implemented a system that can automate business processes.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (We) + have + Verb (designed and implemented) + Object (a system) + Purpose (that can automate business processes). Menyatakan proyek yang telah diselesaikan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Perusahaan kami telah menyesuaikan strategi bisnis untuk menghadapi perubahan pasar.",
+      "sourceWord": "Our company has adjusted its business strategy to cope with market changes.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (Our company) + has + Verb (adjusted) + Object (its business strategy) + Purpose (to cope with market changes). Menyatakan penyesuaian yang sudah dilakukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami telah berpartisipasi dalam berbagai konferensi internasional untuk membangun jejaring.",
+      "sourceWord": "We have participated in several international conferences to build networks.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (We) + have + Verb (participated) + Object (in several international conferences) + Purpose (to build networks). Menyatakan pengalaman yang sudah dilakukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Dia telah mengelola proyek besar yang melibatkan banyak pihak terkait.",
+      "sourceWord": "He has managed major projects involving numerous stakeholders.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (He) + has + Verb (managed) + Object (major projects) + Prepositional Phrase (involving numerous stakeholders). Menyatakan pengalaman dalam mengelola proyek besar.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami telah berhasil membangun hubungan yang kuat dengan pelanggan utama kami.",
+      "sourceWord": "We have successfully built strong relationships with our key customers.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (We) + have + Verb (built) + Object (strong relationships) + Prepositional Phrase (with our key customers). Menyatakan keberhasilan dalam membangun hubungan bisnis.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Perusahaan kami telah mengimplementasikan kebijakan yang lebih ramah lingkungan.",
+      "sourceWord": "Our company has implemented more environmentally friendly policies.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (Our company) + has + Verb (implemented) + Object (more environmentally friendly policies). Menyatakan kebijakan yang sudah diterapkan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami telah meluncurkan kampanye pemasaran global untuk meningkatkan kesadaran merek.",
+      "sourceWord": "We have launched a global marketing campaign to raise brand awareness.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (We) + have + Verb (launched) + Object (a global marketing campaign) + Purpose (to raise brand awareness). Menyatakan kegiatan yang telah dilakukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Dia telah mengatur pelatihan internal untuk meningkatkan keterampilan tim.",
+      "sourceWord": "She has organized internal training to improve the team's skills.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (She) + has + Verb (organized) + Object (internal training) + Purpose (to improve the team's skills). Menyatakan kegiatan yang telah dilakukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami telah memodernisasi infrastruktur teknologi untuk mendukung pertumbuhan perusahaan.",
+      "sourceWord": "We have modernized the technology infrastructure to support the company's growth.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (We) + have + Verb (modernized) + Object (the technology infrastructure) + Purpose (to support the company's growth). Menyatakan proyek yang telah selesai.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Perusahaan kami telah memperkenalkan sistem manajemen berbasis cloud untuk efisiensi operasional.",
+      "sourceWord": "Our company has introduced a cloud-based management system for operational efficiency.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (Our company) + has + Verb (introduced) + Object (a cloud-based management system) + Purpose (for operational efficiency). Menyatakan kegiatan yang sudah selesai dilakukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami telah menunggu pengumuman itu dengan cemas sejak pagi.",
+      "sourceWord": "We have been anxiously waiting for the announcement since the morning.",
+      "explained": "Menggunakan “Present Perfect Continuous Tense”. Struktur: Subject (We) + have + been + Verb (waiting) + Time Expression (since the morning). Menyatakan aktivitas yang dimulai di masa lalu dan masih berlanjut.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Perusahaan telah memperkenalkan produk baru mereka tahun ini.",
+      "sourceWord": "The company has introduced their new product this year.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (The company) + has + Verb (introduced) + Object (their new product) + Time Expression (this year). Menyatakan kegiatan yang sudah selesai dilakukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Mereka telah mengoptimalkan website mereka untuk kecepatan maksimal.",
+      "sourceWord": "They have optimized their website for maximum speed.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (They) + have + Verb (optimized) + Object (their website) + Purpose (for maximum speed). Menyatakan kejadian yang sudah selesai dilakukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Apakah Anda telah menyelesaikan laporan tahunan Anda?",
+      "sourceWord": "Have you completed your annual report?",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Question word (Have) + Subject (you) + Verb (completed) + Object (your annual report). Menanyakan apakah kegiatan sudah selesai dilakukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Saya telah mengirimkan email ini kepada klien kami.",
+      "sourceWord": "I have sent this email to our client.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (I) + have + Verb (sent) + Object (this email) + Indirect Object (to our client). Menyatakan kejadian yang sudah selesai dilakukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Dia telah menerima pujian dari banyak orang atas karyanya.",
+      "sourceWord": "He has received praise from many people for his work.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (He) + has + Verb (received) + Object (praise) + Time Expression (from many people). Menyatakan kejadian yang sudah selesai dilakukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Kami telah meningkatkan proses produksi untuk efisiensi yang lebih baik.",
+      "sourceWord": "We have improved the production process for better efficiency.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (We) + have + Verb (improved) + Object (the production process) + Purpose (for better efficiency). Menyatakan kejadian yang sudah selesai dilakukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Tim kami telah menyelesaikan proyek besar tersebut dengan sukses.",
+      "sourceWord": "Our team has completed the big project successfully.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (Our team) + has + Verb (completed) + Object (the big project) + Adverb (successfully). Menyatakan kejadian yang sudah selesai dilakukan dengan hasil yang baik.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Saya telah membaca laporan penelitian Anda dan memberikan umpan balik.",
+      "sourceWord": "I have read your research report and provided feedback.",
+      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (I) + have + Verb (read) + Object (your research report) + Conjunction (and) + Verb (provided) + Object (feedback). Menyatakan kejadian yang telah selesai dilakukan.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Jika saya tahu jawabannya, saya akan memberitahumu.",
+      "sourceWord": "If I knew the answer, I would tell you.",
+      "explained": "Menggunakan “Conditional Sentence Type 2”. Struktur: If + Subject (I) + Verb (knew) + Object (the answer) + Result Clause (I would tell). Menyatakan situasi hipotetis.",
+      "difficulty": "mahir",
+      "imageQuery": null
+    },
+    {
+      "translation": "Saya akan menulis email kepada kamu nanti.",
+      "sourceWord": "I will write you an email later.",
+      "explained": "Menggunakan “Future Simple Tense”. Struktur: Subject (I) + will + Verb (write) + Object (you an email) + Time Expression (later). Menyatakan tindakan yang akan dilakukan di masa depan.",
+      "difficulty": "mahir",
+      "imageQuery": null
     }
   ]
 }

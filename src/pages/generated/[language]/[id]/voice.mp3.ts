@@ -10,8 +10,8 @@ type Props = Pick<Question, "code" | "sourceWord">;
 export const getStaticPaths = (async () => {
   const allQuestions = (await getQuestions()).flatMap(([_, items]) => items);
 
-  return allQuestions.map(({ language, translation, code, sourceWord }) => ({
-    params: { language, word: translation },
+  return allQuestions.map(({ id, language, code, sourceWord }) => ({
+    params: { language, id },
     props: { code, sourceWord } satisfies Props,
   }));
 }) satisfies GetStaticPaths;

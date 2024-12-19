@@ -4,6 +4,7 @@ type QuestionEntry = CollectionEntry<"questions">;
 type QuestionRaw = QuestionEntry["data"]["items"][number];
 
 export interface Question extends QuestionRaw {
+  id: number;
   code: string; // language code (e.g en-us, id-id)
   language: Language;
 }

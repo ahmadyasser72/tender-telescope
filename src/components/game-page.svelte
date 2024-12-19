@@ -45,7 +45,9 @@
 </script>
 
 {#if isBrowser}
-  <QuestionPage {answer} {question} />
+  <div class="flex items-stretch gap-x-8 max-lg:flex-col">
+    <QuestionPage {answer} {question} />
+  </div>
 {:else}
   <LoaderCircle class="h-32 w-32 animate-spin" />
 {/if}
