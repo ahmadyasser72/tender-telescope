@@ -30,18 +30,35 @@ export const getGithubRelease = async () => {
 
   if (Object.values(release).some((it) => it === "")) return;
 
-  const { assets, tag_name: version }: GithubRelease = await fetch(
+  const {
+    assets,
+    tag_name: version,
+    published_at: publishDate,
+  }: GithubRelease = await fetch(
     `https://api.github.com/repos/${GITHUB_REPOSITORY}/releases/latest`,
   ).then((response) => response.json());
 
   const { format, suffix, os } = release;
   for (const { name, size, browser_download_url: url } of assets) {
-    if (name.endsWith(suffix)) return { format, os, version, size, url };
+    if (name.endsWith(suffix)) {
+      const latestCommitDate = await getLatestGithubCommitDate();
+      const outdated = new Date(publishDate) < new Date(latestCommitDate);
+      return { format, os, version, size, url, outdated };
+    }
   }
+};
+
+const getLatestGithubCommitDate = async () => {
+  const commits: GithubCommit[] = await fetch(
+    `https://api.github.com/repos/${GITHUB_REPOSITORY}/commits`,
+  ).then((response) => response.json());
+
+  return commits[0].commit.author.date;
 };
 
 interface GithubRelease {
   tag_name: string;
+  published_at: string;
   assets: GithubReleaseAsset[];
 }
 
@@ -49,4 +66,8 @@ interface GithubReleaseAsset {
   name: string;
   browser_download_url: string;
   size: number;
+}
+
+interface GithubCommit {
+  commit: { author: { date: string } };
 }

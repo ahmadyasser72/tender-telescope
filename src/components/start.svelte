@@ -33,6 +33,8 @@
     const size = `${(release.size / 1024 / 1024).toFixed(1)} MB`;
     toast.success(`📥 ${release.version} ${release.os}`, {
       ...toastOptions,
+      description: release.outdated ? "⚠️ bukan versi terbaru!" : undefined,
+      descriptionClass: "font-semibold",
       action: {
         label: `${release.format} (${size})`,
         onClick: () => window.open(release!.url),
