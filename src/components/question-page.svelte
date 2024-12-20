@@ -124,7 +124,9 @@
   {question}
 />
 
-<Card.Root class="flex flex-col justify-evenly text-center lg:max-w-md">
+<Card.Root
+  class="flex flex-col justify-evenly text-center lg:min-w-72 lg:max-w-96"
+>
   <Card.Header>
     {#if question.imageQuery}
       <img
@@ -157,7 +159,7 @@
     <Card.Description>
       Waktu tersisa : <span
         class={cn([
-          "font-semibold text-green-500 underline decoration-dotted",
+          "inline-block w-12 font-semibold text-green-500 underline decoration-dotted",
           timer < initialTimer / 2 && "text-orange-500 decoration-wavy",
           timer === 0 && "text-red-500 decoration-solid decoration-2",
         ])}>{timeLeft}</span
