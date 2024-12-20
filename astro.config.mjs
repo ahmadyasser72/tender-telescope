@@ -37,6 +37,18 @@ export default defineConfig({
         type: "string",
         optional: true,
       },
+      UPSTASH_REDIS_REST_URL: {
+        access: "secret",
+        context: "server",
+        type: "string",
+        optional: true,
+      },
+      UPSTASH_REDIS_REST_TOKEN: {
+        access: "secret",
+        context: "server",
+        type: "string",
+        optional: true,
+      },
     },
   },
 

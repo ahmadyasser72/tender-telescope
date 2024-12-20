@@ -1,11 +1,11 @@
 import type { Question } from "$lib/types";
 import { randomNumber } from "$lib/utils";
-import { getQuestions, stripResponse } from "$lib/utils.server";
+import { getQuestions, stripResponse, upstash } from "$lib/utils.server";
 
 import type { APIRoute, GetStaticPaths } from "astro";
 import { PIXABAY_API_KEY } from "astro:env/server";
 
-type Props = Pick<Question, "imageQuery">;
+type Props = Pick<Question, "imageQuery" | "id">;
 
 export const getStaticPaths = (async () => {
   const allQuestions = (await getQuestions()).flatMap(([_, items]) => items);
@@ -14,7 +14,7 @@ export const getStaticPaths = (async () => {
     .filter(({ imageQuery }) => typeof imageQuery === "string")
     .map(({ id, language, imageQuery }) => ({
       params: { language, id },
-      props: { imageQuery } satisfies Props,
+      props: { imageQuery, id } satisfies Props,
     }));
 }) satisfies GetStaticPaths;
 
@@ -25,12 +25,14 @@ export const GET: APIRoute = async (context) => {
       .then(context.redirect);
   }
 
-  const { imageQuery } = context.props as Props;
+  const { imageQuery, id } = context.props as Props;
 
-  const items = await fetchPixabay(imageQuery!.toLowerCase());
-  const randomItem = items.splice(randomNumber(0, items.length - 1), 1)[0];
+  return upstash.get(`${id}-pixabay-${imageQuery}`, async () => {
+    const items = await fetchPixabay(imageQuery!.toLowerCase());
+    const randomItem = items.splice(randomNumber(0, items.length - 1), 1)[0];
 
-  return fetch(randomItem.webformatURL).then(stripResponse);
+    return fetch(randomItem.webformatURL).then(stripResponse);
+  });
 };
 
 const pixabayResponses = new Map<string, PixabayResponse["hits"]>();
