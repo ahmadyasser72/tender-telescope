@@ -53,7 +53,7 @@ const getLatestGithubCommitDate = async () => {
     `https://api.github.com/repos/${GITHUB_REPOSITORY}/commits`,
   ).then((response) => response.json());
 
-  return commits[0].commit.author.date;
+  return commits[0].commit.committer.date;
 };
 
 interface GithubRelease {
@@ -69,5 +69,5 @@ interface GithubReleaseAsset {
 }
 
 interface GithubCommit {
-  commit: { author: { date: string } };
+  commit: { committer: { date: string } };
 }
