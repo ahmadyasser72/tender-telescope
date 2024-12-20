@@ -1,18 +1,18 @@
 import type { Question } from "$lib/types";
-import { randomNumber } from "$lib/utils";
+import { padNumber, randomNumber } from "$lib/utils";
 import { getQuestions, stripResponse, upstash } from "$lib/utils.server";
 
 import type { APIRoute, GetStaticPaths } from "astro";
 import { VOICE_RSS_API_KEY } from "astro:env/server";
 
-type Props = Pick<Question, "code" | "sourceWord" | "id">;
+type Props = Pick<Question, "code" | "sourceWord" | "language" | "id">;
 
 export const getStaticPaths = (async () => {
   const allQuestions = (await getQuestions()).flatMap(([_, items]) => items);
 
   return allQuestions.map(({ id, language, code, sourceWord }) => ({
     params: { language, id },
-    props: { code, sourceWord, id } satisfies Props,
+    props: { code, sourceWord, language, id } satisfies Props,
   }));
 }) satisfies GetStaticPaths;
 
@@ -23,32 +23,35 @@ export const GET: APIRoute = async (context) => {
       .then(context.redirect);
   }
 
-  const { code, sourceWord, id } = context.props as Props;
+  const { code, sourceWord, language, id } = context.props as Props;
 
-  return upstash.get(`${id}-google-translate-tts-${code}`, async () => {
-    const urls = [
-      ttsGoogleTranslate(code, sourceWord),
-      ...ttsSimplyTranslate(code, sourceWord),
-    ];
+  return upstash.get(
+    `${language}-${padNumber(id, 3)}-google-translate-tts`,
+    async () => {
+      const urls = [
+        ttsGoogleTranslate(code, sourceWord),
+        ...ttsSimplyTranslate(code, sourceWord),
+      ];
 
-    // coba download tts google translate terlebih dahulu, sekaligus
-    // beberapa instances simplytranslate (google translate proxy), ....
-    while (urls.length > 0) {
-      try {
-        const url = urls.splice(randomNumber(0, urls.length - 1), 1)[0];
-        const response = await fetch(url);
-        if (response.ok) return stripResponse(response);
-      } catch {
-        // coba yang lain bila timeout
-        continue;
+      // coba download tts google translate terlebih dahulu, sekaligus
+      // beberapa instances simplytranslate (google translate proxy), ....
+      while (urls.length > 0) {
+        try {
+          const url = urls.splice(randomNumber(0, urls.length - 1), 1)[0];
+          const response = await fetch(url);
+          if (response.ok) return stripResponse(response);
+        } catch {
+          // coba yang lain bila timeout
+          continue;
+        }
       }
-    }
 
-    // kalau gagal baru gunakan VoiceRSS,
-    // ini karena kualitas TTS google translate lebih bagus dan
-    // VoiceRSS gratisan hanya bisa maksimal 350 requests per harinya
-    return fetch(ttsVoiceRSS(code, sourceWord)).then(stripResponse);
-  });
+      // kalau gagal baru gunakan VoiceRSS,
+      // ini karena kualitas TTS google translate lebih bagus dan
+      // VoiceRSS gratisan hanya bisa maksimal 350 requests per harinya
+      return fetch(ttsVoiceRSS(code, sourceWord)).then(stripResponse);
+    },
+  );
 };
 
 const ttsGoogleTranslate = (code: string, text: string) => {
