@@ -40,5 +40,5 @@ const choices = {
 ---
 
 <Layout title="Pengaturan permainan" heading="Pengaturan" class="max-sm:w-full">
-  <StartSettingsSvelte {choices} {levelCountMap} client:load />
+  <StartSettingsSvelte {choices} {levelCountMap} client:only="svelte" />
 </Layout>

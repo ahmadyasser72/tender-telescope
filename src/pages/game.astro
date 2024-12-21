@@ -8,5 +8,5 @@ const questions = await getQuestions();
 ---
 
 <Layout title="Game" heading="-" class="flex flex-col items-center">
-  <GamePage {answerMap} {questions} client:load />
+  <GamePage {answerMap} {questions} client:only="svelte" />
 </Layout>
