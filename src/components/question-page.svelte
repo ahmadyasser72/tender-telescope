@@ -28,7 +28,7 @@
   const playTTS = async () => {
     ttsPlaying = true;
     ttsAudio ??= new GameAudio(
-      `/generated/${question.language}/${question.id}/voice.mp3`,
+      `/generated/${question.language}/${question.id}.mp3`,
     );
 
     if (await ttsAudio.play()) {
@@ -132,7 +132,7 @@
       <img
         bind:this={questionImage}
         class="pointer-events-none h-40 object-cover"
-        src="/generated/{question.language}/{question.id}/image.jpg"
+        src="/generated/{question.language}/{question.id}.jpg"
         alt="Gambar {question.imageQuery}"
       />
     {/if}

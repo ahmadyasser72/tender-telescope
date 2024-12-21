@@ -1,4 +1,5 @@
 import type { Difficulty, Question } from "./types";
+import { padNumber } from "./utils";
 
 import { getCollection } from "astro:content";
 import {
@@ -37,7 +38,7 @@ export const getQuestions = async () => {
       ...it,
       language: id,
       code: data.code,
-      id: idx,
+      id: padNumber(idx, 3),
     })),
   ]);
 };
