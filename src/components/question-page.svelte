@@ -93,8 +93,11 @@
 
   let questionImage = $state<HTMLImageElement>();
   onMount(() => {
-    timer = initialTimer;
+    // preload audio
+    correctAnswer.initialize();
+    wrongAnswer.initialize();
 
+    timer = initialTimer;
     let handle: ReturnType<typeof requestAnimationFrame>;
     const startTimer = () => {
       const start = Date.now();
