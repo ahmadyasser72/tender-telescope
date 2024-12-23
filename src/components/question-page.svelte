@@ -9,6 +9,7 @@
     GameAudio,
     wrongAnswer,
   } from "$lib/states/audio.svelte";
+  import { gamePreferences } from "$lib/states/game.svelte";
   import type { Answer, Question } from "$lib/types";
   import { cn, padNumber, sleep } from "$lib/utils";
 
@@ -113,8 +114,15 @@
       tick();
     };
 
-    if (questionImage === undefined || questionImage.complete) startTimer();
-    else questionImage?.addEventListener("load", startTimer);
+    const init = () => {
+      startTimer();
+      if (gamePreferences.autoplayTts && gamePreferences.volume > 0) {
+        sleep(1000).then(playTTS);
+      }
+    };
+
+    if (questionImage === undefined || questionImage.complete) init();
+    else questionImage?.addEventListener("load", init);
 
     return () => cancelAnimationFrame(handle);
   });

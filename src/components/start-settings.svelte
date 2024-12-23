@@ -1,8 +1,10 @@
 <script lang="ts">
+  import CheckboxAutoplayTts from "./checkbox-autoplay-tts.svelte";
   import SelectKesulitan from "./select-kesulitan.svelte";
   import SliderVolume from "./slider-volume.svelte";
 
   import { Button } from "$lib/components/ui/button";
+  import { Label } from "$lib/components/ui/label";
   import { gamePreferences, initializeGame } from "$lib/states/game.svelte";
   import type { Difficulty, Language } from "$lib/types";
 
@@ -40,8 +42,8 @@
 </script>
 
 <div class="flex grid-flow-dense grid-cols-3 flex-col gap-4 sm:grid">
-  <div class="col-span-full gap-2 sm:mx-4">
-    <span>Volume ({gamePreferences.volume}%)</span>
+  <div class="col-span-full gap-2 text-center sm:mx-4">
+    <Label class="sm:text-lg">Volume ({gamePreferences.volume}%)</Label>
     <SliderVolume bind:volume={gamePreferences.volume} />
   </div>
 
@@ -52,7 +54,11 @@
     />
   </div>
 
-  <Button onclick={start} class="h-full text-xl sm:w-32 sm:text-2xl">
+  <div class="col-span-2">
+    <CheckboxAutoplayTts bind:autoplay={gamePreferences.autoplayTts} />
+  </div>
+
+  <Button onclick={start} class="row-span-2 h-full text-xl sm:w-32 sm:text-2xl">
     Mulai <br class="hidden sm:block" />
     Game
   </Button>

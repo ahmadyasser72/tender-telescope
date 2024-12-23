@@ -23,6 +23,7 @@ export type Difficulty = QuestionRaw["difficulty"];
 export type Language = QuestionEntry["id"];
 
 export interface GamePreferences {
+  autoplayTts: boolean;
   volume: number;
   difficulty?: Difficulty;
   languages: Language[];
