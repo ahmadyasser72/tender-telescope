@@ -58,6 +58,7 @@
 
     const audio = correct ? correctAnswer : wrongAnswer;
 
+    ttsAudio?.raw.pause();
     if (await audio.play()) {
       audio.raw.addEventListener(
         "ended",
