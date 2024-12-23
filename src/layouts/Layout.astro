@@ -1,6 +1,7 @@
 ---
 import "$lib/styles/app.css";
 
+import backgroundJPG from "$lib/assets/images/background.jpg";
 import BgmPlayer from "$lib/components/bgm-player.svelte";
 import { Toaster } from "$lib/components/ui/sonner";
 
@@ -37,8 +38,14 @@ const zoom2Scope = customZoom("zoom2", {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body>
+  <body class="relative">
     <Toaster client:only="svelte" />
+
+    <img
+      src={backgroundJPG.src}
+      alt="Background"
+      class="absolute inset-0 h-full w-full object-cover"
+    />
 
     <main
       class="container flex min-h-screen flex-col items-center justify-center"
@@ -46,15 +53,22 @@ const zoom2Scope = customZoom("zoom2", {
       {
         heading && (
           <h1
+            style={{ "text-shadow": "0 0 2px white" }}
             id="main-heading"
-            class="my-4 scroll-m-20 text-center text-4xl font-extrabold tracking-tight"
+            class="my-4 scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-white"
             data-astro-transition-scope={zoom2Scope}
           >
             {heading}
           </h1>
         )
       }
-      <div class:list={className} transition:name="slide">
+      <div
+        class:list={[
+          "rounded-lg bg-black/45 p-8 text-white backdrop-blur-sm",
+          className,
+        ]}
+        transition:name="slide"
+      >
         <slot />
       </div>
     </main>

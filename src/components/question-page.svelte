@@ -168,7 +168,7 @@
   </Card.Content>
 </Card.Root>
 
-<div class="flex flex-col gap-4 max-lg:py-8">
+<div class="flex flex-1 flex-col justify-evenly gap-4 max-lg:py-8">
   {#each answer.choices as choice, idx}
     {@const isCorrect = idx === answer.correct}
     <Button
