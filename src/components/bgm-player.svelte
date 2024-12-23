@@ -1,17 +1,25 @@
 <script lang="ts">
   import { bgm } from "$lib/states/audio.svelte";
+  import { gamePreferences } from "$lib/states/game.svelte";
 
   import { onMount } from "svelte";
 
+  let isReset = $state(false);
   const reset = () => {
+    isReset = true;
     bgm.raw.pause();
     bgm.raw.currentTime = 0;
   };
 
+  $effect(() => {
+    if (isReset && gamePreferences.volume > 0) loop();
+    else if (gamePreferences.volume === 0) reset();
+  });
+
   const loop = async () => {
-    if (await bgm.play())
-      bgm.raw.addEventListener("ended", () => loop(), { once: true });
-    else {
+    if (await bgm.play()) {
+      bgm.raw.addEventListener("ended", loop);
+    } else {
       reset();
     }
   };
@@ -28,6 +36,7 @@
     }, 1000);
 
     return () => {
+      bgm.raw.removeEventListener("ended", loop);
       clearInterval(tryLoopHandle);
       reset();
     };
