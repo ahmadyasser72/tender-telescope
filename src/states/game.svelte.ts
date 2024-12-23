@@ -3,7 +3,7 @@ import { isBrowser } from "$lib/utils";
 
 import { navigate } from "astro:transitions/client";
 
-const STORAGE_KEY = "data-v1";
+const STORAGE_KEY = "data-v2";
 
 const initial = {
   state: {
