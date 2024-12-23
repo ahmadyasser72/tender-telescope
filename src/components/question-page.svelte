@@ -134,7 +134,7 @@
     {#if question.imageQuery}
       <img
         bind:this={questionImage}
-        class="pointer-events-none h-40 object-cover"
+        class="pointer-events-none h-40 rounded-t-xl object-cover"
         src="/generated/{question.language}/{question.id}.jpg"
         alt="Gambar {question.imageQuery}"
       />
