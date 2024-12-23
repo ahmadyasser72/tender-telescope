@@ -7,6 +7,6 @@ const answerMap = await getAnswers();
 const questions = await getQuestions();
 ---
 
-<Layout title="Game" heading="-" class="flex flex-col items-center">
+<Layout title="Game" heading="-" class="relative flex flex-col items-center">
   <GamePage {answerMap} {questions} client:load />
 </Layout>

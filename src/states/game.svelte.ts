@@ -44,15 +44,9 @@ export const initializeGame = async () => {
   gamePreferences.seed = Date.now();
   gameState.level.current = 1;
 
-  await navigate(`/game?t=${Date.now()}`);
+  await navigate("/game");
 };
 
-export const gotoNextLevel = async () => {
-  document.addEventListener(
-    "astro:page-load",
-    () => (gameState.level.current += 1),
-    { once: true },
-  );
-
-  await navigate(`/game?t=${Date.now()}`, { history: "replace" });
+export const gotoNextLevel = () => {
+  gameState.level.current += 1;
 };

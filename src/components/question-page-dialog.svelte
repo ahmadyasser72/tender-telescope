@@ -76,9 +76,9 @@
     <Dialog.Footer>
       {#if hasNextLevel}
         <Button
-          onclick={async () => {
+          onclick={() => {
             open = false;
-            await gotoNextLevel();
+            gotoNextLevel();
           }}>Level selanjutnya</Button
         >
       {:else}
