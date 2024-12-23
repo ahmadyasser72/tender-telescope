@@ -3,7 +3,7 @@ import { isBrowser } from "$lib/utils";
 
 import { navigate } from "astro:transitions/client";
 
-const STORAGE_KEY = "data-v2";
+const STORAGE_KEY = "data-v3";
 
 const initial = {
   state: {
@@ -12,7 +12,7 @@ const initial = {
   preferences: {
     volume: 100,
     difficulty: undefined,
-    languages: [],
+    languages: ["inggris"],
     seed: 0,
   } satisfies GamePreferences,
 };
@@ -55,3 +55,4 @@ export const gotoNextLevel = async () => {
 
   await navigate(`/game?t=${Date.now()}`, { history: "replace" });
 };
+
