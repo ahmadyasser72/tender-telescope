@@ -353,20 +353,6 @@
       "imageQuery": "dinner"
     },
     {
-      "translation": "Saya baru saja makan siang.",
-      "sourceWord": "I have just had lunch.",
-      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (I) + have + Verb (had) + Object (lunch). Menyatakan kegiatan yang baru saja selesai dilakukan.",
-      "difficulty": "pemula",
-      "imageQuery": "breakfast"
-    },
-    {
-      "translation": "Mereka sudah pergi ke pasar.",
-      "sourceWord": "They have gone to the market.",
-      "explained": "Menggunakan “Present Perfect Tense”. Struktur: Subject (They) + have + Verb (gone) + Object (to the market). Menyatakan kejadian yang sudah terjadi, tapi relevan dengan sekarang.",
-      "difficulty": "pemula",
-      "imageQuery": "market"
-    },
-    {
       "translation": "Kami sedang mengembangkan aplikasi baru untuk meningkatkan pengalaman pengguna.",
       "sourceWord": "We are developing a new app to enhance user experience.",
       "explained": "Menggunakan “Present Continuous Tense”. Struktur: Subject (We) + are + Verb-ing (developing) + Object (a new app) + Purpose (to enhance user experience). Menyatakan kegiatan yang sedang berlangsung.",
