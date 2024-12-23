@@ -1,5 +1,4 @@
 <script lang="ts">
-  import SelectBahasa from "./select-bahasa.svelte";
   import SelectKesulitan from "./select-kesulitan.svelte";
   import SliderVolume from "./slider-volume.svelte";
 
@@ -54,14 +53,7 @@
     />
   </div>
 
-  <div class="col-span-2">
-    <SelectBahasa
-      bind:languages={gamePreferences.languages}
-      choices={choices.languages}
-    />
-  </div>
-
-  <Button onclick={start} class="row-span-2 h-full text-xl sm:w-32 sm:text-2xl">
+  <Button onclick={start} class="h-full text-xl sm:w-32 sm:text-2xl">
     Mulai <br class="hidden sm:block" />
     Game
   </Button>
