@@ -73,7 +73,7 @@ export const calculateScore = (isCorrect: boolean, timeRemaining: number) => {
     score *= getScoreMultiplier();
   }
 
-  game.state.scores[game.state.level.current] = Math.round(score);
+  game.state.scores[game.state.level.current - 1] = Math.round(score);
 };
 
 const getScoreValue = () => {

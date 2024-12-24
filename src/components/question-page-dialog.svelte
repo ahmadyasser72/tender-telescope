@@ -90,7 +90,7 @@
         <Badge variant={isCorrect ? "default" : "destructive"}>
           SCORE:
           {gameComputed.totalScore()}
-          ({signedNumber(game.state.scores[game.state.level.current])})
+          ({signedNumber(game.state.scores[game.state.level.current - 1])})
         </Badge>
 
         {#if isCorrect}
