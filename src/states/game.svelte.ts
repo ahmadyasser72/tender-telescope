@@ -36,11 +36,11 @@ if (isBrowser) {
   });
 }
 
-export const initializeGame = async () => {
+export const initializeGame = async (reload = true) => {
   game.preferences.seed = Date.now();
   game.state.level.current = 1;
 
-  await navigate("/game");
+  if (reload) await navigate("/game");
 };
 
 export const gotoNextLevel = () => {

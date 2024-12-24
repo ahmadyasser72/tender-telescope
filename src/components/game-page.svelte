@@ -35,7 +35,7 @@
   $effect(() => {
     const h1 = document.querySelector("h1#main-heading") as HTMLHeadingElement;
     const levelText = `Level ${padNumber(level.current)}/${padNumber(level.total)}`;
-    h1.innerText = `${levelText} [${titleCase(question.language)}]`;
+    h1.innerText = `${levelText} [${titleCase(game.preferences.difficulty!)}]`;
   });
 
   $effect.pre(() => {
@@ -47,7 +47,7 @@
 </script>
 
 {#if isBrowser}
-  {#key game.state.level.current}
+  {#key [game.state.level.current, game.preferences.difficulty]}
     <div
       in:fly={{ duration: 400, easing: expoIn, x: -20, y: 15 }}
       out:fly={{ duration: 400, easing: expoOut, opacity: 0, x: 20, y: 15 }}

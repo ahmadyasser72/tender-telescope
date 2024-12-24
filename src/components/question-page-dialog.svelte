@@ -1,6 +1,9 @@
 <script lang="ts">
+  import QuestionPageDrawer from "./question-page-drawer.svelte";
+
   import { Button } from "$lib/components/ui/button";
   import * as Dialog from "$lib/components/ui/dialog";
+  import { complete } from "$lib/states/audio.svelte";
   import { game, gotoNextLevel } from "$lib/states/game.svelte";
   import type { Answer, Question } from "$lib/types";
 
@@ -28,7 +31,11 @@
     if (choice === undefined) return "Habis waktu!";
     else return isCorrect ? "Jawaban benar!" : "Jawaban salah!";
   });
+
+  let openDrawer = $state(false);
 </script>
+
+<QuestionPageDrawer bind:open={openDrawer} />
 
 <Dialog.Root bind:open>
   <Dialog.Content
@@ -83,10 +90,13 @@
         >
       {:else}
         <Button
-          onclick={() => {
+          onclick={async () => {
             open = false;
-            window.history.back();
-          }}>Kembali ke pengaturan</Button
+            const played = await complete.play();
+            if (played)
+              complete.raw.addEventListener("ended", () => (openDrawer = true));
+            else openDrawer = true;
+          }}>Selesai</Button
         >
       {/if}
     </Dialog.Footer>

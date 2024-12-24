@@ -51,6 +51,9 @@ export class GameAudio {
 }
 
 export const beep = new GameAudio(() => import("$lib/assets/audio/beep.webm"));
+export const complete = new GameAudio(
+  () => import("$lib/assets/audio/complete.webm"),
+);
 export const correctAnswer = new GameAudio(
   () => import("$lib/assets/audio/correct-answer.webm"),
 );

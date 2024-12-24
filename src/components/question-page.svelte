@@ -5,6 +5,7 @@
   import { Button } from "$lib/components/ui/button";
   import * as Card from "$lib/components/ui/card";
   import {
+    complete,
     correctAnswer,
     GameAudio,
     wrongAnswer,
@@ -98,6 +99,7 @@
   let questionImage = $state<HTMLImageElement>();
   onMount(() => {
     // preload audio
+    complete.initialize();
     correctAnswer.initialize();
     wrongAnswer.initialize();
     const shouldAutoplayTTS =
