@@ -26,11 +26,13 @@
 
   let ttsAudio = $state<GameAudio>();
   let ttsPlaying = $state(false);
+  const initTTS = () =>
+    (ttsAudio ??= new GameAudio(
+      `/generated/${question.language}/${question.id}.mp3`,
+    ));
   const playTTS = async () => {
     ttsPlaying = true;
-    ttsAudio ??= new GameAudio(
-      `/generated/${question.language}/${question.id}.mp3`,
-    );
+    ttsAudio ??= initTTS();
 
     if (await ttsAudio.play()) {
       ttsAudio.raw.addEventListener(
@@ -98,6 +100,9 @@
     // preload audio
     correctAnswer.initialize();
     wrongAnswer.initialize();
+    const shouldAutoplayTTS =
+      gamePreferences.autoplayTTS && gamePreferences.volume > 0;
+    if (shouldAutoplayTTS) initTTS();
 
     timer = initialTimer;
     let handle: ReturnType<typeof requestAnimationFrame>;
@@ -117,9 +122,7 @@
 
     const init = () => {
       startTimer();
-      if (gamePreferences.autoplayTts && gamePreferences.volume > 0) {
-        sleep(1000).then(playTTS);
-      }
+      if (shouldAutoplayTTS) sleep(1000).then(playTTS);
     };
 
     if (questionImage === undefined || questionImage.complete) init();

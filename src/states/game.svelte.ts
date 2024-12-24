@@ -3,14 +3,14 @@ import { isBrowser } from "$lib/utils";
 
 import { navigate } from "astro:transitions/client";
 
-const STORAGE_KEY = "data-v4";
+const STORAGE_KEY = "data-v5";
 
 const initial = {
   state: {
     level: { current: 0, total: 0 },
   } satisfies GameState,
   preferences: {
-    autoplayTts: true,
+    autoplayTTS: true,
     volume: 100,
     difficulty: undefined,
     languages: ["inggris"],

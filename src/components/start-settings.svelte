@@ -55,7 +55,7 @@
   </div>
 
   <div class="col-span-2">
-    <CheckboxAutoplayTts bind:autoplay={gamePreferences.autoplayTts} />
+    <CheckboxAutoplayTts bind:autoplay={gamePreferences.autoplayTTS} />
   </div>
 
   <Button onclick={start} class="row-span-2 h-full text-xl sm:w-32 sm:text-2xl">
