@@ -9,7 +9,7 @@
     GameAudio,
     wrongAnswer,
   } from "$lib/states/audio.svelte";
-  import { gamePreferences } from "$lib/states/game.svelte";
+  import { game } from "$lib/states/game.svelte";
   import type { Answer, Question } from "$lib/types";
   import { cn, padNumber, sleep } from "$lib/utils";
 
@@ -101,7 +101,7 @@
     correctAnswer.initialize();
     wrongAnswer.initialize();
     const shouldAutoplayTTS =
-      gamePreferences.autoplayTTS && gamePreferences.volume > 0;
+      game.preferences.autoplayTTS && game.preferences.volume > 0;
     if (shouldAutoplayTTS) initTTS();
 
     timer = initialTimer;

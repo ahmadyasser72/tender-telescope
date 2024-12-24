@@ -5,7 +5,7 @@
 
   import { Button } from "$lib/components/ui/button";
   import { Label } from "$lib/components/ui/label";
-  import { gamePreferences, initializeGame } from "$lib/states/game.svelte";
+  import { game, initializeGame } from "$lib/states/game.svelte";
   import type { Difficulty, Language } from "$lib/types";
 
   import { toast } from "svelte-sonner";
@@ -20,7 +20,7 @@
 
   const { choices, levelCountMap }: Props = $props();
 
-  const { difficulty, languages } = $derived(gamePreferences);
+  const { difficulty, languages } = $derived(game.preferences);
 
   const levelCount = $derived(
     difficulty && languages.length > 0
@@ -43,19 +43,19 @@
 
 <div class="flex grid-flow-dense grid-cols-3 flex-col gap-4 sm:grid">
   <div class="col-span-full gap-2 text-center sm:mx-4">
-    <Label class="sm:text-lg">Volume ({gamePreferences.volume}%)</Label>
-    <SliderVolume bind:volume={gamePreferences.volume} />
+    <Label class="sm:text-lg">Volume ({game.preferences.volume}%)</Label>
+    <SliderVolume bind:volume={game.preferences.volume} />
   </div>
 
   <div class="col-span-2">
     <SelectKesulitan
-      bind:difficulty={gamePreferences.difficulty}
+      bind:difficulty={game.preferences.difficulty}
       choices={choices.difficulties}
     />
   </div>
 
   <div class="col-span-2">
-    <CheckboxAutoplayTts bind:autoplay={gamePreferences.autoplayTTS} />
+    <CheckboxAutoplayTts bind:autoplay={game.preferences.autoplayTTS} />
   </div>
 
   <Button onclick={start} class="row-span-2 h-full text-xl sm:w-32 sm:text-2xl">

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Button } from "$lib/components/ui/button";
   import * as Dialog from "$lib/components/ui/dialog";
-  import { gameState, gotoNextLevel } from "$lib/states/game.svelte";
+  import { game, gotoNextLevel } from "$lib/states/game.svelte";
   import type { Answer, Question } from "$lib/types";
 
   interface Props {
@@ -19,7 +19,7 @@
   }: Props = $props();
 
   const hasNextLevel = $derived(
-    gameState.level.current < gameState.level.total,
+    game.state.level.current < game.state.level.total,
   );
 
   const correctAnswer = $derived(answer.choices[answer.correct]);

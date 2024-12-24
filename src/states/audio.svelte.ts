@@ -1,4 +1,4 @@
-import { gamePreferences } from "./game.svelte";
+import { game } from "./game.svelte";
 
 import { isBrowser, sleep } from "$lib/utils";
 
@@ -7,7 +7,7 @@ export class GameAudio {
   src: string | (() => Promise<typeof import("*.webm")>);
 
   volumeRatio = $state(1);
-  volume = $derived((gamePreferences.volume * this.volumeRatio) / 100);
+  volume = $derived((game.preferences.volume * this.volumeRatio) / 100);
 
   constructor(src: typeof this.src) {
     this.src = src;

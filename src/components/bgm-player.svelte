@@ -1,6 +1,6 @@
 <script lang="ts">
   import { bgm } from "$lib/states/audio.svelte";
-  import { gamePreferences } from "$lib/states/game.svelte";
+  import { game } from "$lib/states/game.svelte";
 
   import { onMount } from "svelte";
 
@@ -12,8 +12,8 @@
   };
 
   $effect(() => {
-    if (isReset && gamePreferences.volume > 0) loop();
-    else if (gamePreferences.volume === 0) reset();
+    if (isReset && game.preferences.volume > 0) loop();
+    else if (game.preferences.volume === 0) reset();
   });
 
   const loop = async () => {

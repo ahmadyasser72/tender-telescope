@@ -1,7 +1,7 @@
 <script lang="ts">
   import QuestionPage from "./question-page.svelte";
 
-  import { gamePreferences, gameState } from "$lib/states/game.svelte";
+  import { game } from "$lib/states/game.svelte";
   import type { Difficulty, Language, Question } from "$lib/types";
   import { isBrowser, padNumber, titleCase } from "$lib/utils";
   import { processAnswer, processQuestions } from "$lib/utils.content";
@@ -18,16 +18,16 @@
   }
 
   const { answerMap, questions: rawQuestions }: Props = $props();
-  const { level } = $derived(gameState);
+  const { level } = $derived(game.state);
 
-  const questions = $derived(processQuestions(rawQuestions, gamePreferences));
+  const questions = $derived(processQuestions(rawQuestions, game.preferences));
   const { answer, question } = $derived.by(() => {
     const question = questions[level.current - 1];
 
     return {
       question,
       answer: (isBrowser
-        ? processAnswer(answerMap, question, gamePreferences, gameState)
+        ? processAnswer(answerMap, question, game.preferences, game.state)
         : undefined)!,
     };
   });
@@ -39,15 +39,15 @@
   });
 
   $effect.pre(() => {
-    const { difficulty, languages } = $state.snapshot(gamePreferences);
+    const { difficulty, languages } = $state.snapshot(game.preferences);
 
     if (!difficulty || languages.length === 0) navigate("/");
-    else gameState.level.total = questions.length;
+    else game.state.level.total = questions.length;
   });
 </script>
 
 {#if isBrowser}
-  {#key gameState.level.current}
+  {#key game.state.level.current}
     <div
       in:fly={{ duration: 400, easing: expoIn, x: -20, y: 15 }}
       out:fly={{ duration: 400, easing: expoOut, opacity: 0, x: 20, y: 15 }}
