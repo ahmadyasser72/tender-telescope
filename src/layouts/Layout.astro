@@ -1,7 +1,7 @@
 ---
 import "$lib/styles/app.css";
 
-import backgroundJPG from "$lib/assets/images/background.jpg";
+import backgroundWEBP from "$lib/assets/images/background.webp";
 import BgmPlayer from "$lib/components/bgm-player.svelte";
 import { Toaster } from "$lib/components/ui/sonner";
 
@@ -42,7 +42,7 @@ const zoom2Scope = customZoom("zoom2", {
     <Toaster client:only="svelte" />
 
     <img
-      src={backgroundJPG.src}
+      src={backgroundWEBP.src}
       alt="Background"
       class="pointer-events-none absolute inset-0 h-full w-full object-cover"
     />
