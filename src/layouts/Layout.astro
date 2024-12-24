@@ -44,7 +44,7 @@ const zoom2Scope = customZoom("zoom2", {
     <img
       src={backgroundJPG.src}
       alt="Background"
-      class="absolute inset-0 h-full w-full object-cover"
+      class="pointer-events-none absolute inset-0 h-full w-full object-cover"
     />
 
     <main
@@ -64,7 +64,7 @@ const zoom2Scope = customZoom("zoom2", {
       }
       <div
         class:list={[
-          "rounded-lg bg-black/45 p-8 text-white backdrop-blur-sm",
+          "select-none rounded-lg bg-black/45 p-8 text-white backdrop-blur-sm",
           className,
         ]}
         transition:name="slide"
