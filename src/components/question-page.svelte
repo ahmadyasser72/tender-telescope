@@ -32,6 +32,8 @@
       `/generated/${question.language}/${question.id}.mp3`,
     ));
   const playTTS = async () => {
+    if (pickedAnswer !== undefined) return;
+
     ttsPlaying = true;
     ttsAudio ??= initTTS();
 
