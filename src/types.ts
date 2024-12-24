@@ -32,4 +32,5 @@ export interface GamePreferences {
 
 export interface GameState {
   level: Level;
+  scores: number[];
 }

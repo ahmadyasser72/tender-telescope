@@ -10,7 +10,7 @@
     GameAudio,
     wrongAnswer,
   } from "$lib/states/audio.svelte";
-  import { game } from "$lib/states/game.svelte";
+  import { calculateScore, game } from "$lib/states/game.svelte";
   import type { Answer, Question } from "$lib/types";
   import { cn, padNumber, sleep } from "$lib/utils";
 
@@ -64,6 +64,7 @@
     const audio = correct ? correctAnswer : wrongAnswer;
 
     ttsAudio?.raw.pause();
+    calculateScore(correct, timer);
     if (await audio.play()) {
       audio.raw.addEventListener(
         "ended",

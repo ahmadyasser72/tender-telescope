@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Button } from "$lib/components/ui/button";
   import * as Drawer from "$lib/components/ui/drawer";
-  import { game, initializeGame } from "$lib/states/game.svelte";
+  import { game, gameComputed, initializeGame } from "$lib/states/game.svelte";
   import type { Difficulty } from "$lib/types";
 
   interface Props {
@@ -29,13 +29,25 @@
     interactOutsideBehavior="ignore"
   >
     <Drawer.Header>
-      <Drawer.Title class="text-center"
-        >Selamat! tingkat {game.preferences.difficulty} selesai!</Drawer.Title
-      >
-      <Drawer.Description class="text-center sm:whitespace-pre-line"
-        >{description}</Drawer.Description
-      >
+      <Drawer.Title class="text-center">
+        <span>Skor kamu: {gameComputed.totalScore()}</span>,
+        <span>Max combo: {gameComputed.getMaxCombo()}</span>
+      </Drawer.Title>
+      <Drawer.Description class="text-center">
+        Kamu benar menjawab
+        <span>
+          {gameComputed.totalCorrect()}/{game.state.level.total} pertanyaan.
+        </span>
+      </Drawer.Description>
     </Drawer.Header>
+
+    <div class="flex flex-col items-center p-4 text-center">
+      <p class="text-lg font-semibold sm:text-2xl">
+        Selamat! tingkat {game.preferences.difficulty} selesai!
+      </p>
+      <p class="text-sm sm:whitespace-pre-line">{description}</p>
+    </div>
+
     <Drawer.Footer>
       {#if isLastDifficulty}
         <Button href="/">Kembali ke menu awal</Button>

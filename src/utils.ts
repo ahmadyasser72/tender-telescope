@@ -17,6 +17,10 @@ export const sleep = (duration: number) =>
 export const randomNumber = (min: number, max: number) =>
   Math.floor(Math.random() * (max - min + 1)) + min;
 
+export const sumNumbers = (values: number[]) =>
+  values.reduce((total, value) => total + value, 0);
+export const signedNumber = (value: number) =>
+  value > 0 ? `+${value}` : `${value}`;
 export const padNumber = (value: number, width = 2) =>
   value.toString().padStart(width, "0");
 export const titleCase = (value: string) =>

@@ -1,11 +1,18 @@
 <script lang="ts">
   import QuestionPageDrawer from "./question-page-drawer.svelte";
 
+  import { Badge } from "$lib/components/ui/badge";
   import { Button } from "$lib/components/ui/button";
   import * as Dialog from "$lib/components/ui/dialog";
   import { complete } from "$lib/states/audio.svelte";
-  import { game, gotoNextLevel } from "$lib/states/game.svelte";
+  import {
+    game,
+    gameComputed,
+    getScoreMultiplier,
+    gotoNextLevel,
+  } from "$lib/states/game.svelte";
   import type { Answer, Question } from "$lib/types";
+  import { signedNumber } from "$lib/utils";
 
   import { tick } from "svelte";
 
@@ -48,12 +55,8 @@
       <Dialog.Title class="text-2xl">{title}</Dialog.Title>
       <Dialog.Description class="text-base">
         {#if isCorrect && question.explained !== undefined}
-          {@const split = question.explained
-            .split(".")
-            .map((line) => line.trim())}
-          {#each split as line}
-            <p>{line}.</p>
-          {/each}
+          {@const text = question.explained.replaceAll(".", ".\n\n")}
+          <p class="whitespace-pre-line">{text}</p>
         {:else if choice === undefined}
           Bahasa Indonesia dari kata
           <span class="font-semibold capitalize text-black underline">
@@ -82,7 +85,25 @@
         {/if}
       </Dialog.Description>
     </Dialog.Header>
-    <Dialog.Footer>
+    <Dialog.Footer class="flex-col items-center max-sm:space-y-4">
+      <p class="flex-1 font-semibold max-sm:text-center">
+        <Badge variant={isCorrect ? "default" : "destructive"}>
+          SCORE:
+          {gameComputed.totalScore()}
+          ({signedNumber(game.state.scores[game.state.level.current])})
+        </Badge>
+
+        {#if isCorrect}
+          {@const multiplier = getScoreMultiplier()}
+          <Badge>
+            <span>COMBO: {gameComputed.getCombo()}</span>
+            {#if multiplier > 1}
+              <span class="ml-1">({multiplier}X)</span>
+            {/if}
+          </Badge>
+        {/if}
+      </p>
+
       {#if hasNextLevel}
         <Button
           onclick={() => {
