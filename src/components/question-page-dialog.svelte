@@ -7,6 +7,8 @@
   import { game, gotoNextLevel } from "$lib/states/game.svelte";
   import type { Answer, Question } from "$lib/types";
 
+  import { tick } from "svelte";
+
   interface Props {
     open: boolean;
     choice?: string;
@@ -85,13 +87,14 @@
         <Button
           onclick={() => {
             open = false;
-            gotoNextLevel();
+            tick().then(gotoNextLevel);
           }}>Level selanjutnya</Button
         >
       {:else}
         <Button
           onclick={async () => {
             open = false;
+            await tick();
             const played = await complete.play();
             if (played)
               complete.raw.addEventListener("ended", () => (openDrawer = true));
