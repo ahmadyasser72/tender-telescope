@@ -81,7 +81,7 @@ const getScoreValue = () => {
     case "pemula":
       return [10, -5, 1];
     case "menengah":
-      return [30, -10, 5];
+      return [30, -10, 4];
     case "mahir":
     default:
       return [50, -20, 10];
