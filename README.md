@@ -1,54 +1,59 @@
-# Astro Starter Kit: Basics
+# tender-telescope
 
-```sh
-npm create astro@latest -- --template basics
+Aplikasi quiz belajar bahasa ~asing~ Inggris. Tersedia versi online/web di https://tender-telescope.netlify.app, dan versi offline yang bisa di download di [Github Releases](https://github.com/ahmadyasser72/tender-telescope/releases/latest).
+
+- [Libraries used](#libraries-used)
+- [Development](#development)
+  - [dev server](#dev-server)
+  - [build (web)](#build-web)
+  - [build (native)](#build-native)
+- [License](#license)
+
+## Libraries used
+
+Aplikasi ini menggunakan beberapa library berikut:
+
+- [Astro](https://astro.build/) sebagai framework web, mengatur routing aplikasi, mengelola data pertanyaan, serta mengambil data gambar dari [API Pixabay](https://pixabay.com/service/about/api/) dan juga suara text-to-speech dari Google Translate (undocumented/unofficial API).
+- [Svelte](https://svelte.dev/) sebagai framework UI, agar aplikasi bisa interaktif.
+- [tailwindcss](https://tailwindcss.com/) sebagai framework CSS, menggunakan CSS tanpa `<style>`.
+- [shadcn/ui](https://next.shadcn-svelte.com/) sebagai komponen UI untuk mempercepat proses development.
+- [Tauri](https://tauri.app/) untuk melakukan konversi aplikasi web hasil build **Astro** menjadi aplikasi native yang bisa di install secara langsung.
+
+## Development
+
+Aplikasi ini memerlukan beberapa environment variable yang bisa dilihat pada file [./env.example](./env.example), pada file contoh itu terdapat keterangan bagaimana cara mendapatkannya, digunakan untuk apa, dan apakah variable itu optional atau tidak. Copy file `.env.example` ke `.env` agar nilai yang kamu isi terbaca.
+
+Sebelum melakukan apapun pastikan sudah menginstall dependensi node.
+
+```bash
+bun install
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+### dev server
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+bun run dev --open
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+### build (web)
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```bash
+bun run build
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+### build (native)
 
-## 🧞 Commands
+> [!NOTE]
+> Silahkan cek https://tauri.app/start/prerequisites/ untuk mengetahui apa yang diperlukan untuk melakukan build ini.
 
-All commands are run from the root of the project, from a terminal:
+```bash
+cargo tauri build
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## License
 
-## 👀 Want to learn more?
+Aplikasi ini dilisensikan di bawah [GNU Affero General Public License v3 (AGPLv3)](https://www.gnu.org/licenses/agpl-3.0.html).
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Lisensi ini memastikan aplikasi tetap **open source** dan memberikan kebebasan kepada siapa pun untuk menggunakan, memodifikasi, dan mendistribusikannya. Jika aplikasi ini dimodifikasi dan digunakan secara publik, termasuk di-host di server, source code-nya harus tersedia untuk pengguna sesuai ketentuan AGPLv3.
+
+Untuk detail lebih lanjut, silakan baca [teks lengkap lisensi di sini](https://www.gnu.org/licenses/agpl-3.0.html).
